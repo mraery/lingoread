@@ -15,12 +15,41 @@ class ReadingProvider with ChangeNotifier {
   final Map<String, int> _quizScores = {};
   final List<Article> _articles = ContentService.getArticles();
   String _selectedCategory = 'Tümü';
+  bool _highlightKeyWords = true;
+  final Set<String> _tappedWords = {};
+  String? _activeSelectedWord;
+
+  bool _isCheatUnlocked = false;
 
   double get fontSize => _fontSize;
   ReaderThemeMode get readerTheme => _readerTheme;
   Map<String, int> get quizScores => _quizScores;
   List<Article> get articles => _articles;
   String get selectedCategory => _selectedCategory;
+  bool get highlightKeyWords => _highlightKeyWords;
+  Set<String> get tappedWords => _tappedWords;
+  String? get activeSelectedWord => _activeSelectedWord;
+  bool get isCheatUnlocked => _isCheatUnlocked;
+
+  void toggleHighlightKeyWords() {
+    _highlightKeyWords = !_highlightKeyWords;
+    notifyListeners();
+  }
+
+  void registerWordTapped(String word) {
+    _tappedWords.add(word.toLowerCase().trim());
+    _activeSelectedWord = word.toLowerCase().trim();
+    notifyListeners();
+  }
+
+  void setActiveSelectedWord(String? word) {
+    _activeSelectedWord = word?.toLowerCase().trim();
+    notifyListeners();
+  }
+
+  bool isWordTapped(String word) {
+    return _tappedWords.contains(word.toLowerCase().trim());
+  }
 
   ReadingProvider() {
     _init();
@@ -29,13 +58,9 @@ class ReadingProvider with ChangeNotifier {
   Future<void> _init() async {
     _fontSize = await StorageService.getFontSize();
 
-    // Load saved scores for each article
-    for (var a in _articles) {
-      final score = await StorageService.getQuizScore(a.id);
-      if (score != null) {
-        _quizScores[a.id] = score;
-      }
-    }
+    // Load saved scores for each article in one high-performance batch
+    final loadedScores = await StorageService.getAllQuizScores();
+    _quizScores.addAll(loadedScores);
     notifyListeners();
   }
 
@@ -78,5 +103,19 @@ class ReadingProvider with ChangeNotifier {
 
   int? getArticleScore(String articleId) {
     return _quizScores[articleId];
+  }
+
+  bool applyPromoCode(String rawCode) {
+    final code = rawCode.trim().toLowerCase();
+    if (code == 'kagan' || code == 'kagan123') {
+      _isCheatUnlocked = true;
+      notifyListeners();
+      return true;
+    } else if (code == 'kapat') {
+      _isCheatUnlocked = false;
+      notifyListeners();
+      return true;
+    }
+    return false;
   }
 }

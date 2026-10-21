@@ -125,10 +125,19 @@ class _NewspaperTabState extends State<_NewspaperTab> {
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
-                      Text(
-                        '🗞️ The Global Gazette',
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: Image.asset(
+                          'assets/images/app_logo.png',
+                          width: 26,
+                          height: 26,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'The Global Gazette',
                         style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: -0.5),
                       ),
                     ],
@@ -140,6 +149,19 @@ class _NewspaperTabState extends State<_NewspaperTab> {
                 ],
               ),
               actions: [
+                IconButton(
+                  tooltip: 'Promosyon Kodu',
+                  icon: Icon(
+                    reading.isCheatUnlocked ? Icons.verified_user_rounded : Icons.vpn_key_outlined,
+                    color: reading.isCheatUnlocked ? Colors.amber : null,
+                  ),
+                  onPressed: () => _showPromoDialog(context, reading),
+                ),
+                IconButton(
+                  tooltip: 'VIP & Destek Ol',
+                  icon: const Icon(Icons.workspace_premium_rounded, color: Colors.amber),
+                  onPressed: () => _showMonetizationSheet(context),
+                ),
                 Container(
                   margin: const EdgeInsets.only(right: 16),
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -535,7 +557,7 @@ class _StoriesTabState extends State<_StoriesTab> {
     }
 
     final featuredStory = allStories.isNotEmpty
-        ? allStories.firstWhere((a) => a.id == 'story_neon_violin', orElse: () => allStories.first)
+        ? allStories.firstWhere((a) => a.id == 'story_lib_001', orElse: () => allStories.first)
         : null;
 
     return Align(
@@ -551,9 +573,22 @@ class _StoriesTabState extends State<_StoriesTab> {
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    '📚 Lingo Stories',
-                    style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: -0.5),
+                  Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: Image.asset(
+                          'assets/images/app_logo.png',
+                          width: 26,
+                          height: 26,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Lingo Stories',
+                        style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: -0.5),
+                      ),
+                    ],
                   ),
                   Text(
                     'Kısa Hikayeler & Edebi Metinler (${allStories.length} Hikaye)',
@@ -561,6 +596,22 @@ class _StoriesTabState extends State<_StoriesTab> {
                   ),
                 ],
               ),
+              actions: [
+                IconButton(
+                  tooltip: 'Promosyon Kodu',
+                  icon: Icon(
+                    reading.isCheatUnlocked ? Icons.verified_user_rounded : Icons.vpn_key_outlined,
+                    color: reading.isCheatUnlocked ? Colors.amber : null,
+                  ),
+                  onPressed: () => _showPromoDialog(context, reading),
+                ),
+                IconButton(
+                  tooltip: 'VIP & Destek Ol',
+                  icon: const Icon(Icons.workspace_premium_rounded, color: Colors.amber),
+                  onPressed: () => _showMonetizationSheet(context),
+                ),
+                const SizedBox(width: 8),
+              ],
             ),
 
             // Featured Story Photo Banner
@@ -1219,3 +1270,238 @@ Widget _buildArticleCard(
     ),
   );
 }
+
+void _showPromoDialog(BuildContext context, ReadingProvider reading) {
+  final textController = TextEditingController();
+  showDialog(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      title: const Row(
+        children: [
+          Icon(Icons.vpn_key_rounded, color: Color(0xFF4F46E5)),
+          SizedBox(width: 8),
+          Text('Promosyon Kodu', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Geliştirici veya etkinlik kodunu girerek özel özellikleri etkinleştirebilirsin.',
+            style: TextStyle(fontSize: 13, color: Colors.grey),
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: textController,
+            autofocus: true,
+            textCapitalization: TextCapitalization.none,
+            decoration: InputDecoration(
+              hintText: 'Örn: kagan',
+              prefixIcon: const Icon(Icons.confirmation_number_outlined),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              filled: true,
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(ctx),
+          child: const Text('İPTAL'),
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF4F46E5),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+          onPressed: () {
+            final code = textController.text.trim();
+            final success = reading.applyPromoCode(code);
+            Navigator.pop(ctx);
+            if (success) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: reading.isCheatUnlocked ? const Color(0xFF059669) : Colors.grey[800],
+                  content: Row(
+                    children: [
+                      Icon(
+                        reading.isCheatUnlocked ? Icons.verified_rounded : Icons.info_outline,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          reading.isCheatUnlocked
+                              ? '👑 Geliştirici Modu Aktif! Sorularda OTO-ÇÖZ aktif edildi.'
+                              : 'Hile modu kapatıldı.',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  backgroundColor: Colors.redAccent,
+                  content: Text('❌ Geçersiz promosyon kodu.'),
+                ),
+              );
+            }
+          },
+          child: const Text('UYGULA'),
+        ),
+      ],
+    ),
+  );
+}
+
+void _showMonetizationSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    isScrollControlled: true,
+    builder: (ctx) => Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Center(
+            child: Container(
+              width: 48,
+              height: 5,
+              decoration: BoxDecoration(
+                color: Colors.grey.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          const SizedBox(height: 18),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.workspace_premium_rounded, color: Colors.amber, size: 28),
+              SizedBox(width: 8),
+              Text(
+                'LingoRead Premium & Destek',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          const Text(
+            'İçerik üreticisine ve uygulamaya destek olarak reklamsız ve kesintisiz okuma deneyimi yaşa.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 13, color: Colors.grey),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFF4F46E5), Color(0xFF7C3AED)],
+              ),
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.star_rounded, color: Colors.amber, size: 36),
+                const SizedBox(width: 14),
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Aylık VIP Destek',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      Text(
+                        'Reklamsız + Sınırsız Seslendirme + Özel Rozet',
+                        style: TextStyle(color: Colors.white70, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF4F46E5),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(ctx);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: Color(0xFF059669),
+                        content: Text('🌟 VIP Üyeliğiniz Aktifleştirildi! Teşekkürler!'),
+                      ),
+                    );
+                  },
+                  child: const Text('₺29.99', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.3)),
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.ondemand_video_rounded, color: Color(0xFF4F46E5), size: 36),
+                const SizedBox(width: 14),
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Video Reklam İzle & Destek Ol',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      Text(
+                        'Ücretsiz destek ol, 1 saat boyunca reklamsız oku',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.pop(ctx);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: Color(0xFF4F46E5),
+                        content: Row(
+                          children: [
+                            Icon(Icons.check_circle_rounded, color: Colors.white),
+                            SizedBox(width: 8),
+                            Text('🎬 Reklam tamamlandı! 1 saat reklamsız süre eklendi.'),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text('İzle 🎁'),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    ),
+  );
+}
+

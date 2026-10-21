@@ -80,6 +80,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
         break;
     }
 
+    final isDark = themeMode == ReaderThemeMode.dark || (themeMode == ReaderThemeMode.light && isDarkSystem);
     final previousScore = readingProvider.getArticleScore(widget.article.id);
     final isStory = widget.article.type == ArticleType.story;
 
@@ -188,6 +189,28 @@ class _ReaderScreenState extends State<ReaderScreen> {
                       ],
                     ),
                   ),
+                ),
+              );
+            },
+          ),
+
+          // Sarı Vurgu Aç/Kapat Butonu
+          IconButton(
+            icon: Icon(
+              readingProvider.highlightKeyWords ? Icons.auto_awesome : Icons.auto_awesome_outlined,
+              color: readingProvider.highlightKeyWords ? Colors.amber : textColor,
+              size: 20,
+            ),
+            tooltip: 'Sarı Kelime Vurgusu',
+            onPressed: () {
+              readingProvider.toggleHighlightKeyWords();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(readingProvider.highlightKeyWords
+                      ? '✨ Sarı kelime vurgusu açık'
+                      : 'Sarı kelime vurgusu kapatıldı'),
+                  duration: const Duration(seconds: 1),
+                  behavior: SnackBarBehavior.floating,
                 ),
               );
             },
@@ -435,7 +458,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          'İpucu: Kelimelerin üstüne gelince sarı parıldar. Tıkla ve hemen haznene ekle! Metin bitince anlama testini çöz.',
+                          'İpucu: Kelimelere dokunduğunda sarı parıldar ve Türkçe anlamı anında açılır. Haznene ekleyebilir, okuma bitince testini çözebilirsin.',
                           style: TextStyle(
                             fontSize: 12.5,
                             color: textColor.withValues(alpha: 0.9),
@@ -455,50 +478,81 @@ class _ReaderScreenState extends State<ReaderScreen> {
                     article: widget.article,
                   ),
                   const SizedBox(height: 18),
-                  // Eye-break callout card halfway through
+                  // Eye-break / Chapter Visual Callout halfway through
                   if (i == (widget.article.paragraphs.length ~/ 2) - 1)
                     Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
-                      padding: const EdgeInsets.all(16),
+                      margin: const EdgeInsets.symmetric(vertical: 14),
                       decoration: BoxDecoration(
                         color: cardBg,
-                        borderRadius: BorderRadius.circular(14),
-                        border: Border(
-                          left: BorderSide(
-                            color: isStory ? const Color(0xFF10B981) : const Color(0xFF4F46E5),
-                            width: 4,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: textColor.withValues(alpha: 0.12)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: isDark ? 0.25 : 0.06),
+                            blurRadius: 12,
+                            offset: const Offset(0, 4),
                           ),
-                        ),
+                        ],
                       ),
-                      child: Row(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.format_quote_rounded,
-                            size: 24,
-                            color: isStory ? const Color(0xFF10B981) : const Color(0xFF4F46E5),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          ClipRRect(
+                            borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+                            child: Stack(
                               children: [
-                                Text(
-                                  'Göz Dinlendirme & Kelime Notu',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                    color: isStory ? const Color(0xFF059669) : const Color(0xFF4F46E5),
+                                Image.network(
+                                  widget.article.imageUrl,
+                                  height: 180,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) => const SizedBox(),
+                                ),
+                                Positioned(
+                                  bottom: 8,
+                                  left: 10,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withValues(alpha: 0.72),
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Icon(Icons.camera_alt_outlined, color: Colors.white70, size: 12),
+                                        const SizedBox(width: 4),
+                                        Text(
+                                          '${widget.article.category} • Thematic Archive',
+                                          style: const TextStyle(color: Colors.white, fontSize: 10.5, fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  'Metindeki bilinmeyen kelimelerin üzerine geldiğinde sarı ışık yanar. Üzerine tıkla ve tek tuşla haznene ekle!',
-                                  style: TextStyle(
-                                    fontSize: 12.5,
-                                    height: 1.4,
-                                    color: textColor.withValues(alpha: 0.85),
-                                    fontStyle: FontStyle.italic,
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(14),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.auto_stories_rounded,
+                                  size: 20,
+                                  color: isStory ? const Color(0xFF10B981) : const Color(0xFF4F46E5),
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: Text(
+                                    'İpucu: Kelimelere dokunduğunda sarı yanar ve Türkçe anlamı anında açılır. Tek tuşla haznene ekleyebilirsin.',
+                                    style: TextStyle(
+                                      fontSize: 12.5,
+                                      height: 1.4,
+                                      color: textColor.withValues(alpha: 0.9),
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -631,6 +685,61 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 const SizedBox(height: 48),
               ],
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        decoration: BoxDecoration(
+          color: cardBg,
+          border: Border(top: BorderSide(color: textColor.withValues(alpha: 0.12))),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.06),
+              blurRadius: 8,
+              offset: const Offset(0, -2),
+            ),
+          ],
+        ),
+        child: SafeArea(
+          child: Row(
+            children: [
+              Icon(
+                Icons.menu_book_rounded,
+                size: 20,
+                color: isStory ? const Color(0xFF10B981) : const Color(0xFF4F46E5),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  '${widget.article.paragraphs.length} Paragraf • ${widget.article.quizQuestions.length} Anlama Sorusu',
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w600,
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => QuizScreen(article: widget.article),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.quiz_rounded, size: 18),
+                label: Text('Soruları Çöz (${widget.article.quizQuestions.length})'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: isStory ? const Color(0xFF059669) : const Color(0xFF4F46E5),
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  elevation: 0,
+                ),
+              ),
+            ],
           ),
         ),
       ),

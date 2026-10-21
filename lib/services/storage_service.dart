@@ -32,6 +32,19 @@ class StorageService {
     await prefs.setStringList(_keyWords, jsonStringList);
   }
 
+  /// Get all saved quiz scores in one fast call
+  static Future<Map<String, int>> getAllQuizScores() async {
+    final prefs = await _instance;
+    final scoresJson = prefs.getString(_keyScores);
+    if (scoresJson == null) return {};
+    try {
+      final Map<String, dynamic> map = jsonDecode(scoresJson);
+      return map.map((k, v) => MapEntry(k, (v is int) ? v : int.tryParse(v.toString()) ?? 0));
+    } catch (_) {
+      return {};
+    }
+  }
+
   /// Get saved score for an article (returns percentage 0-100 or null)
   static Future<int?> getQuizScore(String articleId) async {
     final prefs = await _instance;

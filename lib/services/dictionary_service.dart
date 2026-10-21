@@ -20,14 +20,958 @@ class WordDefinition {
 class DictionaryService {
   // Dynamic in-memory dictionary covering 5,000+ words + online fallback
   static final Map<String, WordDefinition> _dictionary = {
-    'a': const WordDefinition(word: 'a', turkishMeaning: 'bir', partOfSpeech: 'kelime', ),
+    'aged': const WordDefinition(word: 'aged', turkishMeaning: 'yaşlanmış, yaşındaki', partOfSpeech: 'sıfat', phonetic: '/eɪdʒd/'),
+    'arts': const WordDefinition(word: 'arts', turkishMeaning: 'sanatlar, zanaat ve beceriler', partOfSpeech: 'isim (çoğul)', phonetic: '/ɑːrts/'),
+    'bonds': const WordDefinition(word: 'bonds', turkishMeaning: 'bağlar, ilişkiler, tahviller', partOfSpeech: 'isim (çoğul)', phonetic: '/bɒndz/'),
+    'calculating': const WordDefinition(word: 'calculating', turkishMeaning: 'hesaplayan, hesaplama', partOfSpeech: 'fiil/sıfat', phonetic: '/ˈkælkjuleɪtɪŋ/'),
+    'capturing': const WordDefinition(word: 'capturing', turkishMeaning: 'yakalayan, kaydeden, büyüleyen', partOfSpeech: 'fiil', phonetic: '/ˈkæptʃərɪŋ/'),
+    'combined': const WordDefinition(word: 'combined', turkishMeaning: 'birleşmiş, harmanlanmış', partOfSpeech: 'sıfat', phonetic: '/kəmˈbaɪnd/'),
+    'communications': const WordDefinition(word: 'communications', turkishMeaning: 'haberleşme, iletişim sistemleri', partOfSpeech: 'isim (çoğul)', phonetic: '/kəˌmjuːnɪˈkeɪʃənz/'),
+    'commuters': const WordDefinition(word: 'commuters', turkishMeaning: 'işe gidip gelen yolcular', partOfSpeech: 'isim (çoğul)', phonetic: '/kəˈmjuːtərz/'),
+    'complexes': const WordDefinition(word: 'complexes', turkishMeaning: 'karmaşık yapılar, tesisler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈkɒmpleksɪz/'),
+    'connects': const WordDefinition(word: 'connects', turkishMeaning: 'bağlar, birleştirir', partOfSpeech: 'fiil', phonetic: '/kəˈnɛkts/'),
+    'daughters': const WordDefinition(word: 'daughters', turkishMeaning: 'kız evlatlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈdɔːtərz/'),
+    'drops': const WordDefinition(word: 'drops', turkishMeaning: 'damlalar; düşüşler', partOfSpeech: 'isim (çoğul)', phonetic: '/drɒps/'),
+    'echoes': const WordDefinition(word: 'echoes', turkishMeaning: 'yankılar, akisler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈɛkoʊz/'),
+    'echoing': const WordDefinition(word: 'echoing', turkishMeaning: 'yankılanan, çınlayan', partOfSpeech: 'sıfat/fiil', phonetic: '/ˈɛkoʊɪŋ/'),
+    'evolves': const WordDefinition(word: 'evolves', turkishMeaning: 'gelişir, evrilir, dönüşür', partOfSpeech: 'fiil', phonetic: '/ɪˈvɒlvz/'),
+    'footprints': const WordDefinition(word: 'footprints', turkishMeaning: 'ayak izleri', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈfʊtprɪnts/'),
+    'fountains': const WordDefinition(word: 'fountains', turkishMeaning: 'çeşmeler, fıskiyeler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈfaʊntɪnz/'),
+    'frees': const WordDefinition(word: 'frees', turkishMeaning: 'özgürleştirir, serbest bırakır', partOfSpeech: 'fiil', phonetic: '/friːz/'),
+    'games': const WordDefinition(word: 'games', turkishMeaning: 'oyunlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ɡeɪmz/'),
+    'giants': const WordDefinition(word: 'giants', turkishMeaning: 'devler, devasa yapılar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈdʒaɪənts/'),
+    'grounding': const WordDefinition(word: 'grounding', turkishMeaning: 'sağlam temel, topraklama', partOfSpeech: 'isim/sıfat', phonetic: '/ˈɡraʊndɪŋ/'),
+    'guarded': const WordDefinition(word: 'guarded', turkishMeaning: 'korunan; temkinli, tedbirli', partOfSpeech: 'sıfat', phonetic: '/ˈɡɑːrdɪd/'),
+    'having': const WordDefinition(word: 'having', turkishMeaning: 'sahip olma, yaparak', partOfSpeech: 'fiil', phonetic: '/ˈhævɪŋ/'),
+    'headed': const WordDefinition(word: 'headed', turkishMeaning: 'yönelmiş, -e doğru yol alan', partOfSpeech: 'fiil/sıfat', phonetic: '/ˈhɛdɪd/'),
+    'horizons': const WordDefinition(word: 'horizons', turkishMeaning: 'ufuklar, görüş alanları', partOfSpeech: 'isim (çoğul)', phonetic: '/həˈraɪzənz/'),
+    'houses': const WordDefinition(word: 'houses', turkishMeaning: 'evler; içinde barındırır', partOfSpeech: 'isim/fiil', phonetic: '/ˈhaʊzɪz/'),
+    'hydrophones': const WordDefinition(word: 'hydrophones', turkishMeaning: 'hidrofonlar (su altı dinleme aygıtları)', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈhaɪdrəfoʊnz/'),
+    'inspecting': const WordDefinition(word: 'inspecting', turkishMeaning: 'denetleyen, teftiş eden', partOfSpeech: 'fiil', phonetic: '/ɪnˈspɛktɪŋ/'),
+    'inspiring': const WordDefinition(word: 'inspiring', turkishMeaning: 'ilham verici, teşvik edici', partOfSpeech: 'sıfat', phonetic: '/ɪnˈspaɪərɪŋ/'),
+    'joining': const WordDefinition(word: 'joining', turkishMeaning: 'katılan, birleşen', partOfSpeech: 'fiil', phonetic: '/ˈdʒɔɪnɪŋ/'),
+    'lasting': const WordDefinition(word: 'lasting', turkishMeaning: 'kalıcı, baki, uzun ömürlü', partOfSpeech: 'sıfat', phonetic: '/ˈlæstɪŋ/'),
+    'lined': const WordDefinition(word: 'lined', turkishMeaning: 'çizgili; sıra sıra dizilmiş', partOfSpeech: 'sıfat', phonetic: '/laɪnd/'),
+    'merchants': const WordDefinition(word: 'merchants', turkishMeaning: 'tüccarlar, esnaflar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈmɜːrtʃənts/'),
+    'moments': const WordDefinition(word: 'moments', turkishMeaning: 'anlar, dakikalar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈmoʊmənts/'),
+    'orchids': const WordDefinition(word: 'orchids', turkishMeaning: 'orkideler (çiçekler)', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈɔːrkɪdz/'),
+    'patiently': const WordDefinition(word: 'patiently', turkishMeaning: 'sabırla, metanetle', partOfSpeech: 'zarf', phonetic: '/ˈpeɪʃəntli/'),
+    'pedaling': const WordDefinition(word: 'pedaling', turkishMeaning: 'pedal çevirme, bisiklet sürme', partOfSpeech: 'fiil', phonetic: '/ˈpɛdəlɪŋ/'),
+    'plays': const WordDefinition(word: 'plays', turkishMeaning: 'oyunlar; çalar, oynar', partOfSpeech: 'isim/fiil', phonetic: '/pleɪz/'),
+    'principles': const WordDefinition(word: 'principles', turkishMeaning: 'ilkeler, temel kurallar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈprɪnsəpəlz/'),
+    'protects': const WordDefinition(word: 'protects', turkishMeaning: 'korur, muhafaza eder', partOfSpeech: 'fiil', phonetic: '/prəˈtɛkts/'),
+    'repairing': const WordDefinition(word: 'repairing', turkishMeaning: 'onaran, tamir eden', partOfSpeech: 'fiil', phonetic: '/rɪˈpɛərɪŋ/'),
+    'resting': const WordDefinition(word: 'resting', turkishMeaning: 'dinlenen, istirahat eden', partOfSpeech: 'fiil/sıfat', phonetic: '/ˈrɛstɪŋ/'),
+    'riddles': const WordDefinition(word: 'riddles', turkishMeaning: 'bilmeceler, gizemler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈrɪdəlz/'),
+    'ridges': const WordDefinition(word: 'ridges', turkishMeaning: 'sırtlar, dağ sırtları, tepe hatları', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈrɪdʒɪz/'),
+    'rising': const WordDefinition(word: 'rising', turkishMeaning: 'yükselen, doğan, artan', partOfSpeech: 'sıfat', phonetic: '/ˈraɪzɪŋ/'),
+    'scholars': const WordDefinition(word: 'scholars', turkishMeaning: 'bilginler, akademisyenler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈskɒlərz/'),
+    'seas': const WordDefinition(word: 'seas', turkishMeaning: 'denizler, okyanus suları', partOfSpeech: 'isim (çoğul)', phonetic: '/siːz/'),
+    'seeing': const WordDefinition(word: 'seeing', turkishMeaning: 'görme, fark etme', partOfSpeech: 'fiil', phonetic: '/ˈsiːɪŋ/'),
+    'shores': const WordDefinition(word: 'shores', turkishMeaning: 'kıyılar, sahiller', partOfSpeech: 'isim (çoğul)', phonetic: '/ʃɔːrz/'),
+    'signaling': const WordDefinition(word: 'signaling', turkishMeaning: 'sinyal veren, işaret eden', partOfSpeech: 'fiil', phonetic: '/ˈsɪɡnəlɪŋ/'),
+    'sons': const WordDefinition(word: 'sons', turkishMeaning: 'oğullar, erkek evlatlar', partOfSpeech: 'isim (çoğul)', phonetic: '/sʌnz/'),
+    'spots': const WordDefinition(word: 'spots', turkishMeaning: 'noktalar, mevkiler, lekeler', partOfSpeech: 'isim (çoğul)', phonetic: '/spɒts/'),
+    'storms': const WordDefinition(word: 'storms', turkishMeaning: 'fırtınalar, kasırgalar', partOfSpeech: 'isim (çoğul)', phonetic: '/stɔːrmz/'),
+    'strawberries': const WordDefinition(word: 'strawberries', turkishMeaning: 'çilekler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈstrɔːbəriz/'),
+    'tested': const WordDefinition(word: 'tested', turkishMeaning: 'sınanmış, test edilmiş', partOfSpeech: 'sıfat/fiil', phonetic: '/ˈtɛstɪd/'),
+    'thrives': const WordDefinition(word: 'thrives', turkishMeaning: 'gelişir, serpilir, başarı kazanır', partOfSpeech: 'fiil', phonetic: '/θraɪvz/'),
+    'transformed': const WordDefinition(word: 'transformed', turkishMeaning: 'dönüşmüş, başkalaşmış', partOfSpeech: 'sıfat/fiil', phonetic: '/trænsˈfɔːrmd/'),
+    'translating': const WordDefinition(word: 'translating', turkishMeaning: 'çeviren, tercüme eden', partOfSpeech: 'fiil', phonetic: '/trænzˈleɪtɪŋ/'),
+    'travelers': const WordDefinition(word: 'travelers', turkishMeaning: 'gezginler, yolcular', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈtrævələrz/'),
+    'triumphs': const WordDefinition(word: 'triumphs', turkishMeaning: 'büyük zaferler, muvaffakiyetler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈtraɪʌmfs/'),
+    'understanding': const WordDefinition(word: 'understanding', turkishMeaning: 'anlayış, kavrama yeteneği', partOfSpeech: 'isim/sıfat', phonetic: '/ˌʌndərˈstændɪŋ/'),
+    'washed': const WordDefinition(word: 'washed', turkishMeaning: 'yıkanmış, arınmış', partOfSpeech: 'sıfat/fiil', phonetic: '/wɒʃt/'),
+    'watching': const WordDefinition(word: 'watching', turkishMeaning: 'izleyen, seyreden, gözleyen', partOfSpeech: 'fiil', phonetic: '/ˈwɒtʃɪŋ/'),
+    'whispers': const WordDefinition(word: 'whispers', turkishMeaning: 'fısıltılar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈwɪspərz/'),
+    'whistling': const WordDefinition(word: 'whistling', turkishMeaning: 'ıslık çalan, rüzgar uğultusu', partOfSpeech: 'fiil/isim', phonetic: '/ˈwɪslɪŋ/'),
+    'witnessed': const WordDefinition(word: 'witnessed', turkishMeaning: 'tanık oldu, şahitlik etti', partOfSpeech: 'fiil', phonetic: '/ˈwɪtnəst/'),
+    'yielding': const WordDefinition(word: 'yielding', turkishMeaning: 'ürün veren, boyun eğen', partOfSpeech: 'sıfat', phonetic: '/ˈjiːldɪŋ/'),
+    'good': const WordDefinition(word: 'good', turkishMeaning: 'iyi, güzel, faydalı', partOfSpeech: 'sıfat', phonetic: '/ɡʊd/'),
+    'bookstore': const WordDefinition(word: 'bookstore', turkishMeaning: 'kitapçı, kitabevi', partOfSpeech: 'isim', phonetic: '/ˈbʊkstɔːr/'),
+    'jewelry': const WordDefinition(word: 'jewelry', turkishMeaning: 'mücevherat, takılar', partOfSpeech: 'isim', phonetic: '/ˈdʒuːəlri/'),
+    'heights': const WordDefinition(word: 'heights', turkishMeaning: 'yükseklikler, zirveler', partOfSpeech: 'isim (çoğul)', phonetic: '/haɪts/'),
+    'lullaby': const WordDefinition(word: 'lullaby', turkishMeaning: 'ninni', partOfSpeech: 'isim', phonetic: '/ˈlʌləbaɪ/'),
+    'leopard': const WordDefinition(word: 'leopard', turkishMeaning: 'leopar, pars', partOfSpeech: 'isim', phonetic: '/ˈlɛpərd/'),
+    'rice': const WordDefinition(word: 'rice', turkishMeaning: 'pirinç, pilav', partOfSpeech: 'isim', phonetic: '/raɪs/'),
+    'honeybee': const WordDefinition(word: 'honeybee', turkishMeaning: 'bal arısı', partOfSpeech: 'isim', phonetic: '/ˈhʌnibiː/'),
+    'redwoods': const WordDefinition(word: 'redwoods', turkishMeaning: 'sekoya ağaçları, dev kızılağaçlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈrɛdwʊdz/'),
+    'sahara': const WordDefinition(word: 'sahara', turkishMeaning: 'Büyük Sahra Çölü', partOfSpeech: 'özel isim', phonetic: '/səˈhɑːrə/'),
+    'navigation': const WordDefinition(word: 'navigation', turkishMeaning: 'navigasyon, seyrüsefer, yön bulma', partOfSpeech: 'isim', phonetic: '/ˌnævɪˈɡeɪʃən/'),
+    'quiz': const WordDefinition(word: 'quiz', turkishMeaning: 'kısa sınav, anlama testi', partOfSpeech: 'isim', phonetic: '/kwɪz/'),
+    'bathing': const WordDefinition(word: 'bathing', turkishMeaning: 'banyo yapma, yıkanma (shinrin-yoku vb.)', partOfSpeech: 'isim', phonetic: '/ˈbeɪðɪŋ/'),
+    'frontier': const WordDefinition(word: 'frontier', turkishMeaning: 'sınır boyu, öncü alan, keşfedilmemiş saha', partOfSpeech: 'isim', phonetic: '/frʌnˈtɪər/'),
+    'flooding': const WordDefinition(word: 'flooding', turkishMeaning: 'sel basması, taşkın', partOfSpeech: 'isim', phonetic: '/ˈflʌdɪŋ/'),
+    'mosaicist': const WordDefinition(word: 'mosaicist', turkishMeaning: 'mozaik sanatçısı / ustası', partOfSpeech: 'isim', phonetic: '/moʊˈzeɪɪsɪst/'),
+
+    'zimbabwe': const WordDefinition(word: 'zimbabwe', turkishMeaning: 'Zimbabve (ülke)', partOfSpeech: 'özel isim', phonetic: '/zɪmˈbɑːbweɪ/'),
+
+    'zik': const WordDefinition(word: 'zik', turkishMeaning: 'zikir / özel ses', partOfSpeech: 'kelime'),
+
+    'yorkshire': const WordDefinition(word: 'yorkshire', turkishMeaning: 'Yorkshire (İngiltere bölgesi)', partOfSpeech: 'özel isim', phonetic: '/ˈjɔːrkʃər/'),
+
+    'yoku': const WordDefinition(word: 'yoku', turkishMeaning: 'Shinrin-yoku (orman banyosu terapisi)', partOfSpeech: 'isim'),
+
+    'yarat': const WordDefinition(word: 'yarat', turkishMeaning: 'yaratmak', partOfSpeech: 'fiil'),
+
+    'ya': const WordDefinition(word: 'ya', turkishMeaning: 'veya, ya da', partOfSpeech: 'bağlaç'),
+
+    'y': const WordDefinition(word: 'y', turkishMeaning: 'Y harfi', partOfSpeech: 'harf'),
+
+    'whisking': const WordDefinition(word: 'whisking', turkishMeaning: 'hızlıca çırpma', partOfSpeech: 'fiil', phonetic: '/ˈwɪskɪŋ/'),
+
+    'waterfalls': const WordDefinition(word: 'waterfalls', turkishMeaning: 'şelaleler, çağlayanlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈwɔːtərfɔːlz/'),
+
+    'warmer': const WordDefinition(word: 'warmer', turkishMeaning: 'daha sıcak; ısıtıcı', partOfSpeech: 'sıfat/isim', phonetic: '/ˈwɔːrmər/'),
+
+    'wait': const WordDefinition(word: 'wait', turkishMeaning: 'beklemek', partOfSpeech: 'fiil', phonetic: '/weɪt/'),
+
+    'wabi': const WordDefinition(word: 'wabi', turkishMeaning: 'wabi (sadeliğin ve doğallığın güzelliği)', partOfSpeech: 'isim'),
+
+    'vivid': const WordDefinition(word: 'vivid', turkishMeaning: 'canlı, berrak, hayat dolu', partOfSpeech: 'sıfat', phonetic: '/ˈvɪvɪd/'),
+
+    'viennese': const WordDefinition(word: 'viennese', turkishMeaning: 'Viyanalı, Viyana tarzı', partOfSpeech: 'sıfat', phonetic: '/ˌviːəˈniːz/'),
+
+    'veteran': const WordDefinition(word: 'veteran', turkishMeaning: 'kıdemli, tecrübeli gazi / emektar', partOfSpeech: 'isim/sıfat', phonetic: '/ˈvɛtərən/'),
+
+    'versus': const WordDefinition(word: 'versus', turkishMeaning: 'karşı, -e mukabil (vs.)', partOfSpeech: 'edat', phonetic: '/ˈvɜːrsəs/'),
+
+        'verici': const WordDefinition(word: 'verici', turkishMeaning: 'verici (sinyal yayan veya ileten aygıt)', partOfSpeech: 'isim'),
+
+    'vats': const WordDefinition(word: 'vats', turkishMeaning: 'büyük fıçılar, tekneler', partOfSpeech: 'isim (çoğul)', phonetic: '/væts/'),
+
+    'vakalar': const WordDefinition(word: 'vakalar', turkishMeaning: 'vakalar, durumlar', partOfSpeech: 'isim'),
+
+    'vah': const WordDefinition(word: 'vah', turkishMeaning: 'ünlem', partOfSpeech: 'ünlem'),
+
+    'unsigned': const WordDefinition(word: 'unsigned', turkishMeaning: 'imzasız', partOfSpeech: 'sıfat', phonetic: '/ʌnˈsaɪnd/'),
+
+    'unremembered': const WordDefinition(word: 'unremembered', turkishMeaning: 'hatırlanmayan, unutulmuş', partOfSpeech: 'sıfat', phonetic: '/ˌʌnrɪˈmɛmbərd/'),
+
+    'unreasonable': const WordDefinition(word: 'unreasonable', turkishMeaning: 'mantıksız, makul olmayan', partOfSpeech: 'sıfat', phonetic: '/ʌnˈriːzənəbəl/'),
+
+    'unobserved': const WordDefinition(word: 'unobserved', turkishMeaning: 'fark edilmemiş, gözlemlenmemiş', partOfSpeech: 'sıfat', phonetic: '/ˌʌnəbˈzɜːrvd/'),
+
+    'universal': const WordDefinition(word: 'universal', turkishMeaning: 'evrensel, genelgeçer', partOfSpeech: 'sıfat', phonetic: '/ˌjuːnɪˈvɜːrsəl/'),
+
+    'unfolded': const WordDefinition(word: 'unfolded', turkishMeaning: 'açığa çıktı, gözler önüne serildi', partOfSpeech: 'fiil', phonetic: '/ʌnˈfoʊldɪd/'),
+
+    'underlying': const WordDefinition(word: 'underlying', turkishMeaning: 'temelde yatan, altında yatan', partOfSpeech: 'sıfat', phonetic: '/ˌʌndərˈlaɪɪŋ/'),
+
+    'uncompromising': const WordDefinition(word: 'uncompromising', turkishMeaning: 'tavizsiz, ödünsüz, dik duran', partOfSpeech: 'sıfat', phonetic: '/ʌnˈkɒmprəmaɪzɪŋ/'),
+
+    'type': const WordDefinition(word: 'type', turkishMeaning: 'tür, tip; daktiloyla yazmak', partOfSpeech: 'isim/fiil', phonetic: '/taɪp/'),
+
+    'tuscan': const WordDefinition(word: 'tuscan', turkishMeaning: 'Toskana\'ya ait, Toskanalı', partOfSpeech: 'sıfat', phonetic: '/ˈtʌskən/'),
+
+    'triumphant': const WordDefinition(word: 'triumphant', turkishMeaning: 'zafer kazanmış, muzaffer', partOfSpeech: 'sıfat', phonetic: '/traɪˈʌmfənt/'),
+
+    'tribute': const WordDefinition(word: 'tribute', turkishMeaning: 'saygı duruşu, takdir, övgü', partOfSpeech: 'isim', phonetic: '/ˈtrɪbjuːt/'),
+
+    'treasury': const WordDefinition(word: 'treasury', turkishMeaning: 'hazine, maliye', partOfSpeech: 'isim', phonetic: '/ˈtrɛʒəri/'),
+
+    'travelogue': const WordDefinition(word: 'travelogue', turkishMeaning: 'seyahatname, gezi yazısı', partOfSpeech: 'isim', phonetic: '/ˈtrævəlɒɡ/'),
+
+    'tranquility': const WordDefinition(word: 'tranquility', turkishMeaning: 'huzur, sükunet, dinginlik', partOfSpeech: 'isim', phonetic: '/træŋˈkwɪləti/'),
+
+    'trajectories': const WordDefinition(word: 'trajectories', turkishMeaning: 'yörüngeler, hareket yolları', partOfSpeech: 'isim (çoğul)', phonetic: '/trəˈdʒɛktəriz/'),
+
+    'tracker': const WordDefinition(word: 'tracker', turkishMeaning: 'iz sürücü, takip cihazı', partOfSpeech: 'isim', phonetic: '/ˈtrækər/'),
+
+    'tourists': const WordDefinition(word: 'tourists', turkishMeaning: 'turistler, gezginler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈtʊərɪsts/'),
+
+    'tossed': const WordDefinition(word: 'tossed', turkishMeaning: 'fırlatılmış, dalgalarla savrulmuş', partOfSpeech: 'fiil', phonetic: '/tɒst/'),
+
+    'tiles': const WordDefinition(word: 'tiles', turkishMeaning: 'karolar, çiniler', partOfSpeech: 'isim (çoğul)', phonetic: '/taɪlz/'),
+
+    'tile': const WordDefinition(word: 'tile', turkishMeaning: 'fayans, karo, çini', partOfSpeech: 'isim', phonetic: '/taɪl/'),
+
+    'ticks': const WordDefinition(word: 'ticks', turkishMeaning: 'tıkırtılar; saat tıkırdar', partOfSpeech: 'isim/fiil', phonetic: '/tɪks/'),
+
+    'thorne': const WordDefinition(word: 'thorne', turkishMeaning: 'Thorne (özel isim)', partOfSpeech: 'özel isim'),
+
+    'thames': const WordDefinition(word: 'thames', turkishMeaning: 'Thames nehri (Londra)', partOfSpeech: 'özel isim', phonetic: '/tɛmz/'),
+
+    'testament': const WordDefinition(word: 'testament', turkishMeaning: 'vasiyet, kanıt, tanıklık belgesi', partOfSpeech: 'isim', phonetic: '/ˈtɛstəmənt/'),
+
+    'tesserae': const WordDefinition(word: 'tesserae', turkishMeaning: 'tesera (mozaik taş parçaları)', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈtɛsəriː/'),
+
+    'terrace': const WordDefinition(word: 'terrace', turkishMeaning: 'teras, taraça, seki', partOfSpeech: 'isim', phonetic: '/ˈtɛrəs/'),
+
+    'tenzin': const WordDefinition(word: 'tenzin', turkishMeaning: 'Tenzing Norgay (Everest\'e ilk çıkan dağcı)', partOfSpeech: 'özel isim'),
+
+    'temalar': const WordDefinition(word: 'temalar', turkishMeaning: 'temalar, ana konular', partOfSpeech: 'isim'),
+
+    'teachers': const WordDefinition(word: 'teachers', turkishMeaning: 'öğretmenler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈtiːtʃərz/'),
+
+    'taxes': const WordDefinition(word: 'taxes', turkishMeaning: 'vergiler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈtæksɪz/'),
+
+    'tasting': const WordDefinition(word: 'tasting', turkishMeaning: 'tatma, lezzet testi', partOfSpeech: 'isim/fiil', phonetic: '/ˈteɪstɪŋ/'),
+
+        'tarih': const WordDefinition(word: 'tarih', turkishMeaning: 'tarih (geçmiş zaman bilimi)', partOfSpeech: 'isim'),
+
+    'tale': const WordDefinition(word: 'tale', turkishMeaning: 'masal, öykü, hikaye', partOfSpeech: 'isim', phonetic: '/teɪl/'),
+
+    't': const WordDefinition(word: 't', turkishMeaning: 'T harfi / ton simgesi', partOfSpeech: 'harf'),
+
+    'symmetry': const WordDefinition(word: 'symmetry', turkishMeaning: 'simetri, dengeli uyum', partOfSpeech: 'isim', phonetic: '/ˈsɪmɪtri/'),
+
+    'sycamore': const WordDefinition(word: 'sycamore', turkishMeaning: 'çınar ağacı', partOfSpeech: 'isim', phonetic: '/ˈsɪkəmɔːr/'),
+
+    'sven': const WordDefinition(word: 'sven', turkishMeaning: 'Sven (özel isim)', partOfSpeech: 'özel isim'),
+
+    'supersonic': const WordDefinition(word: 'supersonic', turkishMeaning: 'süpersonik, ses hızından hızlı', partOfSpeech: 'sıfat', phonetic: '/ˌsuːpərˈsɒnɪk/'),
+
+    'sunflowers': const WordDefinition(word: 'sunflowers', turkishMeaning: 'ayçiçekleri (Van Gogh tablosu)', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈsʌnflaʊərz/'),
+
+    'strumming': const WordDefinition(word: 'strumming', turkishMeaning: 'tıngırdatma, telleri çalma', partOfSpeech: 'fiil', phonetic: '/ˈstrʌmɪŋ/'),
+
+    'strange': const WordDefinition(word: 'strange', turkishMeaning: 'tuhaf, garip, yabancı', partOfSpeech: 'sıfat', phonetic: '/streɪndʒ/'),
+
+    'stradivari': const WordDefinition(word: 'stradivari', turkishMeaning: 'Antonio Stradivari (tarihin en büyük keman ustası)', partOfSpeech: 'özel isim', phonetic: '/ˌstrædɪˈvɑːri/'),
+
+    'stoic': const WordDefinition(word: 'stoic', turkishMeaning: 'Stoacı, metanetli, duygularına hakim', partOfSpeech: 'sıfat/isim', phonetic: '/ˈstoʊɪk/'),
+
+    'stays': const WordDefinition(word: 'stays', turkishMeaning: 'kalır, bekler', partOfSpeech: 'fiil', phonetic: '/steɪz/'),
+
+    'squeaking': const WordDefinition(word: 'squeaking', turkishMeaning: 'gıcırdayan, viyaklayan', partOfSpeech: 'fiil/sıfat', phonetic: '/ˈskwiːkɪŋ/'),
+
+    'spinning': const WordDefinition(word: 'spinning', turkishMeaning: 'dönen, eğirme, fırıl fırıl dönme', partOfSpeech: 'fiil/isim', phonetic: '/ˈspɪnɪŋ/'),
+
+    'spies': const WordDefinition(word: 'spies', turkishMeaning: 'casuslar; casusluk yapar', partOfSpeech: 'isim/fiil', phonetic: '/spaɪz/'),
+
+    'sphere': const WordDefinition(word: 'sphere', turkishMeaning: 'küre, alan, etki sahası', partOfSpeech: 'isim', phonetic: '/sfɪər/'),
+
+    'soup': const WordDefinition(word: 'soup', turkishMeaning: 'çorba', partOfSpeech: 'isim', phonetic: '/suːp/'),
+
+    'sorrow': const WordDefinition(word: 'sorrow', turkishMeaning: 'keder, üzüntü, hüzün', partOfSpeech: 'isim', phonetic: '/ˈsɒroʊ/'),
+
+    'sometimes': const WordDefinition(word: 'sometimes', turkishMeaning: 'bazen, ara sıra', partOfSpeech: 'zarf', phonetic: '/ˈsʌmtaɪmz/'),
+
+    'solos': const WordDefinition(word: 'solos', turkishMeaning: 'sololar (tek kişilik performanslar)', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈsoʊloʊz/'),
+
+    'solitude': const WordDefinition(word: 'solitude', turkishMeaning: 'yalnızlık, inziva, baş başa kalma', partOfSpeech: 'isim', phonetic: '/ˈsɒlɪtjuːd/'),
+
+    'social': const WordDefinition(word: 'social', turkishMeaning: 'sosyal, toplumsal', partOfSpeech: 'sıfat', phonetic: '/ˈsoʊʃəl/'),
+
+    'snowdrift': const WordDefinition(word: 'snowdrift', turkishMeaning: 'kar yığını, kar kümesi', partOfSpeech: 'isim', phonetic: '/ˈsnoʊdrɪft/'),
+
+    'smiles': const WordDefinition(word: 'smiles', turkishMeaning: 'gülümsemeler, gülümser', partOfSpeech: 'isim/fiil', phonetic: '/smaɪlz/'),
+
+    'sleepless': const WordDefinition(word: 'sleepless', turkishMeaning: 'uykusuz', partOfSpeech: 'sıfat', phonetic: '/ˈsliːpləs/'),
+
+    'situation': const WordDefinition(word: 'situation', turkishMeaning: 'durum, vaziyet, konum', partOfSpeech: 'isim', phonetic: '/ˌsɪtʃuˈeɪʃən/'),
+
+    'sings': const WordDefinition(word: 'sings', turkishMeaning: 'şarkı söyler', partOfSpeech: 'fiil', phonetic: '/sɪŋz/'),
+
+    'singer': const WordDefinition(word: 'singer', turkishMeaning: 'şarkıcı, ses sanatçısı', partOfSpeech: 'isim', phonetic: '/ˈsɪŋər/'),
+
+    'siber': const WordDefinition(word: 'siber', turkishMeaning: 'siber, sanal aleme ait', partOfSpeech: 'sıfat'),
+
+    'shouting': const WordDefinition(word: 'shouting', turkishMeaning: 'bağırma, haykırış', partOfSpeech: 'fiil/isim', phonetic: '/ˈʃaʊtɪŋ/'),
+
+    'shortcuts': const WordDefinition(word: 'shortcuts', turkishMeaning: 'kestirmeler, kısa yollar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈʃɔːrtkʌts/'),
+
+    'shinrin': const WordDefinition(word: 'shinrin', turkishMeaning: 'Shinrin-yoku (orman banyosu terapisi)', partOfSpeech: 'isim'),
+
+    'sherlockian': const WordDefinition(word: 'sherlockian', turkishMeaning: 'Sherlock Holmes tarzı, tümdengelimli', partOfSpeech: 'sıfat', phonetic: '/ʃɜːrˈlɒkiən/'),
+
+    'shelf': const WordDefinition(word: 'shelf', turkishMeaning: 'raf', partOfSpeech: 'isim', phonetic: '/ʃɛlf/'),
+
+    'sheep': const WordDefinition(word: 'sheep', turkishMeaning: 'koyun', partOfSpeech: 'isim', phonetic: '/ʃiːp/'),
+
+    'shade': const WordDefinition(word: 'shade', turkishMeaning: 'gölge, ton nüansı', partOfSpeech: 'isim/fiil', phonetic: '/ʃeɪd/'),
+
+    'sessions': const WordDefinition(word: 'sessions', turkishMeaning: 'oturumlar, seanslar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈsɛʃənz/'),
+
+    'sentinel': const WordDefinition(word: 'sentinel', turkishMeaning: 'nöbetçi, gözcü', partOfSpeech: 'isim', phonetic: '/ˈsɛntɪnəl/'),
+
+    'selecting': const WordDefinition(word: 'selecting', turkishMeaning: 'seçen, seçerek', partOfSpeech: 'fiil', phonetic: '/sɪˈlɛktɪŋ/'),
+
+    'scallion': const WordDefinition(word: 'scallion', turkishMeaning: 'yeşil taze soğan', partOfSpeech: 'isim', phonetic: '/ˈskæliən/'),
+
+    'saxophone': const WordDefinition(word: 'saxophone', turkishMeaning: 'saksofon', partOfSpeech: 'isim', phonetic: '/ˈsæksəfoʊn/'),
+
+    'saturn': const WordDefinition(word: 'saturn', turkishMeaning: 'Satürn gezegeni', partOfSpeech: 'özel isim', phonetic: '/ˈsætərn/'),
+
+    'sandstone': const WordDefinition(word: 'sandstone', turkishMeaning: 'kumtaşı', partOfSpeech: 'isim', phonetic: '/ˈsændstoʊn/'),
+
+    'sancho': const WordDefinition(word: 'sancho', turkishMeaning: 'Sancho Panza (Don Kişot\'un yardımcısı)', partOfSpeech: 'özel isim', phonetic: '/ˈsæntʃoʊ/'),
+
+        'sanat': const WordDefinition(word: 'sanat', turkishMeaning: 'sanat (estetik yaratım faaliyeti)', partOfSpeech: 'isim'),
+
+    'samurai': const WordDefinition(word: 'samurai', turkishMeaning: 'samuray (Japon savaşçısı)', partOfSpeech: 'isim', phonetic: '/ˈsæmʊraɪ/'),
+
+    'saint': const WordDefinition(word: 'saint', turkishMeaning: 'aziz, ermiş', partOfSpeech: 'isim', phonetic: '/seɪnt/'),
+
+    'sagas': const WordDefinition(word: 'sagas', turkishMeaning: 'destanlar, efsanevi sagalar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈsɑːɡəz/'),
+
+    'sacred': const WordDefinition(word: 'sacred', turkishMeaning: 'kutsal, mukaddes', partOfSpeech: 'sıfat', phonetic: '/ˈseɪkrɪd/'),
+
+    'sabi': const WordDefinition(word: 'sabi', turkishMeaning: 'sabi (kusurlu şeylerin estetiği - wabi-sabi)', partOfSpeech: 'isim'),
+
+    's': const WordDefinition(word: 's', turkishMeaning: 'S harfi / saniye simgesi', partOfSpeech: 'harf'),
+
+    'ry': const WordDefinition(word: 'ry', turkishMeaning: 'özel ek', partOfSpeech: 'kelime'),
+
+    'rushing': const WordDefinition(word: 'rushing', turkishMeaning: 'acele eden, hızla akan', partOfSpeech: 'fiil/sıfat', phonetic: '/ˈrʌʃɪŋ/'),
+
+    'rushd': const WordDefinition(word: 'rushd', turkishMeaning: 'İbn Rüşd (Averroes - büyük İslam filozofu)', partOfSpeech: 'özel isim'),
+
+    'rowing': const WordDefinition(word: 'rowing', turkishMeaning: 'kürek çekme sporu', partOfSpeech: 'isim', phonetic: '/ˈroʊɪŋ/'),
+
+    'rossi': const WordDefinition(word: 'rossi', turkishMeaning: 'Rossi (özel isim)', partOfSpeech: 'özel isim'),
+
+    'roll': const WordDefinition(word: 'roll', turkishMeaning: 'yuvarlanmak, rulo', partOfSpeech: 'fiil/isim', phonetic: '/roʊl/'),
+
+    'rogue': const WordDefinition(word: 'rogue', turkishMeaning: 'asi, kontrolden çıkmış, serseri', partOfSpeech: 'sıfat/isim', phonetic: '/roʊɡ/'),
+
+    'rleraras': const WordDefinition(word: 'rleraras', turkishMeaning: 'şehirlerarası', partOfSpeech: 'kelime'),
+
+    'ritual': const WordDefinition(word: 'ritual', turkishMeaning: 'ritüel, tören, adet', partOfSpeech: 'isim/sıfat', phonetic: '/ˈrɪtʃuəl/'),
+
+    'renowned': const WordDefinition(word: 'renowned', turkishMeaning: 'ünlü, tanınmış, şöhretli', partOfSpeech: 'sıfat', phonetic: '/rɪˈnaʊnd/'),
+
+    'ren': const WordDefinition(word: 'ren', turkishMeaning: 'özel isim / Ren nehri', partOfSpeech: 'özel isim'),
+
+    'relinquishing': const WordDefinition(word: 'relinquishing', turkishMeaning: 'feragat eden, bırakan', partOfSpeech: 'fiil', phonetic: '/rɪˈlɪŋkwɪʃɪŋ/'),
+
+    'reid': const WordDefinition(word: 'reid', turkishMeaning: 'Reid (özel isim)', partOfSpeech: 'özel isim'),
+
+    'regulation': const WordDefinition(word: 'regulation', turkishMeaning: 'düzenleme, kural, regülasyon', partOfSpeech: 'isim', phonetic: '/ˌrɛɡjʊˈleɪʃən/'),
+
+    'redemption': const WordDefinition(word: 'redemption', turkishMeaning: 'kurtuluş, kefaret, arınma', partOfSpeech: 'isim', phonetic: '/rɪˈdɛmpʃən/'),
+
+    'recounts': const WordDefinition(word: 'recounts', turkishMeaning: 'anlatır, nakleder', partOfSpeech: 'fiil', phonetic: '/rɪˈkaʊnts/'),
+
+    'reality': const WordDefinition(word: 'reality', turkishMeaning: 'gerçeklik, hakikat', partOfSpeech: 'isim', phonetic: '/riˈæləti/'),
+
+    'rasgueado': const WordDefinition(word: 'rasgueado', turkishMeaning: 'rasgueado (flamenko gitar çalma tekniği)', partOfSpeech: 'isim'),
+
+    'ranger': const WordDefinition(word: 'ranger', turkishMeaning: 'orman korucusu, milli park muhafızı', partOfSpeech: 'isim', phonetic: '/ˈreɪndʒər/'),
+
+    'ramen': const WordDefinition(word: 'ramen', turkishMeaning: 'ramen (Japon şehriye çorbası)', partOfSpeech: 'isim', phonetic: '/ˈrɑːmɛn/'),
+
+    'quetzal': const WordDefinition(word: 'quetzal', turkishMeaning: 'ketsal (Orta Amerika\'nın renkli kuşu)', partOfSpeech: 'isim', phonetic: '/kɛtˈsɑːl/'),
+
+    'questioning': const WordDefinition(word: 'questioning', turkishMeaning: 'sorgulama, soru sorma', partOfSpeech: 'fiil/isim', phonetic: '/ˈkwɛstʃənɪŋ/'),
+
+    'proportions': const WordDefinition(word: 'proportions', turkishMeaning: 'oranlar, ölçüler, boyutlar', partOfSpeech: 'isim (çoğul)', phonetic: '/prəˈpɔːrʃənz/'),
+
+    'pride': const WordDefinition(word: 'pride', turkishMeaning: 'gurur, onur, övünç', partOfSpeech: 'isim', phonetic: '/praɪd/'),
+
+    'powdered': const WordDefinition(word: 'powdered', turkishMeaning: 'toz haline getirilmiş, pudralı', partOfSpeech: 'sıfat', phonetic: '/ˈpaʊdərd/'),
+
+    'post': const WordDefinition(word: 'post', turkishMeaning: 'göndermek, direk, makam, posta', partOfSpeech: 'fiil/isim', phonetic: '/poʊst/'),
+
+    'poe': const WordDefinition(word: 'poe', turkishMeaning: 'Edgar Allan Poe (ünlü yazar)', partOfSpeech: 'özel isim', phonetic: '/poʊ/'),
+
+    'player': const WordDefinition(word: 'player', turkishMeaning: 'oyuncu, müzisyen', partOfSpeech: 'isim', phonetic: '/ˈpleɪər/'),
+
+    'plato': const WordDefinition(word: 'plato', turkishMeaning: 'Platon / Eflatun (antik Yunan filozofu)', partOfSpeech: 'özel isim', phonetic: '/ˈpleɪtoʊ/'),
+
+    'placing': const WordDefinition(word: 'placing', turkishMeaning: 'yerleştirme, koyma', partOfSpeech: 'fiil', phonetic: '/ˈpleɪsɪŋ/'),
+
+    'place': const WordDefinition(word: 'place', turkishMeaning: 'yerleştirmek, mekan, yer', partOfSpeech: 'fiil/isim', phonetic: '/pleɪs/'),
+
+    'pillars': const WordDefinition(word: 'pillars', turkishMeaning: 'sütunlar, temel direkler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈpɪlərz/'),
+
+    'philosophical': const WordDefinition(word: 'philosophical', turkishMeaning: 'felsefi, düşünsel', partOfSpeech: 'sıfat', phonetic: '/ˌfɪləˈsɒfɪkəl/'),
+
+    'perspective': const WordDefinition(word: 'perspective', turkishMeaning: 'bakış açısı, perspektif', partOfSpeech: 'isim', phonetic: '/pərˈspɛktɪv/'),
+
+    'persist': const WordDefinition(word: 'persist', turkishMeaning: 'ısrar etmek, sürmek, direnmek', partOfSpeech: 'fiil', phonetic: '/pərˈsɪst/'),
+
+    'perseverance': const WordDefinition(word: 'perseverance', turkishMeaning: 'azim, sebat, kararlılık', partOfSpeech: 'isim', phonetic: '/ˌpɜːrsɪˈvɪərəns/'),
+
+    'perfect': const WordDefinition(word: 'perfect', turkishMeaning: 'mükemmel, kusursuz', partOfSpeech: 'sıfat/fiil', phonetic: '/ˈpɜːrfɪkt/'),
+
+    'pendulums': const WordDefinition(word: 'pendulums', turkishMeaning: 'sarkaçlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈpɛndʒələmz/'),
+
+    'pendulum': const WordDefinition(word: 'pendulum', turkishMeaning: 'sarkaç', partOfSpeech: 'isim', phonetic: '/ˈpɛndʒələm/'),
+
+    'pecorino': const WordDefinition(word: 'pecorino', turkishMeaning: 'pecorino (İtalyan koyun peyniri)', partOfSpeech: 'isim', phonetic: '/ˌpɛkəˈriːnoʊ/'),
+
+    'pearl': const WordDefinition(word: 'pearl', turkishMeaning: 'inci', partOfSpeech: 'isim', phonetic: '/pɜːrl/'),
+
+    'pause': const WordDefinition(word: 'pause', turkishMeaning: 'duraklamak, mola vermek', partOfSpeech: 'fiil/isim', phonetic: '/pɔːz/'),
+
+    'passage': const WordDefinition(word: 'passage', turkishMeaning: 'geçit, pasaj, metin parçası', partOfSpeech: 'isim', phonetic: '/ˈpæsɪdʒ/'),
+
+    'paralyze': const WordDefinition(word: 'paralyze', turkishMeaning: 'felç etmek, işlemez kılmak', partOfSpeech: 'fiil', phonetic: '/ˈpærəlaɪz/'),
+
+    'parable': const WordDefinition(word: 'parable', turkishMeaning: 'kıssa, mesel, ders verici hikaye', partOfSpeech: 'isim', phonetic: '/ˈpærəbəl/'),
+
+    'paprika': const WordDefinition(word: 'paprika', turkishMeaning: 'tatlı kırmızı toz biber', partOfSpeech: 'isim', phonetic: '/pəˈpriːkə/'),
+
+    'pancakes': const WordDefinition(word: 'pancakes', turkishMeaning: 'krepler, pankekler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈpænkeɪks/'),
+
+    'painful': const WordDefinition(word: 'painful', turkishMeaning: 'acı verici, ağrılı, zahmetli', partOfSpeech: 'sıfat', phonetic: '/ˈpeɪnfʊl/'),
+
+    'oyster': const WordDefinition(word: 'oyster', turkishMeaning: 'istiridye', partOfSpeech: 'isim', phonetic: '/ˈɔɪstər/'),
+
+    'overheard': const WordDefinition(word: 'overheard', turkishMeaning: 'kulak misafiri oldu', partOfSpeech: 'fiil', phonetic: '/ˌoʊvərˈhɜːrd/'),
+
+    'ovens': const WordDefinition(word: 'ovens', turkishMeaning: 'fırınlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈʌvənz/'),
+
+    'options': const WordDefinition(word: 'options', turkishMeaning: 'seçenekler, opsiyonlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈɒpʃənz/'),
+
+    'oneself': const WordDefinition(word: 'oneself', turkishMeaning: 'kendisi, kendi', partOfSpeech: 'zamir', phonetic: '/wʌnˈsɛlf/'),
+
+    'omar': const WordDefinition(word: 'omar', turkishMeaning: 'Ömer / Omar (özel isim)', partOfSpeech: 'özel isim'),
+
+    'oliver': const WordDefinition(word: 'oliver', turkishMeaning: 'Oliver (Oliver Twist)', partOfSpeech: 'özel isim', phonetic: '/ˈɒlɪvər/'),
+
+    'office': const WordDefinition(word: 'office', turkishMeaning: 'ofis, büro, makam', partOfSpeech: 'isim', phonetic: '/ˈɒfɪs/'),
+
+    'nya': const WordDefinition(word: 'nya', turkishMeaning: 'özel isim / ek', partOfSpeech: 'kelime'),
+
+    'norwegian': const WordDefinition(word: 'norwegian', turkishMeaning: 'Norveçli, Norveççe', partOfSpeech: 'sıfat/isim', phonetic: '/nɔːrˈwiːdʒən/'),
+
+    'norse': const WordDefinition(word: 'norse', turkishMeaning: 'Eski İskandinav, Viking kavimleri', partOfSpeech: 'sıfat/isim', phonetic: '/nɔːrs/'),
+
+    'nordic': const WordDefinition(word: 'nordic', turkishMeaning: 'İskandinav, Kuzey Avrupa\'ya ait', partOfSpeech: 'sıfat', phonetic: '/ˈnɔːrdɪk/'),
+
+    'nora': const WordDefinition(word: 'nora', turkishMeaning: 'Nora (özel isim)', partOfSpeech: 'özel isim'),
+
+    'nl': const WordDefinition(word: 'nl', turkishMeaning: 'özel kısaltma', partOfSpeech: 'kısaltma'),
+
+    'newborn': const WordDefinition(word: 'newborn', turkishMeaning: 'yeni doğmuş bebek', partOfSpeech: 'sıfat/isim', phonetic: '/ˈnjuːbɔːrn/'),
+
+    'neurotransmitter': const WordDefinition(word: 'neurotransmitter', turkishMeaning: 'nörotransmitter (sinirsel ileti maddesi)', partOfSpeech: 'isim', phonetic: '/ˌnjʊəroʊtrænzˈmɪtər/'),
+
+    'neolithic': const WordDefinition(word: 'neolithic', turkishMeaning: 'Neolitik çağ, Cilalı Taş Devri', partOfSpeech: 'sıfat', phonetic: '/ˌniːəˈlɪθɪk/'),
+
+    'naturalist': const WordDefinition(word: 'naturalist', turkishMeaning: 'doğa bilimci, tabiat uzmanı', partOfSpeech: 'isim', phonetic: '/ˈnætʃərəlaɪst/'),
+
+    'nabataean': const WordDefinition(word: 'nabataean', turkishMeaning: 'Nebati (Petra\'yı kuran antik kavim)', partOfSpeech: 'sıfat/isim', phonetic: '/ˌnæbəˈtiːən/'),
+
+    'mythology': const WordDefinition(word: 'mythology', turkishMeaning: 'mitoloji, efsane bilimi', partOfSpeech: 'isim', phonetic: '/mɪˈθɒlədʒi/'),
+
+    'museum': const WordDefinition(word: 'museum', turkishMeaning: 'müze', partOfSpeech: 'isim', phonetic: '/mjuːˈziːəm/'),
+
+    'murky': const WordDefinition(word: 'murky', turkishMeaning: 'bulanık, karanlık, puslu', partOfSpeech: 'sıfat', phonetic: '/ˈmɜːrki/'),
+
+    'mulberry': const WordDefinition(word: 'mulberry', turkishMeaning: 'dut ağacı / meyvesi', partOfSpeech: 'isim', phonetic: '/ˈmʌlbɛri/'),
+
+    'movable': const WordDefinition(word: 'movable', turkishMeaning: 'taşınabilir, hareketli (matbaa harfleri)', partOfSpeech: 'sıfat', phonetic: '/ˈmuːvəbəl/'),
+
+    'mosaics': const WordDefinition(word: 'mosaics', turkishMeaning: 'mozaikler', partOfSpeech: 'isim (çoğul)', phonetic: '/moʊˈzeɪɪks/'),
+
+    'moroccan': const WordDefinition(word: 'moroccan', turkishMeaning: 'Faslı, Fas\'a ait', partOfSpeech: 'sıfat', phonetic: '/məˈrɒkən/'),
+
+    'moral': const WordDefinition(word: 'moral', turkishMeaning: 'ahlaki, manevi; ders kıssa', partOfSpeech: 'sıfat/isim', phonetic: '/ˈmɒrəl/'),
+
+    'moors': const WordDefinition(word: 'moors', turkishMeaning: 'Mağribiler; kıraç fundalık araziler', partOfSpeech: 'isim (çoğul)', phonetic: '/mʊərz/'),
+
+    'moorish': const WordDefinition(word: 'moorish', turkishMeaning: 'Mağribi, Endülüs Müslümanlarına ait mimari', partOfSpeech: 'sıfat', phonetic: '/ˈmʊərɪʃ/'),
+
+    'monk': const WordDefinition(word: 'monk', turkishMeaning: 'keşiş, rahip', partOfSpeech: 'isim', phonetic: '/mʌŋk/'),
+
+    'mira': const WordDefinition(word: 'mira', turkishMeaning: 'Mira (özel isim / parlayan yıldız)', partOfSpeech: 'özel isim', phonetic: '/ˈmaɪrə/'),
+
+    'mindful': const WordDefinition(word: 'mindful', turkishMeaning: 'farkındalığı yüksek, dikkatli', partOfSpeech: 'sıfat', phonetic: '/ˈmaɪndfʊl/'),
+
+    'michelangelo': const WordDefinition(word: 'michelangelo', turkishMeaning: 'Michelangelo (İtalyan Rönesans dehası)', partOfSpeech: 'özel isim', phonetic: '/ˌmaɪkəlˈændʒəloʊ/'),
+
+    'mexican': const WordDefinition(word: 'mexican', turkishMeaning: 'Meksikalı, Meksika\'ya ait', partOfSpeech: 'sıfat', phonetic: '/ˈmɛksɪkən/'),
+
+    'memorable': const WordDefinition(word: 'memorable', turkishMeaning: 'unutulmaz, akılda kalıcı', partOfSpeech: 'sıfat', phonetic: '/ˈmɛmərəbəl/'),
+
+    'melville': const WordDefinition(word: 'melville', turkishMeaning: 'Herman Melville (Moby Dick\'in yazarı)', partOfSpeech: 'özel isim', phonetic: '/ˈmɛlvɪl/'),
+
+    'megacity': const WordDefinition(word: 'megacity', turkishMeaning: 'megakent, dev şehir', partOfSpeech: 'isim', phonetic: '/ˈmɛɡəsɪti/'),
+
+    'matcha': const WordDefinition(word: 'matcha', turkishMeaning: 'matcha (özel Japon yeşil çayı tozu)', partOfSpeech: 'isim', phonetic: '/ˈmætʃə/'),
+
+    'mastery': const WordDefinition(word: 'mastery', turkishMeaning: 'ustalık, hakimiyet, maharet', partOfSpeech: 'isim', phonetic: '/ˈmæstəri/'),
+
+    'masterpiece': const WordDefinition(word: 'masterpiece', turkishMeaning: 'şaheser, başyapıt', partOfSpeech: 'isim', phonetic: '/ˈmæstərpiːs/'),
+
+    'masallar': const WordDefinition(word: 'masallar', turkishMeaning: 'masallar, destanlar', partOfSpeech: 'isim'),
+
+    'mantle': const WordDefinition(word: 'mantle', turkishMeaning: 'manto tabakası; örtü, pelerin', partOfSpeech: 'isim', phonetic: '/ˈmæntəl/'),
+
+    'maceralar': const WordDefinition(word: 'maceralar', turkishMeaning: 'maceralar, serüvenler', partOfSpeech: 'isim'),
+
+    'm': const WordDefinition(word: 'm', turkishMeaning: 'M harfi / metre simgesi', partOfSpeech: 'harf/simge'),
+
+    'luthier': const WordDefinition(word: 'luthier', turkishMeaning: 'lutiye, telli çalgı yapım ustası', partOfSpeech: 'isim', phonetic: '/ˈluːtiər/'),
+
+    'lukas': const WordDefinition(word: 'lukas', turkishMeaning: 'Lukas (özel isim)', partOfSpeech: 'özel isim'),
+
+    'lucas': const WordDefinition(word: 'lucas', turkishMeaning: 'Lucas (özel isim)', partOfSpeech: 'özel isim'),
+
+    'lt': const WordDefinition(word: 'lt', turkishMeaning: 'teğmen veya kısaltma', partOfSpeech: 'kısaltma'),
+
+    'lore': const WordDefinition(word: 'lore', turkishMeaning: 'halk irfanı, geleneksel bilgi külliyatı', partOfSpeech: 'isim', phonetic: '/lɔːr/'),
+
+    'logan': const WordDefinition(word: 'logan', turkishMeaning: 'Logan (özel isim)', partOfSpeech: 'özel isim'),
+
+    'limestone': const WordDefinition(word: 'limestone', turkishMeaning: 'kireçtaşı, kalker', partOfSpeech: 'isim', phonetic: '/ˈlaɪmstoʊn/'),
+
+    'liberated': const WordDefinition(word: 'liberated', turkishMeaning: 'özgürleştirilmiş, hür', partOfSpeech: 'sıfat/fiil', phonetic: '/ˈlɪbəreɪtɪd/'),
+
+    'liberate': const WordDefinition(word: 'liberate', turkishMeaning: 'özgürleştirmek, kurtarmak', partOfSpeech: 'fiil', phonetic: '/ˈlɪbəreɪt/'),
+
+    'lham': const WordDefinition(word: 'lham', turkishMeaning: 'ilham / özel isim', partOfSpeech: 'kelime'),
+
+    'lena': const WordDefinition(word: 'lena', turkishMeaning: 'Lena (özel isim / Sibirya nehri)', partOfSpeech: 'özel isim', phonetic: '/ˈliːnə/'),
+
+    'legend': const WordDefinition(word: 'legend', turkishMeaning: 'efsane, rivayet', partOfSpeech: 'isim', phonetic: '/ˈlɛdʒənd/'),
+
+    'leader': const WordDefinition(word: 'leader', turkishMeaning: 'önder, lider', partOfSpeech: 'isim', phonetic: '/ˈliːdər/'),
+
+    'lead': const WordDefinition(word: 'lead', turkishMeaning: 'yol göstermek, liderlik etmek; kurşun', partOfSpeech: 'fiil/isim', phonetic: '/liːd/'),
+
+    'lady': const WordDefinition(word: 'lady', turkishMeaning: 'hanımefendi, leydi', partOfSpeech: 'isim', phonetic: '/ˈleɪdi/'),
+
+    'lacquer': const WordDefinition(word: 'lacquer', turkishMeaning: 'lake, parlak vernik cilası', partOfSpeech: 'isim', phonetic: '/ˈlækər/'),
+
+    'labor': const WordDefinition(word: 'labor', turkishMeaning: 'emek, iş gücü, çalışmak', partOfSpeech: 'isim/fiil', phonetic: '/ˈleɪbər/'),
+
+    'l': const WordDefinition(word: 'l', turkishMeaning: 'L harfi', partOfSpeech: 'harf'),
+
+    'kneaded': const WordDefinition(word: 'kneaded', turkishMeaning: 'yoğrulmuş, yoğurdu', partOfSpeech: 'fiil', phonetic: '/ˈniːdɪd/'),
+
+    'ke': const WordDefinition(word: 'ke', turkishMeaning: 'özel ek veya ses', partOfSpeech: 'kelime'),
+
+    'kayaking': const WordDefinition(word: 'kayaking', turkishMeaning: 'kanoyla gezme sporu', partOfSpeech: 'isim', phonetic: '/ˈkaɪækɪŋ/'),
+
+    'kafka': const WordDefinition(word: 'kafka', turkishMeaning: 'Franz Kafka (ünlü yazar)', partOfSpeech: 'özel isim', phonetic: '/ˈkɑːfkə/'),
+
+    'kaelen': const WordDefinition(word: 'kaelen', turkishMeaning: 'Kaelen (özel isim)', partOfSpeech: 'özel isim'),
+
+    'k': const WordDefinition(word: 'k', turkishMeaning: 'K harfi / bin simgesi', partOfSpeech: 'harf'),
+
+    'jax': const WordDefinition(word: 'jax', turkishMeaning: 'Jax (özel isim)', partOfSpeech: 'özel isim'),
+
+    'ithaca': const WordDefinition(word: 'ithaca', turkishMeaning: 'İthaka (Odysseus\'un efsanevi adası)', partOfSpeech: 'özel isim', phonetic: '/ˈɪθəkə/'),
+
+    'invention': const WordDefinition(word: 'invention', turkishMeaning: 'icat, buluş', partOfSpeech: 'isim', phonetic: '/ɪnˈvɛnʃən/'),
+
+    'intervals': const WordDefinition(word: 'intervals', turkishMeaning: 'aralıklar, fasılalar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈɪntərvəlz/'),
+
+    'inquiry': const WordDefinition(word: 'inquiry', turkishMeaning: 'soruşturma, araştırma, sorgulama', partOfSpeech: 'isim', phonetic: '/ɪnˈkwaɪəri/'),
+
+    'initially': const WordDefinition(word: 'initially', turkishMeaning: 'başlangıçta, ilk olarak', partOfSpeech: 'zarf', phonetic: '/ɪˈnɪʃəli/'),
+
+    'ingenuity': const WordDefinition(word: 'ingenuity', turkishMeaning: 'yaratıcılık, beceri, deha', partOfSpeech: 'isim', phonetic: '/ˌɪndʒəˈnjuːəti/'),
+
+    'infants': const WordDefinition(word: 'infants', turkishMeaning: 'bebekler, yeni doğanlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈɪnfənts/'),
+
+    'impurities': const WordDefinition(word: 'impurities', turkishMeaning: 'katkı maddeleri, yabancı maddeler', partOfSpeech: 'isim (çoğul)', phonetic: '/ɪmˈpjʊərətiːz/'),
+
+    'improvising': const WordDefinition(word: 'improvising', turkishMeaning: 'doğaçlama yapan', partOfSpeech: 'fiil', phonetic: '/ˈɪmprəvaɪzɪŋ/'),
+
+    'imperfections': const WordDefinition(word: 'imperfections', turkishMeaning: 'kusurlar, eksiklikler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˌɪmpərˈfɛkʃənz/'),
+
+    'immersion': const WordDefinition(word: 'immersion', turkishMeaning: 'derinlemesine dalma, içine gömülme', partOfSpeech: 'isim', phonetic: '/ɪˈmɜːrʃən/'),
+
+    'ifler': const WordDefinition(word: 'ifler', turkishMeaning: 'ifler (koşullar)', partOfSpeech: 'kelime'),
+
+    'identity': const WordDefinition(word: 'identity', turkishMeaning: 'kimlik, kişilik', partOfSpeech: 'isim', phonetic: '/aɪˈdɛntəti/'),
+
+    'ibn': const WordDefinition(word: 'ibn', turkishMeaning: 'İbn (Arapça \'oğlu\')', partOfSpeech: 'özel isim'),
+
+    'iberian': const WordDefinition(word: 'iberian', turkishMeaning: 'İberik, İber yarımadasına ait', partOfSpeech: 'sıfat', phonetic: '/aɪˈbɪəriən/'),
+
+    'hurried': const WordDefinition(word: 'hurried', turkishMeaning: 'acele etti, telaşlı', partOfSpeech: 'fiil/sıfat', phonetic: '/ˈhʌrid/'),
+
+    'humble': const WordDefinition(word: 'humble', turkishMeaning: 'mütevazı, alçakgönüllü', partOfSpeech: 'sıfat', phonetic: '/ˈhʌmbəl/'),
+
+    'humanist': const WordDefinition(word: 'humanist', turkishMeaning: 'hümanist, insancıl', partOfSpeech: 'isim/sıfat', phonetic: '/ˈhjuːmənɪst/'),
+
+    'hospitality': const WordDefinition(word: 'hospitality', turkishMeaning: 'misafirperverlik', partOfSpeech: 'isim', phonetic: '/ˌhɒspɪˈtæləti/'),
+
+    'honor': const WordDefinition(word: 'honor', turkishMeaning: 'onur, şeref, saygı duymak', partOfSpeech: 'isim/fiil', phonetic: '/ˈɒnər/'),
+
+    'homeric': const WordDefinition(word: 'homeric', turkishMeaning: 'Homeros\'a ait, destansı', partOfSpeech: 'sıfat', phonetic: '/hoʊˈmɛrɪk/'),
+
+    'holds': const WordDefinition(word: 'holds', turkishMeaning: 'tutar, barındırır', partOfSpeech: 'fiil', phonetic: '/hoʊldz/'),
+
+    'historian': const WordDefinition(word: 'historian', turkishMeaning: 'tarihçi', partOfSpeech: 'isim', phonetic: '/hɪˈstɔːriən/'),
+
+    'highland': const WordDefinition(word: 'highland', turkishMeaning: 'dağlık bölge, yayla', partOfSpeech: 'isim/sıfat', phonetic: '/ˈhaɪlənd/'),
+
+    'hieroglyphic': const WordDefinition(word: 'hieroglyphic', turkishMeaning: 'hiyeroglif, antik resimyazı', partOfSpeech: 'sıfat/isim', phonetic: '/ˌhaɪərəˈɡlɪfɪk/'),
+
+    'hermitage': const WordDefinition(word: 'hermitage', turkishMeaning: 'Hermitaj Müzesi (St. Petersburg)', partOfSpeech: 'özel isim', phonetic: '/ˈhɜːrmɪtɪdʒ/'),
+
+    'heartbeat': const WordDefinition(word: 'heartbeat', turkishMeaning: 'kalp atışı, nabız', partOfSpeech: 'isim', phonetic: '/ˈhɑːrtbiːt/'),
+
+    'hastings': const WordDefinition(word: 'hastings', turkishMeaning: 'Hastings (1066 savaşı ile ünlü İngiliz kenti)', partOfSpeech: 'özel isim', phonetic: '/ˈheɪstɪŋz/'),
+
+    'harpooner': const WordDefinition(word: 'harpooner', turkishMeaning: 'zıpkıncı', partOfSpeech: 'isim', phonetic: '/hɑːrˈpuːnər/'),
+
+    'harmonizing': const WordDefinition(word: 'harmonizing', turkishMeaning: 'uyum sağlayan, ahenk kuran', partOfSpeech: 'fiil', phonetic: '/ˈhɑːrmənaɪzɪŋ/'),
+
+    'harlem': const WordDefinition(word: 'harlem', turkishMeaning: 'Harlem (New York\'ta tarihi semt)', partOfSpeech: 'özel isim', phonetic: '/ˈhɑːrləm/'),
+
+    'happiness': const WordDefinition(word: 'happiness', turkishMeaning: 'mutluluk, saadet', partOfSpeech: 'isim', phonetic: '/ˈhæpɪnəs/'),
+
+    'hans': const WordDefinition(word: 'hans', turkishMeaning: 'Hans (özel isim)', partOfSpeech: 'özel isim'),
+
+    'hannah': const WordDefinition(word: 'hannah', turkishMeaning: 'Hannah (özel isim)', partOfSpeech: 'özel isim'),
+
+    'hanging': const WordDefinition(word: 'hanging', turkishMeaning: 'asılan, sarkan', partOfSpeech: 'sıfat/fiil', phonetic: '/ˈhæŋɪŋ/'),
+
+    'halts': const WordDefinition(word: 'halts', turkishMeaning: 'durur, durdurur', partOfSpeech: 'fiil', phonetic: '/hɔːlts/'),
+
+    'halls': const WordDefinition(word: 'halls', turkishMeaning: 'salonlar, koridorlar', partOfSpeech: 'isim (çoğul)', phonetic: '/hɔːlz/'),
+
+    'gutenberg': const WordDefinition(word: 'gutenberg', turkishMeaning: 'Johannes Gutenberg (matbaanın mucidi)', partOfSpeech: 'özel isim', phonetic: '/ˈɡuːtənbɜːrɡ/'),
+
+    'guild': const WordDefinition(word: 'guild', turkishMeaning: 'lonca, esnaf birliği', partOfSpeech: 'isim', phonetic: '/ɡɪld/'),
+
+    'guide': const WordDefinition(word: 'guide', turkishMeaning: 'rehberlik etmek, rehber kılavuz', partOfSpeech: 'fiil/isim', phonetic: '/ɡaɪd/'),
+
+    'grizzly': const WordDefinition(word: 'grizzly', turkishMeaning: 'bozayı', partOfSpeech: 'isim/sıfat', phonetic: '/ˈɡrɪzli/'),
+
+    'gown': const WordDefinition(word: 'gown', turkishMeaning: 'cübbe, abiye elbise', partOfSpeech: 'isim', phonetic: '/ɡaʊn/'),
+
+    'governing': const WordDefinition(word: 'governing', turkishMeaning: 'yöneten, idare eden', partOfSpeech: 'sıfat/fiil', phonetic: '/ˈɡʌvərnɪŋ/'),
+
+    'gothic': const WordDefinition(word: 'gothic', turkishMeaning: 'gotik mimari veya edebiyat tarzı', partOfSpeech: 'sıfat', phonetic: '/ˈɡɒθɪk/'),
+
+    'glows': const WordDefinition(word: 'glows', turkishMeaning: 'ışıldar, parlar', partOfSpeech: 'fiil', phonetic: '/ɡloʊz/'),
+
+    'glides': const WordDefinition(word: 'glides', turkishMeaning: 'süzülür, kayarak ilerler', partOfSpeech: 'fiil', phonetic: '/ɡlaɪdz/'),
+
+    'gizemli': const WordDefinition(word: 'gizemli', turkishMeaning: 'gizemli, esrarengiz', partOfSpeech: 'sıfat'),
+
+    'generational': const WordDefinition(word: 'generational', turkishMeaning: 'nesiller arası, kuşakla ilgili', partOfSpeech: 'sıfat', phonetic: '/ˌdʒɛnəˈreɪʃənəl/'),
+
+    'gastronomy': const WordDefinition(word: 'gastronomy', turkishMeaning: 'gastronomi, mutfak sanatı', partOfSpeech: 'isim', phonetic: '/ɡæˈstrɒnəmi/'),
+
+    'g': const WordDefinition(word: 'g', turkishMeaning: 'G harfi', partOfSpeech: 'harf'),
+
+    'fruits': const WordDefinition(word: 'fruits', turkishMeaning: 'meyveler, mahsuller', partOfSpeech: 'isim (çoğul)', phonetic: '/fruːts/'),
+
+    'freedom': const WordDefinition(word: 'freedom', turkishMeaning: 'özgürlük, hürriyet', partOfSpeech: 'isim', phonetic: '/ˈfriːdəm/'),
+
+    'frankincense': const WordDefinition(word: 'frankincense', turkishMeaning: 'günlük reçinesi, buhur', partOfSpeech: 'isim', phonetic: '/ˈfræŋkɪnsɛns/'),
+
+    'formulas': const WordDefinition(word: 'formulas', turkishMeaning: 'formüller', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈfɔːrmjələz/'),
+
+    'forces': const WordDefinition(word: 'forces', turkishMeaning: 'kuvvetler, güçler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈfɔːrsɪz/'),
+
+    'folk': const WordDefinition(word: 'folk', turkishMeaning: 'halk, ahali, geleneksel', partOfSpeech: 'isim/sıfat', phonetic: '/foʊk/'),
+
+    'focusing': const WordDefinition(word: 'focusing', turkishMeaning: 'odaklanan, odaklanarak', partOfSpeech: 'fiil', phonetic: '/ˈfoʊkəsɪŋ/'),
+
+    'focus': const WordDefinition(word: 'focus', turkishMeaning: 'odaklanmak, odak noktası', partOfSpeech: 'fiil/isim', phonetic: '/ˈfoʊkəs/'),
+
+    'flares': const WordDefinition(word: 'flares', turkishMeaning: 'parlamalar, alev püskürmeleri', partOfSpeech: 'isim (çoğul)', phonetic: '/flɛərz/'),
+
+    'flakes': const WordDefinition(word: 'flakes', turkishMeaning: 'pullar, taneler, kırıntılar', partOfSpeech: 'isim (çoğul)', phonetic: '/fleɪks/'),
+
+    'finger': const WordDefinition(word: 'finger', turkishMeaning: 'parmak', partOfSpeech: 'isim', phonetic: '/ˈfɪŋɡər/'),
+
+    'figures': const WordDefinition(word: 'figures', turkishMeaning: 'figürler, rakamlar, şahsiyetler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈfɪɡjərz/'),
+
+    'ferry': const WordDefinition(word: 'ferry', turkishMeaning: 'feribot, vapur', partOfSpeech: 'isim', phonetic: '/ˈfɛri/'),
+
+    'fermenting': const WordDefinition(word: 'fermenting', turkishMeaning: 'mayalanan, mayalayarak', partOfSpeech: 'fiil/sıfat', phonetic: '/fərˈmɛntɪŋ/'),
+
+    'fermentation': const WordDefinition(word: 'fermentation', turkishMeaning: 'fermentasyon, mayalanma', partOfSpeech: 'isim', phonetic: '/ˌfɜːrmənˈteɪʃən/'),
+
+    'felsefe': const WordDefinition(word: 'felsefe', turkishMeaning: 'felsefe, düşün bilimi', partOfSpeech: 'isim'),
+
+    'faithful': const WordDefinition(word: 'faithful', turkishMeaning: 'sadık, vefakar, aslına uygun', partOfSpeech: 'sıfat', phonetic: '/ˈfeɪθfʊl/'),
+
+    'faced': const WordDefinition(word: 'faced', turkishMeaning: 'karşılaştı, yüzleşti', partOfSpeech: 'fiil', phonetic: '/feɪst/'),
+
+    'fable': const WordDefinition(word: 'fable', turkishMeaning: 'fabl, ders veren hayvan masalı', partOfSpeech: 'isim', phonetic: '/ˈfeɪbəl/'),
+
+    'exup': const WordDefinition(word: 'exup', turkishMeaning: 'Saint-Exupéry (Küçük Prens yazarı)', partOfSpeech: 'özel isim'),
+
+    'express': const WordDefinition(word: 'express', turkishMeaning: 'ifade etmek; süratli', partOfSpeech: 'fiil/sıfat', phonetic: '/ɪkˈsprɛs/'),
+
+    'explorer': const WordDefinition(word: 'explorer', turkishMeaning: 'kaşif, gezgin', partOfSpeech: 'isim', phonetic: '/ɪkˈsplɔːrər/'),
+
+    'expectations': const WordDefinition(word: 'expectations', turkishMeaning: 'beklentiler, umutlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˌɛkspekˈteɪʃənz/'),
+
+    'exclusively': const WordDefinition(word: 'exclusively', turkishMeaning: 'yalnızca, sadece, münhasıran', partOfSpeech: 'zarf', phonetic: '/ɪkˈskluːsɪvli/'),
+
+    'examined': const WordDefinition(word: 'examined', turkishMeaning: 'inceledi, muayene etti', partOfSpeech: 'fiil', phonetic: '/ɪɡˈzæmɪnd/'),
+
+    'evocative': const WordDefinition(word: 'evocative', turkishMeaning: 'çağrıştıran, duyguları harekete geçiren', partOfSpeech: 'sıfat', phonetic: '/ɪˈvɒkətɪv/'),
+
+    'essays': const WordDefinition(word: 'essays', turkishMeaning: 'denemeler, makaleler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈɛseɪz/'),
+
+    'ephemeral': const WordDefinition(word: 'ephemeral', turkishMeaning: 'kısa ömürlü, gelip geçici, fani', partOfSpeech: 'sıfat', phonetic: '/ɪˈfɛmərəl/'),
+
+    'eli': const WordDefinition(word: 'eli', turkishMeaning: 'Eli (özel isim)', partOfSpeech: 'özel isim'),
+
+    'egyptology': const WordDefinition(word: 'egyptology', turkishMeaning: 'Mısırbilim, eski Mısır araştırmaları', partOfSpeech: 'isim', phonetic: '/ˌiːdʒɪpˈtɒlədʒi/'),
+
+    'efsaneler': const WordDefinition(word: 'efsaneler', turkishMeaning: 'efsaneler, mitler', partOfSpeech: 'isim'),
+
+    'e': const WordDefinition(word: 'e', turkishMeaning: 'E harfi', partOfSpeech: 'harf'),
+
+    'dungeon': const WordDefinition(word: 'dungeon', turkishMeaning: 'zindan, yer altı hücresi', partOfSpeech: 'isim', phonetic: '/ˈdʌndʒən/'),
+
+    'dumplings': const WordDefinition(word: 'dumplings', turkishMeaning: 'mantı, hamur köfteleri', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈdʌmplɪŋz/'),
+
+    'dumas': const WordDefinition(word: 'dumas', turkishMeaning: 'Alexandre Dumas (Monte Kristo Kontu yazarı)', partOfSpeech: 'özel isim', phonetic: '/duːˈmɑː/'),
+
+    'dough': const WordDefinition(word: 'dough', turkishMeaning: 'hamur', partOfSpeech: 'isim', phonetic: '/doʊ/'),
+
+    'diver': const WordDefinition(word: 'diver', turkishMeaning: 'dalgıç', partOfSpeech: 'isim', phonetic: '/ˈdaɪvər/'),
+
+    'dissatisfied': const WordDefinition(word: 'dissatisfied', turkishMeaning: 'memnuniyetsiz, tatminsiz', partOfSpeech: 'sıfat', phonetic: '/dɪsˈsætɪsfaɪd/'),
+
+    'discernment': const WordDefinition(word: 'discernment', turkishMeaning: 'ayırt etme yetisi, basiret, sezgi', partOfSpeech: 'isim', phonetic: '/dɪˈsɜːrnmənt/'),
+
+    'discard': const WordDefinition(word: 'discard', turkishMeaning: 'ıskartaya çıkarmak, çöpe atmak', partOfSpeech: 'fiil', phonetic: '/dɪsˈkɑːrd/'),
+
+    'disappears': const WordDefinition(word: 'disappears', turkishMeaning: 'gözden kaybolur', partOfSpeech: 'fiil', phonetic: '/ˌdɪsəˈpɪərz/'),
+
+    'dilemmas': const WordDefinition(word: 'dilemmas', turkishMeaning: 'ikilemler, çıkmazlar', partOfSpeech: 'isim (çoğul)', phonetic: '/dɪˈlɛməz/'),
+
+    'dilemma': const WordDefinition(word: 'dilemma', turkishMeaning: 'ikilem, çıkmaz', partOfSpeech: 'isim', phonetic: '/dɪˈlɛmə/'),
+
+    'differentiating': const WordDefinition(word: 'differentiating', turkishMeaning: 'farklılaştıran, ayırt eden', partOfSpeech: 'fiil/sıfat', phonetic: '/ˌdɪfəˈrɛnʃieɪtɪŋ/'),
+
+    'dickens': const WordDefinition(word: 'dickens', turkishMeaning: 'Charles Dickens (ünlü İngiliz romancı)', partOfSpeech: 'özel isim', phonetic: '/ˈdɪkɪnz/'),
+
+    'despite': const WordDefinition(word: 'despite', turkishMeaning: '-e rağmen, karşın', partOfSpeech: 'edat', phonetic: '/dɪˈspaɪt/'),
+
+    'dedication': const WordDefinition(word: 'dedication', turkishMeaning: 'adanmışlık, ithaf, özveri', partOfSpeech: 'isim', phonetic: '/ˌdɛdɪˈkeɪʃən/'),
+
+    'dedektif': const WordDefinition(word: 'dedektif', turkishMeaning: 'dedektif, araştırmacı', partOfSpeech: 'isim'),
+
+    'deceased': const WordDefinition(word: 'deceased', turkishMeaning: 'vefat etmiş, merhum', partOfSpeech: 'sıfat/isim', phonetic: '/dɪˈsiːst/'),
+
+    'david': const WordDefinition(word: 'david', turkishMeaning: 'David (özel isim / Michelangelo\'nun Davut heykeli)', partOfSpeech: 'özel isim', phonetic: '/ˈdeɪvɪd/'),
+
+    'daunting': const WordDefinition(word: 'daunting', turkishMeaning: 'göz korkutucu, yıldırıcı', partOfSpeech: 'sıfat', phonetic: '/ˈdɔːntɪŋ/'),
+
+    'daredevil': const WordDefinition(word: 'daredevil', turkishMeaning: 'gözüpek, cesur, maceraperest', partOfSpeech: 'isim/sıfat', phonetic: '/ˈdɛərdɛvəl/'),
+
+    'd': const WordDefinition(word: 'd', turkishMeaning: 'D harfi', partOfSpeech: 'harf'),
+
+    'cycladic': const WordDefinition(word: 'cycladic', turkishMeaning: 'Kiklad adalarına ait (antik Ege uygarlığı)', partOfSpeech: 'sıfat', phonetic: '/sɪˈklædɪk/'),
+
+    'curator': const WordDefinition(word: 'curator', turkishMeaning: 'küratör, müze yöneticisi', partOfSpeech: 'isim', phonetic: '/kjʊˈreɪtər/'),
+
+    'cumin': const WordDefinition(word: 'cumin', turkishMeaning: 'kimyon', partOfSpeech: 'isim', phonetic: '/ˈkjuːmɪn/'),
+
+    'cubic': const WordDefinition(word: 'cubic', turkishMeaning: 'kübik, küp şeklinde', partOfSpeech: 'sıfat', phonetic: '/ˈkjuːbɪk/'),
+
+    'cryptographer': const WordDefinition(word: 'cryptographer', turkishMeaning: 'kriptograf, şifre bilimci', partOfSpeech: 'isim', phonetic: '/krɪpˈtɒɡrəfər/'),
+
+    'cryptic': const WordDefinition(word: 'cryptic', turkishMeaning: 'esrarlı, gizemli, şifreli', partOfSpeech: 'sıfat', phonetic: '/ˈkrɪptɪk/'),
+
+    'crossroads': const WordDefinition(word: 'crossroads', turkishMeaning: 'dönüm noktası, kavşak', partOfSpeech: 'isim', phonetic: '/ˈkrɒsroʊdz/'),
+
+    'crime': const WordDefinition(word: 'crime', turkishMeaning: 'suç, cürüm', partOfSpeech: 'isim', phonetic: '/kraɪm/'),
+
+    'cremona': const WordDefinition(word: 'cremona', turkishMeaning: 'Cremona (İtalya\'da keman yapımıyla ünlü şehir)', partOfSpeech: 'özel isim', phonetic: '/krɪˈmoʊnə/'),
+
+    'craftsman': const WordDefinition(word: 'craftsman', turkishMeaning: 'zanaatkar, usta', partOfSpeech: 'isim', phonetic: '/ˈkræftsmən/'),
+
+    'craft': const WordDefinition(word: 'craft', turkishMeaning: 'zanaat, el sanatı, ustalık', partOfSpeech: 'isim/fiil', phonetic: '/kræft/'),
+
+    'courier': const WordDefinition(word: 'courier', turkishMeaning: 'kurye, ulak', partOfSpeech: 'isim', phonetic: '/ˈkʊriər/'),
+
+    'conversation': const WordDefinition(word: 'conversation', turkishMeaning: 'sohbet, konuşma', partOfSpeech: 'isim', phonetic: '/ˌkɒnvərˈseɪʃən/'),
+
+    'consulting': const WordDefinition(word: 'consulting', turkishMeaning: 'danışmanlık yapan, danışarak', partOfSpeech: 'sıfat/fiil', phonetic: '/kənˈsʌltɪŋ/'),
+
+    'constable': const WordDefinition(word: 'constable', turkishMeaning: 'polis memuru / John Constable (ressam)', partOfSpeech: 'isim', phonetic: '/ˈkɒnstəbəl/'),
+
+    'conservatory': const WordDefinition(word: 'conservatory', turkishMeaning: 'konservatuvar, seramik/cam sera', partOfSpeech: 'isim', phonetic: '/kənˈsɜːrvətɔːri/'),
+
+    'conquer': const WordDefinition(word: 'conquer', turkishMeaning: 'fethetmek, yenmek, alt etmek', partOfSpeech: 'fiil', phonetic: '/ˈkɒŋkər/'),
+
+    'collies': const WordDefinition(word: 'collies', turkishMeaning: 'Collie ırkı çoban köpekleri', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈkɒliz/'),
+
+    'cobbler': const WordDefinition(word: 'cobbler', turkishMeaning: 'ayakkabı tamircisi', partOfSpeech: 'isim', phonetic: '/ˈkɒblər/'),
+
+    'cobbled': const WordDefinition(word: 'cobbled', turkishMeaning: 'arnavut kaldırımı döşeli', partOfSpeech: 'sıfat', phonetic: '/ˈkɒbəld/'),
+
+    'cobalt': const WordDefinition(word: 'cobalt', turkishMeaning: 'kobalt (metal veya mavi renk)', partOfSpeech: 'isim/sıfat', phonetic: '/ˈkoʊbɔːlt/'),
+
+    'clover': const WordDefinition(word: 'clover', turkishMeaning: 'yonca', partOfSpeech: 'isim', phonetic: '/ˈkloʊvər/'),
+
+    'climber': const WordDefinition(word: 'climber', turkishMeaning: 'dağcı, tırmanıcı', partOfSpeech: 'isim', phonetic: '/ˈklaɪmər/'),
+
+    'clavichord': const WordDefinition(word: 'clavichord', turkishMeaning: 'klavikord (tarihi tuşlu çalgı)', partOfSpeech: 'isim', phonetic: '/ˈklævɪkɔːrd/'),
+
+    'circumstances': const WordDefinition(word: 'circumstances', turkishMeaning: 'koşullar, şartlar, durumlar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈsɜːrkəmstænsɪz/'),
+
+    'cinnamon': const WordDefinition(word: 'cinnamon', turkishMeaning: 'tarçın', partOfSpeech: 'isim', phonetic: '/ˈsɪnəmən/'),
+
+    'christmas': const WordDefinition(word: 'christmas', turkishMeaning: 'Noel bayramı', partOfSpeech: 'özel isim', phonetic: '/ˈkrɪsməs/'),
+
+    'christian': const WordDefinition(word: 'christian', turkishMeaning: 'Hristiyan', partOfSpeech: 'sıfat/isim', phonetic: '/ˈkrɪstʃən/'),
+
+    'chopin': const WordDefinition(word: 'chopin', turkishMeaning: 'Chopin (ünlü Polonyalı besteci ve piyanist)', partOfSpeech: 'özel isim', phonetic: '/ˈʃoʊpæn/'),
+
+    'chipping': const WordDefinition(word: 'chipping', turkishMeaning: 'yontma, parça koparma', partOfSpeech: 'fiil/isim', phonetic: '/ˈtʃɪpɪŋ/'),
+
+    'chime': const WordDefinition(word: 'chime', turkishMeaning: 'çan sesi, melodik tını', partOfSpeech: 'isim/fiil', phonetic: '/tʃaɪm/'),
+
+    'chief': const WordDefinition(word: 'chief', turkishMeaning: 'şef, lider, başlıca', partOfSpeech: 'isim/sıfat', phonetic: '/tʃiːf/'),
+
+    'cheese': const WordDefinition(word: 'cheese', turkishMeaning: 'peynir', partOfSpeech: 'isim', phonetic: '/tʃiːz/'),
+
+    'chaos': const WordDefinition(word: 'chaos', turkishMeaning: 'kaos, kargaşa, düzensizlik', partOfSpeech: 'isim', phonetic: '/ˈkeɪɒs/'),
+
+    'champollion': const WordDefinition(word: 'champollion', turkishMeaning: 'Champollion (Mısır hiyeroglifini çözen Fransız dilbilimci)', partOfSpeech: 'özel isim'),
+
+    'cervantes': const WordDefinition(word: 'cervantes', turkishMeaning: 'Cervantes (Don Kişot\'un yazarı İspanyol yazar)', partOfSpeech: 'özel isim', phonetic: '/sərˈvæntiːz/'),
+
+    'cellar': const WordDefinition(word: 'cellar', turkishMeaning: 'kiler, mahzen', partOfSpeech: 'isim', phonetic: '/ˈsɛlər/'),
+
+    'cedar': const WordDefinition(word: 'cedar', turkishMeaning: 'sedir ağacı', partOfSpeech: 'isim', phonetic: '/ˈsiːdər/'),
+
+    'cathedral': const WordDefinition(word: 'cathedral', turkishMeaning: 'katedral, büyük başkilise', partOfSpeech: 'isim', phonetic: '/kəˈθiːdrəl/'),
+
+    'carving': const WordDefinition(word: 'carving', turkishMeaning: 'oyma, yontma sanatı', partOfSpeech: 'isim', phonetic: '/ˈkɑːrvɪŋ/'),
+
+    'cartouches': const WordDefinition(word: 'cartouches', turkishMeaning: 'kartuşlar (antik Mısır kral isim halkaları)', partOfSpeech: 'isim (çoğul)', phonetic: '/kɑːrˈtuːʃɪz/'),
+
+    'caretaker': const WordDefinition(word: 'caretaker', turkishMeaning: 'bakıcı, bekçi, muhafız', partOfSpeech: 'isim', phonetic: '/ˈkɛərteɪkər/'),
+
+    'canyons': const WordDefinition(word: 'canyons', turkishMeaning: 'kanyonlar, derin vadiler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈkænjənz/'),
+
+    'camouflage': const WordDefinition(word: 'camouflage', turkishMeaning: 'kamuflaj, gizlenme', partOfSpeech: 'isim/fiil', phonetic: '/ˈkæməflɑːʒ/'),
+
+    'camille': const WordDefinition(word: 'camille', turkishMeaning: 'Camille (özel isim)', partOfSpeech: 'özel isim'),
+
+    'california': const WordDefinition(word: 'california', turkishMeaning: 'Kaliforniya (ABD eyaleti)', partOfSpeech: 'özel isim', phonetic: '/ˌkælɪˈfɔːrnjə/'),
+
+    'c': const WordDefinition(word: 'c', turkishMeaning: 'C harfi / santigrat derece simgesi', partOfSpeech: 'harf/simge'),
+
+    'byzantine': const WordDefinition(word: 'byzantine', turkishMeaning: 'Bizans\'a ait, karmaşık', partOfSpeech: 'sıfat', phonetic: '/ˈbɪzəntiːn/'),
+
+    'bust': const WordDefinition(word: 'bust', turkishMeaning: 'büst (baş ve omuz heykeli)', partOfSpeech: 'isim', phonetic: '/bʌst/'),
+
+    'builders': const WordDefinition(word: 'builders', turkishMeaning: 'inşaatçılar, yapıcılar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈbɪldərz/'),
+
+    'brushstroke': const WordDefinition(word: 'brushstroke', turkishMeaning: 'fırça darbesi, fırça izi', partOfSpeech: 'isim', phonetic: '/ˈbrʌʃstroʊk/'),
+
+    'bront': const WordDefinition(word: 'bront', turkishMeaning: 'Brontë (ünlü İngiliz edebiyatçı kardeşler)', partOfSpeech: 'özel isim', phonetic: '/ˈbrɒnti/'),
+
+    'broken': const WordDefinition(word: 'broken', turkishMeaning: 'kırık, bozuk, parçalanmış', partOfSpeech: 'sıfat', phonetic: '/ˈbroʊkən/'),
+
+    'bowl': const WordDefinition(word: 'bowl', turkishMeaning: 'kase, çanak', partOfSpeech: 'isim', phonetic: '/boʊl/'),
+
+    'bosphorus': const WordDefinition(word: 'bosphorus', turkishMeaning: 'Boğaziçi, İstanbul Boğazı', partOfSpeech: 'özel isim', phonetic: '/ˈbɒsfərəs/'),
+
+    'border': const WordDefinition(word: 'border', turkishMeaning: 'sınır, hudut', partOfSpeech: 'isim/fiil', phonetic: '/ˈbɔːrdər/'),
+
+    'blizzards': const WordDefinition(word: 'blizzards', turkishMeaning: 'kar fırtınaları, tipiler', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈblɪzərdz/'),
+
+    'blake': const WordDefinition(word: 'blake', turkishMeaning: 'William Blake (ünlü İngiliz şair ve ressam)', partOfSpeech: 'özel isim', phonetic: '/bleɪk/'),
+
+    'biologist': const WordDefinition(word: 'biologist', turkishMeaning: 'biyolog, yaşam bilimci', partOfSpeech: 'isim', phonetic: '/baɪˈɒlədʒɪst/'),
+
+    'beloved': const WordDefinition(word: 'beloved', turkishMeaning: 'sevgili, çok sevilen', partOfSpeech: 'sıfat/isim', phonetic: '/bɪˈlʌvɪd/'),
+
+    'belief': const WordDefinition(word: 'belief', turkishMeaning: 'inanç, kanaat', partOfSpeech: 'isim', phonetic: '/bɪˈliːf/'),
+
+    'beekeeper': const WordDefinition(word: 'beekeeper', turkishMeaning: 'arıcı, arı yetiştiricisi', partOfSpeech: 'isim', phonetic: '/ˈbiːkiːpər/'),
+
+    'b': const WordDefinition(word: 'b', turkishMeaning: 'B harfi', partOfSpeech: 'harf'),
+
+    'azulejo': const WordDefinition(word: 'azulejo', turkishMeaning: 'azulejo (Portekiz ve İspanyol seramik çinisi)', partOfSpeech: 'isim', phonetic: '/ˌæzʊˈleɪhoʊ/'),
+
+    'ay': const WordDefinition(word: 'ay', turkishMeaning: 'ay, hilal / zaman birimi', partOfSpeech: 'kelime'),
+
+    'awe': const WordDefinition(word: 'awe', turkishMeaning: 'büyük hayranlık, huşu, saygı dolu korku', partOfSpeech: 'isim', phonetic: '/ɔː/'),
+
+    'awaken': const WordDefinition(word: 'awaken', turkishMeaning: 'uyandırmak, uyanmak', partOfSpeech: 'fiil', phonetic: '/əˈweɪkən/'),
+
+    'australia': const WordDefinition(word: 'australia', turkishMeaning: 'Avustralya', partOfSpeech: 'özel isim', phonetic: '/ɒˈstreɪliə/'),
+
+    'austen': const WordDefinition(word: 'austen', turkishMeaning: 'Jane Austen (ünlü İngiliz yazar)', partOfSpeech: 'özel isim', phonetic: '/ˈɔːstɪn/'),
+
+    'aurelius': const WordDefinition(word: 'aurelius', turkishMeaning: 'Marcus Aurelius (Roma imparatoru & Stoacı filozof)', partOfSpeech: 'özel isim', phonetic: '/ɔːˈriːliəs/'),
+
+    'athenian': const WordDefinition(word: 'athenian', turkishMeaning: 'Atinalı, Atina\'ya özgü', partOfSpeech: 'sıfat', phonetic: '/əˈθiːniən/'),
+
+    'asian': const WordDefinition(word: 'asian', turkishMeaning: 'Asyalı, Asya kıtasına ait', partOfSpeech: 'sıfat', phonetic: '/ˈeɪʒən/'),
+
+    'architectural': const WordDefinition(word: 'architectural', turkishMeaning: 'mimari, yapısal', partOfSpeech: 'sıfat', phonetic: '/ˌɑːrkɪˈtɛktʃərəl/'),
+
+    'archeologist': const WordDefinition(word: 'archeologist', turkishMeaning: 'arkeolog, kazı bilimci', partOfSpeech: 'isim', phonetic: '/ˌɑːrkiˈɒlədʒɪst/'),
+
+    'arabian': const WordDefinition(word: 'arabian', turkishMeaning: 'Arap, Arabistan\'a özgü', partOfSpeech: 'sıfat', phonetic: '/əˈreɪbiən/'),
+
+    'apple': const WordDefinition(word: 'apple', turkishMeaning: 'elma', partOfSpeech: 'isim', phonetic: '/ˈæpəl/'),
+
+    'appeared': const WordDefinition(word: 'appeared', turkishMeaning: 'ortaya çıktı, göründü', partOfSpeech: 'fiil', phonetic: '/əˈpɪərd/'),
+
+    'apollo': const WordDefinition(word: 'apollo', turkishMeaning: 'Apollo (Güneş tanrısı veya uzay görevi)', partOfSpeech: 'özel isim', phonetic: '/əˈpɒloʊ/'),
+
+    'apartment': const WordDefinition(word: 'apartment', turkishMeaning: 'apartman dairesi', partOfSpeech: 'isim', phonetic: '/əˈpɑːrtmənt/'),
+
+    'annals': const WordDefinition(word: 'annals', turkishMeaning: 'tarihsel kayıtlar, yıllıklar', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈænəlz/'),
+
+    'anlar': const WordDefinition(word: 'anlar', turkishMeaning: 'anlar, zaman dilimleri', partOfSpeech: 'kelime'),
+
+    'angles': const WordDefinition(word: 'angles', turkishMeaning: 'açılar, bakış açıları', partOfSpeech: 'isim (çoğul)', phonetic: '/ˈæŋɡəlz/'),
+
+    'andalusian': const WordDefinition(word: 'andalusian', turkishMeaning: 'Endülüslü, Endülüs\'e ait', partOfSpeech: 'sıfat', phonetic: '/ˌændəˈluːziən/'),
+
+    'andalusia': const WordDefinition(word: 'andalusia', turkishMeaning: 'Endülüs (Güney İspanya bölgesi)', partOfSpeech: 'özel isim', phonetic: '/ˌændəˈluːziə/'),
+
+    'amplify': const WordDefinition(word: 'amplify', turkishMeaning: 'güçlendirmek, sesini yükseltmek', partOfSpeech: 'fiil', phonetic: '/ˈæmplɪfaɪ/'),
+
+    'amidst': const WordDefinition(word: 'amidst', turkishMeaning: 'arasında, ortasında', partOfSpeech: 'edat', phonetic: '/əˈmɪdst/'),
+
+    'alienated': const WordDefinition(word: 'alienated', turkishMeaning: 'yabancılaşmış, dışlanmış', partOfSpeech: 'sıfat', phonetic: '/ˈeɪliəneɪtɪd/'),
+
+    'alaskan': const WordDefinition(word: 'alaskan', turkishMeaning: 'Alaska\'ya ait, Alaskalı', partOfSpeech: 'sıfat', phonetic: '/əˈlæskən/'),
+
+    'alarms': const WordDefinition(word: 'alarms', turkishMeaning: 'alarmlar, uyarı sinyalleri', partOfSpeech: 'isim (çoğul)', phonetic: '/əˈlɑːrmz/'),
+
+    'agronomist': const WordDefinition(word: 'agronomist', turkishMeaning: 'tarım uzmanı, ziraatçi', partOfSpeech: 'isim', phonetic: '/əˈɡrɒnəmɪst/'),
+
+    'agent': const WordDefinition(word: 'agent', turkishMeaning: 'ajan, temsilci, etken madde', partOfSpeech: 'isim', phonetic: '/ˈeɪdʒənt/'),
+
+    'adriatic': const WordDefinition(word: 'adriatic', turkishMeaning: 'Adriyatik denizi ile ilgili', partOfSpeech: 'özel isim', phonetic: '/ˌeɪdriˈætɪk/'),
+
+    'adlerian': const WordDefinition(word: 'adlerian', turkishMeaning: 'Adler ekolü / psikolojisi ile ilgili', partOfSpeech: 'sıfat', phonetic: '/ædˈlɪəriən/'),
+
+    'adaptation': const WordDefinition(word: 'adaptation', turkishMeaning: 'uyum, adapte olma, uyarlama', partOfSpeech: 'isim', phonetic: '/ˌædæpˈteɪʃən/'),
+
+    'action': const WordDefinition(word: 'action', turkishMeaning: 'eylem, hareket, aksiyon', partOfSpeech: 'isim', phonetic: '/ˈækʃən/'),
+
+    'aaron': const WordDefinition(word: 'aaron', turkishMeaning: 'Aaron (özel isim)', partOfSpeech: 'özel isim'),
+
+    'gotten': const WordDefinition(word: 'gotten', turkishMeaning: 'elde edilmiş, olmuş', partOfSpeech: 'fiil', phonetic: '/ˈɡɒtn/'),
+
+    'gets': const WordDefinition(word: 'gets', turkishMeaning: 'alır, elde eder', partOfSpeech: 'fiil', phonetic: '/ɡɛts/'),
+
+    'sees': const WordDefinition(word: 'sees', turkishMeaning: 'görür', partOfSpeech: 'fiil', phonetic: '/siːz/'),
+
+    'says': const WordDefinition(word: 'says', turkishMeaning: 'söyler, diyor', partOfSpeech: 'fiil', phonetic: '/sɛz/'),
+
+    'had': const WordDefinition(word: 'had', turkishMeaning: 'sahipti, vardı (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: '/hæd/'),
+
+    'has': const WordDefinition(word: 'has', turkishMeaning: 'sahiptir, vardır (üçüncü tekil)', partOfSpeech: 'yardımcı fiil', phonetic: '/hæz/'),
+
+    'were': const WordDefinition(word: 'were', turkishMeaning: 'idiler, oldular (geçmiş zaman çoğul)', partOfSpeech: 'yardımcı fiil', phonetic: '/wɜːr/'),
+
+    'was': const WordDefinition(word: 'was', turkishMeaning: 'idi, oldu (geçmiş zaman tekil)', partOfSpeech: 'yardımcı fiil', phonetic: '/wɒz/'),
+
+    'are': const WordDefinition(word: 'are', turkishMeaning: 'olmak, -dırlar / -siniz (çoğul şahıs)', partOfSpeech: 'yardımcı fiil', phonetic: '/ɑːr/'),
+
+    'is': const WordDefinition(word: 'is', turkishMeaning: 'olmak, -dır / -dir (üçüncü tekil şahıs)', partOfSpeech: 'yardımcı fiil', phonetic: '/ɪz/'),
+
+    'a': const WordDefinition(word: 'a', turkishMeaning: 'bir (belirsiz tekil nesne belirteci)', partOfSpeech: 'belirteç', phonetic: '/ə/'),
     'abandon': const WordDefinition(word: 'abandon', turkishMeaning: 'terk etmek, bırakmak', partOfSpeech: 'fiil', phonetic: '/əˈbændən/', ),
     'abandoned': const WordDefinition(word: 'abandoned', turkishMeaning: 'terk edilmiş', partOfSpeech: 'fiil', ),
     'ability': const WordDefinition(word: 'ability', turkishMeaning: 'yetenek, kabiliyet', partOfSpeech: 'isim', phonetic: '/əˈbɪləti/', ),
     'abnormalities': const WordDefinition(word: 'abnormalities', turkishMeaning: 'anormallikler', partOfSpeech: 'kelime', ),
     'abnormality': const WordDefinition(word: 'abnormality', turkishMeaning: 'anormallik, olağandışılık', partOfSpeech: 'isim', phonetic: '/ˌæbnɔːrˈmæləti/', ),
     'aboard': const WordDefinition(word: 'aboard', turkishMeaning: 'gemide', partOfSpeech: 'kelime', ),
-    'about': const WordDefinition(word: 'about', turkishMeaning: 'hakkında', partOfSpeech: 'kelime', ),
+    'about': const WordDefinition(word: 'about', turkishMeaning: 'hakkında, yaklaşık olarak', partOfSpeech: 'edat/zarf', phonetic: '/əˈbaʊt/'),
     'above': const WordDefinition(word: 'above', turkishMeaning: 'yukarıda', partOfSpeech: 'kelime', ),
     'abruptly': const WordDefinition(word: 'abruptly', turkishMeaning: 'aniden, ansızın', partOfSpeech: 'zarf', phonetic: '/əˈbrʌptli/', ),
     'absence': const WordDefinition(word: 'absence', turkishMeaning: 'devamsızlık', partOfSpeech: 'kelime', ),
@@ -93,7 +1037,7 @@ class DictionaryService {
     'affordable': const WordDefinition(word: 'affordable', turkishMeaning: 'uygun fiyatlı', partOfSpeech: 'sıfat', ),
     'africa': const WordDefinition(word: 'africa', turkishMeaning: 'afrika', partOfSpeech: 'kelime', ),
     'african': const WordDefinition(word: 'african', turkishMeaning: 'afrikalı', partOfSpeech: 'kelime', ),
-    'after': const WordDefinition(word: 'after', turkishMeaning: 'sonra', partOfSpeech: 'isim', ),
+    'after': const WordDefinition(word: 'after', turkishMeaning: 'sonra, ardından', partOfSpeech: 'edat/bağlaç', phonetic: '/ˈæftər/'),
     'afternoon': const WordDefinition(word: 'afternoon', turkishMeaning: 'öğleden sonra', partOfSpeech: 'kelime', ),
     'again': const WordDefinition(word: 'again', turkishMeaning: 'tekrar', partOfSpeech: 'kelime', ),
     'against': const WordDefinition(word: 'against', turkishMeaning: 'karşı', partOfSpeech: 'kelime', ),
@@ -154,8 +1098,8 @@ class DictionaryService {
     'alvarez': const WordDefinition(word: 'alvarez', turkishMeaning: 'alvarez', partOfSpeech: 'kelime', ),
     'always': const WordDefinition(word: 'always', turkishMeaning: 'her zaman', partOfSpeech: 'kelime', ),
     'am': const WordDefinition(word: 'am', turkishMeaning: 'olmak (-im, -ım)', partOfSpeech: 'fiil', phonetic: '/æm/', ),
-    'amarna': const WordDefinition(word: 'amarna', turkishMeaning: 'amarna', partOfSpeech: 'kelime', ),
-    'amazon': const WordDefinition(word: 'amazon', turkishMeaning: 'amazon', partOfSpeech: 'kelime', ),
+    'amarna': const WordDefinition(word: 'amarna', turkishMeaning: 'Amarna (Mısır antik kenti)', partOfSpeech: 'özel isim'),
+    'amazon': const WordDefinition(word: 'amazon', turkishMeaning: 'Amazon (nehir veya orman)', partOfSpeech: 'özel isim', phonetic: '/ˈæməzɒn/'),
     'ambalajlar': const WordDefinition(word: 'ambalajlar', turkishMeaning: 'ambalajlar', partOfSpeech: 'kelime', ),
     'amber': const WordDefinition(word: 'amber', turkishMeaning: 'kehribar', partOfSpeech: 'isim', ),
     'ambient': const WordDefinition(word: 'ambient', turkishMeaning: 'çevresel, ortamdaki', partOfSpeech: 'sıfat', phonetic: '/ˈæmbiənt/', ),
@@ -163,13 +1107,13 @@ class DictionaryService {
     'america': const WordDefinition(word: 'america', turkishMeaning: 'amerika', partOfSpeech: 'kelime', ),
     'amiably': const WordDefinition(word: 'amiably', turkishMeaning: 'dostane bir şekilde', partOfSpeech: 'zarf', ),
     'amina': const WordDefinition(word: 'amina', turkishMeaning: 'amina', partOfSpeech: 'kelime', ),
-    'amino': const WordDefinition(word: 'amino', turkishMeaning: 'amino', partOfSpeech: 'kelime', ),
+    'amino': const WordDefinition(word: 'amino', turkishMeaning: 'amino (asit grubu)', partOfSpeech: 'isim/sıfat', phonetic: '/əˈmiːnoʊ/'),
     'among': const WordDefinition(word: 'among', turkishMeaning: 'arasında', partOfSpeech: 'kelime', ),
     'amounts': const WordDefinition(word: 'amounts', turkishMeaning: 'miktarlar', partOfSpeech: 'kelime', ),
     'amphorae': const WordDefinition(word: 'amphorae', turkishMeaning: 'amforalar', partOfSpeech: 'kelime', ),
     'amputees': const WordDefinition(word: 'amputees', turkishMeaning: 'ampute olanlar', partOfSpeech: 'kelime', ),
     'amyloid': const WordDefinition(word: 'amyloid', turkishMeaning: 'amiloid', partOfSpeech: 'kelime', ),
-    'an': const WordDefinition(word: 'an', turkishMeaning: 'bir', partOfSpeech: 'kelime', ),
+    'an': const WordDefinition(word: 'an', turkishMeaning: 'bir (sesli harfle başlayan kelimeler öncesi)', partOfSpeech: 'belirteç', phonetic: '/æn/'),
     'anaerobic': const WordDefinition(word: 'anaerobic', turkishMeaning: 'anaerobik', partOfSpeech: 'kelime', ),
     'analiz': const WordDefinition(word: 'analiz', turkishMeaning: 'analizci', partOfSpeech: 'kelime', ),
     'analizi': const WordDefinition(word: 'analizi', turkishMeaning: 'analiz', partOfSpeech: 'kelime', ),
@@ -235,7 +1179,6 @@ class DictionaryService {
     'archives': const WordDefinition(word: 'archives', turkishMeaning: 'arşivler', partOfSpeech: 'kelime', ),
     'archivist': const WordDefinition(word: 'archivist', turkishMeaning: 'arşivci', partOfSpeech: 'kelime', ),
     'arctic': const WordDefinition(word: 'arctic', turkishMeaning: 'arktik', partOfSpeech: 'kelime', ),
-    'are': const WordDefinition(word: 'are', turkishMeaning: 'olmak (-ler, -lar)', partOfSpeech: 'fiil', phonetic: '/ɑːr/', ),
     'areas': const WordDefinition(word: 'areas', turkishMeaning: 'alanlar', partOfSpeech: 'kelime', ),
     'arguing': const WordDefinition(word: 'arguing', turkishMeaning: 'tartışmak', partOfSpeech: 'fiil', ),
     'arid': const WordDefinition(word: 'arid', turkishMeaning: 'kurak', partOfSpeech: 'kelime', ),
@@ -249,7 +1192,7 @@ class DictionaryService {
     'arrived': const WordDefinition(word: 'arrived', turkishMeaning: 'geldi', partOfSpeech: 'fiil', ),
     'arrogant': const WordDefinition(word: 'arrogant', turkishMeaning: 'kibirli', partOfSpeech: 'kelime', ),
     'art': const WordDefinition(word: 'art', turkishMeaning: 'sanat', partOfSpeech: 'kelime', ),
-    'arthur': const WordDefinition(word: 'arthur', turkishMeaning: 'arthur', partOfSpeech: 'kelime', ),
+    'arthur': const WordDefinition(word: 'arthur', turkishMeaning: 'Arthur (efsanevi kral veya özel isim)', partOfSpeech: 'özel isim', phonetic: '/ˈɑːrθər/'),
     'article': const WordDefinition(word: 'article', turkishMeaning: 'makale', partOfSpeech: 'kelime', ),
     'artifacts': const WordDefinition(word: 'artifacts', turkishMeaning: 'eserler', partOfSpeech: 'kelime', ),
     'artificial': const WordDefinition(word: 'artificial', turkishMeaning: 'yapay, suni', partOfSpeech: 'sıfat', phonetic: '/ˌɑːrtɪˈfɪʃəl/', ),
@@ -282,7 +1225,7 @@ class DictionaryService {
     'astronotlara': const WordDefinition(word: 'astronotlara', turkishMeaning: 'astronotlara', partOfSpeech: 'kelime', ),
     'astrophysicist': const WordDefinition(word: 'astrophysicist', turkishMeaning: 'astrofizikçi', partOfSpeech: 'kelime', ),
     'astrophysicists': const WordDefinition(word: 'astrophysicists', turkishMeaning: 'astrofizikçiler', partOfSpeech: 'kelime', ),
-    'at': const WordDefinition(word: 'at', turkishMeaning: 'en', partOfSpeech: 'kelime', ),
+    'at': const WordDefinition(word: 'at', turkishMeaning: '-de / -da (zaman ve yer belirten)', partOfSpeech: 'edat', phonetic: '/æt/'),
     'atacama': const WordDefinition(word: 'atacama', turkishMeaning: 'atacama', partOfSpeech: 'kelime', ),
     'atlantic': const WordDefinition(word: 'atlantic', turkishMeaning: 'atlantik', partOfSpeech: 'kelime', ),
     'atmak': const WordDefinition(word: 'atmak', turkishMeaning: 'atmak', partOfSpeech: 'kelime', ),
@@ -376,7 +1319,7 @@ class DictionaryService {
     'baykal': const WordDefinition(word: 'baykal', turkishMeaning: 'baykal', partOfSpeech: 'sıfat', ),
     'bazaar': const WordDefinition(word: 'bazaar', turkishMeaning: 'çarşı', partOfSpeech: 'kelime', ),
     'bce': const WordDefinition(word: 'bce', turkishMeaning: 'm.ö.', partOfSpeech: 'kelime', ),
-    'be': const WordDefinition(word: 'be', turkishMeaning: 'olmak, var olmak', partOfSpeech: 'fiil', phonetic: '/biː/', ),
+    'be': const WordDefinition(word: 'be', turkishMeaning: 'olmak, var olmak', partOfSpeech: 'fiil', phonetic: '/biː/'),
     'beacon': const WordDefinition(word: 'beacon', turkishMeaning: 'deniz feneri, işaret ateşi, kılavuz', partOfSpeech: 'isim', phonetic: '/ˈbiːkən/', ),
     'beads': const WordDefinition(word: 'beads', turkishMeaning: 'boncuk', partOfSpeech: 'kelime', ),
     'beak': const WordDefinition(word: 'beak', turkishMeaning: 'gaga', partOfSpeech: 'kelime', ),
@@ -396,11 +1339,11 @@ class DictionaryService {
     'beehive': const WordDefinition(word: 'beehive', turkishMeaning: 'arı kovanı', partOfSpeech: 'sıfat', ),
     'beehives': const WordDefinition(word: 'beehives', turkishMeaning: 'arı kovanları', partOfSpeech: 'kelime', ),
     'beekeepers': const WordDefinition(word: 'beekeepers', turkishMeaning: 'arıcılar', partOfSpeech: 'kelime', ),
-    'been': const WordDefinition(word: 'been', turkishMeaning: 'olmuş, bulunmuş', partOfSpeech: 'fiil', phonetic: '/bɪn/', ),
+    'been': const WordDefinition(word: 'been', turkishMeaning: 'olmuş, bulunmuş (past participle)', partOfSpeech: 'fiil', phonetic: '/biːn/'),
     'bees': const WordDefinition(word: 'bees', turkishMeaning: 'arılar', partOfSpeech: 'kelime', ),
     'beeswax': const WordDefinition(word: 'beeswax', turkishMeaning: 'balmumu', partOfSpeech: 'kelime', ),
     'beethoven': const WordDefinition(word: 'beethoven', turkishMeaning: 'beethoven', partOfSpeech: 'kelime', ),
-    'before': const WordDefinition(word: 'before', turkishMeaning: 'önce', partOfSpeech: 'kelime', ),
+    'before': const WordDefinition(word: 'before', turkishMeaning: 'önce, önünde', partOfSpeech: 'edat/bağlaç', phonetic: '/bɪˈfɔːr/'),
     'befriends': const WordDefinition(word: 'befriends', turkishMeaning: 'arkadaş olmak', partOfSpeech: 'kelime', ),
     'beg': const WordDefinition(word: 'beg', turkishMeaning: 'yalvarmak', partOfSpeech: 'kelime', ),
     'began': const WordDefinition(word: 'began', turkishMeaning: 'başladı', partOfSpeech: 'kelime', ),
@@ -412,7 +1355,7 @@ class DictionaryService {
     'behavior': const WordDefinition(word: 'behavior', turkishMeaning: 'davranış', partOfSpeech: 'isim', ),
     'behavioral': const WordDefinition(word: 'behavioral', turkishMeaning: 'davranışsal', partOfSpeech: 'sıfat', ),
     'behind': const WordDefinition(word: 'behind', turkishMeaning: 'arkasında', partOfSpeech: 'kelime', ),
-    'being': const WordDefinition(word: 'being', turkishMeaning: 'olmak', partOfSpeech: 'fiil', ),
+    'being': const WordDefinition(word: 'being', turkishMeaning: 'olma, oluş, varlık', partOfSpeech: 'isim/fiil', phonetic: '/ˈbiːɪŋ/'),
     'believe': const WordDefinition(word: 'believe', turkishMeaning: 'inanmak', partOfSpeech: 'kelime', ),
     'believed': const WordDefinition(word: 'believed', turkishMeaning: 'inanıldı', partOfSpeech: 'fiil', ),
     'bell': const WordDefinition(word: 'bell', turkishMeaning: 'çan', partOfSpeech: 'kelime', ),
@@ -428,7 +1371,7 @@ class DictionaryService {
     'berries': const WordDefinition(word: 'berries', turkishMeaning: 'meyveler', partOfSpeech: 'kelime', ),
     'beside': const WordDefinition(word: 'beside', turkishMeaning: 'yanında', partOfSpeech: 'kelime', ),
     'besin': const WordDefinition(word: 'besin', turkishMeaning: 'besin', partOfSpeech: 'kelime', ),
-    'between': const WordDefinition(word: 'between', turkishMeaning: 'arasında', partOfSpeech: 'kelime', ),
+    'between': const WordDefinition(word: 'between', turkishMeaning: 'arasında (iki şeyin)', partOfSpeech: 'edat', phonetic: '/bɪˈtwiːn/'),
     'bewildered': const WordDefinition(word: 'bewildered', turkishMeaning: 'şaşkına dönmüş, afallamış', partOfSpeech: 'sıfat', phonetic: '/bɪˈwɪldərd/', ),
     'beyaz': const WordDefinition(word: 'beyaz', turkishMeaning: 'beyaz', partOfSpeech: 'kelime', ),
     'beyin': const WordDefinition(word: 'beyin', turkishMeaning: 'beyin', partOfSpeech: 'kelime', ),
@@ -439,9 +1382,9 @@ class DictionaryService {
     'biases': const WordDefinition(word: 'biases', turkishMeaning: 'önyargılar', partOfSpeech: 'kelime', ),
     'bicycle': const WordDefinition(word: 'bicycle', turkishMeaning: 'bisiklet', partOfSpeech: 'kelime', ),
     'big': const WordDefinition(word: 'big', turkishMeaning: 'büyük', partOfSpeech: 'kelime', ),
-    'bilgelik': const WordDefinition(word: 'bilgelik', turkishMeaning: 'bilgelik', partOfSpeech: 'kelime', ),
+    'bilgelik': const WordDefinition(word: 'bilgelik', turkishMeaning: 'bilgelik, derin kavrayış', partOfSpeech: 'isim'),
     'bilgisini': const WordDefinition(word: 'bilgisini', turkishMeaning: 'bilgisini', partOfSpeech: 'kelime', ),
-    'bilim': const WordDefinition(word: 'bilim', turkishMeaning: 'bilim', partOfSpeech: 'kelime', ),
+    'bilim': const WordDefinition(word: 'bilim', turkishMeaning: 'bilim, ilim', partOfSpeech: 'isim'),
     'bilingual': const WordDefinition(word: 'bilingual', turkishMeaning: 'iki dilli, iki lisan konuşan', partOfSpeech: 'sıfat', phonetic: '/baɪˈlɪŋɡwəl/', ),
     'billboards': const WordDefinition(word: 'billboards', turkishMeaning: 'reklam panoları', partOfSpeech: 'kelime', ),
     'billions': const WordDefinition(word: 'billions', turkishMeaning: 'milyarlarca', partOfSpeech: 'kelime', ),
@@ -625,7 +1568,7 @@ class DictionaryService {
     'buy': const WordDefinition(word: 'buy', turkishMeaning: 'satın almak', partOfSpeech: 'kelime', ),
     'buying': const WordDefinition(word: 'buying', turkishMeaning: 'satın alma', partOfSpeech: 'fiil', ),
     'buzul': const WordDefinition(word: 'buzul', turkishMeaning: 'buzul', partOfSpeech: 'kelime', ),
-    'by': const WordDefinition(word: 'by', turkishMeaning: 'tarafından', partOfSpeech: 'kelime', ),
+    'by': const WordDefinition(word: 'by', turkishMeaning: 'tarafından, vasıtasıyla, yanında', partOfSpeech: 'edat', phonetic: '/baɪ/'),
     'byproduct': const WordDefinition(word: 'byproduct', turkishMeaning: 'yan ürün', partOfSpeech: 'kelime', ),
     'cabin': const WordDefinition(word: 'cabin', turkishMeaning: 'kabin', partOfSpeech: 'kelime', ),
     'cables': const WordDefinition(word: 'cables', turkishMeaning: 'kablolar', partOfSpeech: 'kelime', ),
@@ -644,10 +1587,10 @@ class DictionaryService {
     'calm': const WordDefinition(word: 'calm', turkishMeaning: 'sakin', partOfSpeech: 'kelime', ),
     'calmed': const WordDefinition(word: 'calmed', turkishMeaning: 'sakinleşti', partOfSpeech: 'fiil', ),
     'calming': const WordDefinition(word: 'calming', turkishMeaning: 'sakinleştirici', partOfSpeech: 'fiil', ),
-    'came': const WordDefinition(word: 'came', turkishMeaning: 'geldi', partOfSpeech: 'fiil', phonetic: '/keɪm/', ),
+    'came': const WordDefinition(word: 'came', turkishMeaning: 'geldi', partOfSpeech: 'fiil', phonetic: '/keɪm/'),
     'camel': const WordDefinition(word: 'camel', turkishMeaning: 'deve', partOfSpeech: 'kelime', ),
     'cameras': const WordDefinition(word: 'cameras', turkishMeaning: 'kameralar', partOfSpeech: 'kelime', ),
-    'can': const WordDefinition(word: 'can', turkishMeaning: 'yapabilir', partOfSpeech: 'kelime', ),
+    'can': const WordDefinition(word: 'can', turkishMeaning: '-e bilmek, yapabilmek', partOfSpeech: 'modal fiil', phonetic: '/kæn/'),
     'canada': const WordDefinition(word: 'canada', turkishMeaning: 'kanada', partOfSpeech: 'kelime', ),
     'canals': const WordDefinition(word: 'canals', turkishMeaning: 'kanallar', partOfSpeech: 'kelime', ),
     'cancer': const WordDefinition(word: 'cancer', turkishMeaning: 'kanser', partOfSpeech: 'isim', ),
@@ -696,7 +1639,7 @@ class DictionaryService {
     'cars': const WordDefinition(word: 'cars', turkishMeaning: 'arabalar', partOfSpeech: 'kelime', ),
     'cartilaginous': const WordDefinition(word: 'cartilaginous', turkishMeaning: 'kıkırdaklı', partOfSpeech: 'sıfat', ),
     'carved': const WordDefinition(word: 'carved', turkishMeaning: 'oyulmuş', partOfSpeech: 'fiil', ),
-    'cas': const WordDefinition(word: 'cas', turkishMeaning: 'cas', partOfSpeech: 'kelime', ),
+    'cas': const WordDefinition(word: 'cas', turkishMeaning: 'Cas (özel isim veya kısaltma)', partOfSpeech: 'özel isim'),
     'cash': const WordDefinition(word: 'cash', turkishMeaning: 'nakit', partOfSpeech: 'kelime', ),
     'cast': const WordDefinition(word: 'cast', turkishMeaning: 'oyuncular', partOfSpeech: 'kelime', ),
     'cat': const WordDefinition(word: 'cat', turkishMeaning: 'kedi', partOfSpeech: 'kelime', ),
@@ -716,7 +1659,7 @@ class DictionaryService {
     'caverns': const WordDefinition(word: 'caverns', turkishMeaning: 'mağaralar', partOfSpeech: 'kelime', ),
     'caves': const WordDefinition(word: 'caves', turkishMeaning: 'mağaralar', partOfSpeech: 'kelime', ),
     'cavity': const WordDefinition(word: 'cavity', turkishMeaning: 'boşluk', partOfSpeech: 'isim', ),
-    'ce': const WordDefinition(word: 'ce', turkishMeaning: 'ce', partOfSpeech: 'kelime', ),
+    'ce': const WordDefinition(word: 'ce', turkishMeaning: 'Milattan Sonra (Common Era kısaltması)', partOfSpeech: 'kısaltma'),
     'celebrate': const WordDefinition(word: 'celebrate', turkishMeaning: 'kutlamak', partOfSpeech: 'fiil', ),
     'celebrated': const WordDefinition(word: 'celebrated', turkishMeaning: 'kutlandı', partOfSpeech: 'fiil', ),
     'celebrating': const WordDefinition(word: 'celebrating', turkishMeaning: 'kutluyor', partOfSpeech: 'fiil', ),
@@ -776,7 +1719,7 @@ class DictionaryService {
     'chess': const WordDefinition(word: 'chess', turkishMeaning: 'satranç', partOfSpeech: 'kelime', ),
     'chessboard': const WordDefinition(word: 'chessboard', turkishMeaning: 'satranç tahtası', partOfSpeech: 'kelime', ),
     'chest': const WordDefinition(word: 'chest', turkishMeaning: 'göğüs', partOfSpeech: 'kelime', ),
-    'chicago': const WordDefinition(word: 'chicago', turkishMeaning: 'chicago', partOfSpeech: 'kelime', ),
+    'chicago': const WordDefinition(word: 'chicago', turkishMeaning: 'Şikago (ABD kenti)', partOfSpeech: 'özel isim', phonetic: '/ʃɪˈkɑːɡoʊ/'),
     'child': const WordDefinition(word: 'child', turkishMeaning: 'çocuk', partOfSpeech: 'isim', phonetic: '/tʃaɪld/', ),
     'childhood': const WordDefinition(word: 'childhood', turkishMeaning: 'çocukluk', partOfSpeech: 'kelime', ),
     'children': const WordDefinition(word: 'children', turkishMeaning: 'çocuklar', partOfSpeech: 'isim', phonetic: '/ˈtʃɪldrən/', ),
@@ -806,7 +1749,7 @@ class DictionaryService {
     'city': const WordDefinition(word: 'city', turkishMeaning: 'şehir', partOfSpeech: 'isim', ),
     'civilization': const WordDefinition(word: 'civilization', turkishMeaning: 'uygarlık', partOfSpeech: 'isim', ),
     'civilizations': const WordDefinition(word: 'civilizations', turkishMeaning: 'medeniyetler', partOfSpeech: 'kelime', ),
-    'clara': const WordDefinition(word: 'clara', turkishMeaning: 'clara', partOfSpeech: 'kelime', ),
+    'clara': const WordDefinition(word: 'clara', turkishMeaning: 'Clara (özel isim / Clara Schumann)', partOfSpeech: 'özel isim', phonetic: '/ˈklɑːrə/'),
     'clarity': const WordDefinition(word: 'clarity', turkishMeaning: 'açıklık', partOfSpeech: 'isim', ),
     'clasps': const WordDefinition(word: 'clasps', turkishMeaning: 'tokalar', partOfSpeech: 'kelime', ),
     'classic': const WordDefinition(word: 'classic', turkishMeaning: 'klasik', partOfSpeech: 'kelime', ),
@@ -876,8 +1819,8 @@ class DictionaryService {
     'com': const WordDefinition(word: 'com', turkishMeaning: 'iletişim', partOfSpeech: 'kelime', ),
     'combination': const WordDefinition(word: 'combination', turkishMeaning: 'kombinasyon', partOfSpeech: 'isim', ),
     'combine': const WordDefinition(word: 'combine', turkishMeaning: 'birleştirmek', partOfSpeech: 'kelime', ),
-    'come': const WordDefinition(word: 'come', turkishMeaning: 'gelmek', partOfSpeech: 'fiil', phonetic: '/kʌm/', ),
-    'comes': const WordDefinition(word: 'comes', turkishMeaning: 'geliyor', partOfSpeech: 'kelime', ),
+    'come': const WordDefinition(word: 'come', turkishMeaning: 'gelmek', partOfSpeech: 'fiil', phonetic: '/kʌm/'),
+    'comes': const WordDefinition(word: 'comes', turkishMeaning: 'gelir', partOfSpeech: 'fiil', phonetic: '/kʌmz/'),
     'comets': const WordDefinition(word: 'comets', turkishMeaning: 'kuyruklu yıldızlar', partOfSpeech: 'kelime', ),
     'comfort': const WordDefinition(word: 'comfort', turkishMeaning: 'konfor', partOfSpeech: 'kelime', ),
     'commands': const WordDefinition(word: 'commands', turkishMeaning: 'komutlar', partOfSpeech: 'kelime', ),
@@ -1009,7 +1952,7 @@ class DictionaryService {
     'costs': const WordDefinition(word: 'costs', turkishMeaning: 'maliyetler', partOfSpeech: 'kelime', ),
     'cotswolds': const WordDefinition(word: 'cotswolds', turkishMeaning: 'cotswolds', partOfSpeech: 'kelime', ),
     'cotton': const WordDefinition(word: 'cotton', turkishMeaning: 'pamuk', partOfSpeech: 'kelime', ),
-    'could': const WordDefinition(word: 'could', turkishMeaning: 'olabilir', partOfSpeech: 'kelime', ),
+    'could': const WordDefinition(word: 'could', turkishMeaning: '-e bildi, yapabilirdi', partOfSpeech: 'modal fiil', phonetic: '/kʊd/'),
     'count': const WordDefinition(word: 'count', turkishMeaning: 'saymak', partOfSpeech: 'kelime', ),
     'counteract': const WordDefinition(word: 'counteract', turkishMeaning: 'karşı koymak', partOfSpeech: 'kelime', ),
     'counterfeit': const WordDefinition(word: 'counterfeit', turkishMeaning: 'sahte', partOfSpeech: 'kelime', ),
@@ -1246,7 +2189,7 @@ class DictionaryService {
     'diamonds': const WordDefinition(word: 'diamonds', turkishMeaning: 'elmaslar', partOfSpeech: 'kelime', ),
     'diary': const WordDefinition(word: 'diary', turkishMeaning: 'günlük', partOfSpeech: 'kelime', ),
     'dickinson': const WordDefinition(word: 'dickinson', turkishMeaning: 'dickinson', partOfSpeech: 'kelime', ),
-    'did': const WordDefinition(word: 'did', turkishMeaning: 'yaptı, etti', partOfSpeech: 'fiil', phonetic: '/dɪd/', ),
+    'did': const WordDefinition(word: 'did', turkishMeaning: 'yaptı (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: '/dɪd/'),
     'diesel': const WordDefinition(word: 'diesel', turkishMeaning: 'dizel', partOfSpeech: 'kelime', ),
     'dietary': const WordDefinition(word: 'dietary', turkishMeaning: 'diyet', partOfSpeech: 'kelime', ),
     'diets': const WordDefinition(word: 'diets', turkishMeaning: 'diyetler', partOfSpeech: 'kelime', ),
@@ -1311,11 +2254,11 @@ class DictionaryService {
     'dizilimini': const WordDefinition(word: 'dizilimini', turkishMeaning: 'dizilimini', partOfSpeech: 'kelime', ),
     'dizilimiydi': const WordDefinition(word: 'dizilimiydi', turkishMeaning: 'dizilimiydi', partOfSpeech: 'kelime', ),
     'dna': const WordDefinition(word: 'dna', turkishMeaning: 'dna', partOfSpeech: 'kelime', ),
-    'do': const WordDefinition(word: 'do', turkishMeaning: 'yapmak, etmek', partOfSpeech: 'fiil', phonetic: '/duː/', ),
+    'do': const WordDefinition(word: 'do', turkishMeaning: 'yapmak, yerine getirmek', partOfSpeech: 'fiil', phonetic: '/duː/'),
     'docks': const WordDefinition(word: 'docks', turkishMeaning: 'rıhtım', partOfSpeech: 'kelime', ),
     'doctors': const WordDefinition(word: 'doctors', turkishMeaning: 'doktorlar', partOfSpeech: 'kelime', ),
-    'does': const WordDefinition(word: 'does', turkishMeaning: 'yapar, eder', partOfSpeech: 'fiil', phonetic: '/dʌz/', ),
-    'dogma': const WordDefinition(word: 'dogma', turkishMeaning: 'dogma', partOfSpeech: 'kelime', ),
+    'does': const WordDefinition(word: 'does', turkishMeaning: 'yapar (üçüncü tekil)', partOfSpeech: 'fiil', phonetic: '/dʌz/'),
+    'dogma': const WordDefinition(word: 'dogma', turkishMeaning: 'dogma, körü körüne inanılan doktrin', partOfSpeech: 'isim', phonetic: '/ˈdɒɡmə/'),
     'dokunma': const WordDefinition(word: 'dokunma', turkishMeaning: 'dokunma', partOfSpeech: 'kelime', ),
     'dokunsal': const WordDefinition(word: 'dokunsal', turkishMeaning: 'dokunsal', partOfSpeech: 'sıfat', ),
     'dokuyarak': const WordDefinition(word: 'dokuyarak', turkishMeaning: 'dokuyarak', partOfSpeech: 'kelime', ),
@@ -1324,7 +2267,7 @@ class DictionaryService {
     'dominate': const WordDefinition(word: 'dominate', turkishMeaning: 'hükmetmek, baskın olmak', partOfSpeech: 'fiil', phonetic: '/ˈdɑːmɪneɪt/', ),
     'dominated': const WordDefinition(word: 'dominated', turkishMeaning: 'egemen', partOfSpeech: 'fiil', ),
     'don': const WordDefinition(word: 'don', turkishMeaning: 'don', partOfSpeech: 'kelime', ),
-    'done': const WordDefinition(word: 'done', turkishMeaning: 'yapılmış, bitmiş', partOfSpeech: 'fiil', phonetic: '/dʌn/', ),
+    'done': const WordDefinition(word: 'done', turkishMeaning: 'yapılmış, tamamlanmış', partOfSpeech: 'sıfat/fiil', phonetic: '/dʌn/'),
     'donkey': const WordDefinition(word: 'donkey', turkishMeaning: 'eşek', partOfSpeech: 'isim', phonetic: '/ˈdɑːŋki/', ),
     'door': const WordDefinition(word: 'door', turkishMeaning: 'kapı', partOfSpeech: 'isim', ),
     'doors': const WordDefinition(word: 'doors', turkishMeaning: 'kapılar', partOfSpeech: 'kelime', ),
@@ -1360,7 +2303,7 @@ class DictionaryService {
     'drinking': const WordDefinition(word: 'drinking', turkishMeaning: 'içmek', partOfSpeech: 'fiil', ),
     'dripping': const WordDefinition(word: 'dripping', turkishMeaning: 'damlayan', partOfSpeech: 'fiil', ),
     'driving': const WordDefinition(word: 'driving', turkishMeaning: 'araba kullanmak', partOfSpeech: 'fiil', ),
-    'droid': const WordDefinition(word: 'droid', turkishMeaning: 'droid', partOfSpeech: 'kelime', ),
+    'droid': const WordDefinition(word: 'droid', turkishMeaning: 'droid, akıllı robot', partOfSpeech: 'isim', phonetic: '/drɔɪd/'),
     'drone': const WordDefinition(word: 'drone', turkishMeaning: 'dron', partOfSpeech: 'kelime', ),
     'drones': const WordDefinition(word: 'drones', turkishMeaning: 'dronlar', partOfSpeech: 'kelime', ),
     'dronlar': const WordDefinition(word: 'dronlar', turkishMeaning: 'dronlar', partOfSpeech: 'kelime', ),
@@ -1421,7 +2364,7 @@ class DictionaryService {
     'economy': const WordDefinition(word: 'economy', turkishMeaning: 'ekonomi', partOfSpeech: 'kelime', ),
     'ecosystem': const WordDefinition(word: 'ecosystem', turkishMeaning: 'ekosistem', partOfSpeech: 'kelime', ),
     'ecosystems': const WordDefinition(word: 'ecosystems', turkishMeaning: 'ekosistemler', partOfSpeech: 'kelime', ),
-    'edebiyat': const WordDefinition(word: 'edebiyat', turkishMeaning: 'edebiyat', partOfSpeech: 'kelime', ),
+    'edebiyat': const WordDefinition(word: 'edebiyat', turkishMeaning: 'edebiyat, yazın', partOfSpeech: 'isim'),
     'eden': const WordDefinition(word: 'eden', turkishMeaning: 'eden', partOfSpeech: 'kelime', ),
     'eder': const WordDefinition(word: 'eder', turkishMeaning: 'eder', partOfSpeech: 'isim', ),
     'ederek': const WordDefinition(word: 'ederek', turkishMeaning: 'diyerek', partOfSpeech: 'kelime', ),
@@ -1468,7 +2411,7 @@ class DictionaryService {
     'elektrik': const WordDefinition(word: 'elektrik', turkishMeaning: 'elektrik', partOfSpeech: 'kelime', ),
     'elektrikli': const WordDefinition(word: 'elektrikli', turkishMeaning: 'elektrikli', partOfSpeech: 'kelime', ),
     'element': const WordDefinition(word: 'element', turkishMeaning: 'öğe, unsur, element', partOfSpeech: 'isim', phonetic: '/ˈɛlɪmənt/', ),
-    'elena': const WordDefinition(word: 'elena', turkishMeaning: 'elena', partOfSpeech: 'kelime', ),
+    'elena': const WordDefinition(word: 'elena', turkishMeaning: 'Elena (özel isim)', partOfSpeech: 'özel isim'),
     'elephant': const WordDefinition(word: 'elephant', turkishMeaning: 'fil', partOfSpeech: 'kelime', ),
     'elevated': const WordDefinition(word: 'elevated', turkishMeaning: 'yükseltilmiş', partOfSpeech: 'fiil', ),
     'elevation': const WordDefinition(word: 'elevation', turkishMeaning: 'yükseklik', partOfSpeech: 'isim', ),
@@ -1587,7 +2530,7 @@ class DictionaryService {
     'evaluate': const WordDefinition(word: 'evaluate', turkishMeaning: 'değerlendirmek', partOfSpeech: 'fiil', phonetic: '/ɪˈvæljueɪt/', ),
     'evaluation': const WordDefinition(word: 'evaluation', turkishMeaning: 'değerlendirme', partOfSpeech: 'isim', ),
     'evaluations': const WordDefinition(word: 'evaluations', turkishMeaning: 'değerlendirmeler', partOfSpeech: 'kelime', ),
-    'evelyn': const WordDefinition(word: 'evelyn', turkishMeaning: 'evelyn', partOfSpeech: 'kelime', ),
+    'evelyn': const WordDefinition(word: 'evelyn', turkishMeaning: 'Evelyn (özel isim)', partOfSpeech: 'özel isim'),
     'even': const WordDefinition(word: 'even', turkishMeaning: 'hatta', partOfSpeech: 'kelime', ),
     'evening': const WordDefinition(word: 'evening', turkishMeaning: 'akşam', partOfSpeech: 'fiil', ),
     'evenings': const WordDefinition(word: 'evenings', turkishMeaning: 'akşamlar', partOfSpeech: 'kelime', ),
@@ -1604,7 +2547,7 @@ class DictionaryService {
     'excavations': const WordDefinition(word: 'excavations', turkishMeaning: 'kazılar', partOfSpeech: 'kelime', ),
     'exceed': const WordDefinition(word: 'exceed', turkishMeaning: 'aşmak, geçmek', partOfSpeech: 'fiil', phonetic: '/ɪkˈsiːd/', ),
     'exceeds': const WordDefinition(word: 'exceeds', turkishMeaning: 'aşar', partOfSpeech: 'kelime', ),
-    'excel': const WordDefinition(word: 'excel', turkishMeaning: 'excel', partOfSpeech: 'kelime', ),
+    'excel': const WordDefinition(word: 'excel', turkishMeaning: 'üstün başarı göstermek, parlamak', partOfSpeech: 'fiil', phonetic: '/ɪkˈsɛl/'),
     'exceptional': const WordDefinition(word: 'exceptional', turkishMeaning: 'olağanüstü', partOfSpeech: 'sıfat', ),
     'exchangers': const WordDefinition(word: 'exchangers', turkishMeaning: 'eşanjörler', partOfSpeech: 'kelime', ),
     'executive': const WordDefinition(word: 'executive', turkishMeaning: 'yönetici', partOfSpeech: 'sıfat', ),
@@ -1829,7 +2772,7 @@ class DictionaryService {
     'footage': const WordDefinition(word: 'footage', turkishMeaning: 'görüntüleri', partOfSpeech: 'kelime', ),
     'footprint': const WordDefinition(word: 'footprint', turkishMeaning: 'ayak izi', partOfSpeech: 'kelime', ),
     'footstep': const WordDefinition(word: 'footstep', turkishMeaning: 'ayak sesi, ayak izi', partOfSpeech: 'isim', phonetic: '/ˈfʊtˌstɛp/', ),
-    'for': const WordDefinition(word: 'for', turkishMeaning: 'için', partOfSpeech: 'isim', ),
+    'for': const WordDefinition(word: 'for', turkishMeaning: 'için, amacıyla, boyunca', partOfSpeech: 'edat', phonetic: '/fɔːr/'),
     'forager': const WordDefinition(word: 'forager', turkishMeaning: 'toplayıcı', partOfSpeech: 'isim', ),
     'forced': const WordDefinition(word: 'forced', turkishMeaning: 'zorla', partOfSpeech: 'fiil', ),
     'forcing': const WordDefinition(word: 'forcing', turkishMeaning: 'zorlama', partOfSpeech: 'fiil', ),
@@ -1886,7 +2829,7 @@ class DictionaryService {
     'friendly': const WordDefinition(word: 'friendly', turkishMeaning: 'dost canlısı', partOfSpeech: 'zarf', ),
     'friendship': const WordDefinition(word: 'friendship', turkishMeaning: 'dostluk', partOfSpeech: 'kelime', ),
     'friendships': const WordDefinition(word: 'friendships', turkishMeaning: 'arkadaşlıklar', partOfSpeech: 'kelime', ),
-    'from': const WordDefinition(word: 'from', turkishMeaning: 'itibaren', partOfSpeech: 'kelime', ),
+    'from': const WordDefinition(word: 'from', turkishMeaning: '-den / -dan, itibaren', partOfSpeech: 'edat', phonetic: '/frɒm/'),
     'front': const WordDefinition(word: 'front', turkishMeaning: 'ön', partOfSpeech: 'kelime', ),
     'frontiers': const WordDefinition(word: 'frontiers', turkishMeaning: 'sınırlar', partOfSpeech: 'kelime', ),
     'frost': const WordDefinition(word: 'frost', turkishMeaning: 'don', partOfSpeech: 'kelime', ),
@@ -1978,7 +2921,7 @@ class DictionaryService {
     'germinated': const WordDefinition(word: 'germinated', turkishMeaning: 'çimlenmiş', partOfSpeech: 'fiil', ),
     'gesture': const WordDefinition(word: 'gesture', turkishMeaning: 'jest', partOfSpeech: 'kelime', ),
     'gestures': const WordDefinition(word: 'gestures', turkishMeaning: 'jestler', partOfSpeech: 'kelime', ),
-    'get': const WordDefinition(word: 'get', turkishMeaning: 'almak, elde etmek, varmak', partOfSpeech: 'fiil', phonetic: '/ɡɛt/', ),
+    'get': const WordDefinition(word: 'get', turkishMeaning: 'almak, elde etmek, olmak', partOfSpeech: 'fiil', phonetic: '/ɡɛt/'),
     'geysers': const WordDefinition(word: 'geysers', turkishMeaning: 'gayzerler', partOfSpeech: 'kelime', ),
     'gezegenin': const WordDefinition(word: 'gezegenin', turkishMeaning: 'gezegenin', partOfSpeech: 'kelime', ),
     'gezen': const WordDefinition(word: 'gezen', turkishMeaning: 'gezen', partOfSpeech: 'kelime', ),
@@ -1990,7 +2933,7 @@ class DictionaryService {
     'giderme': const WordDefinition(word: 'giderme', turkishMeaning: 'giderme', partOfSpeech: 'kelime', ),
     'gift': const WordDefinition(word: 'gift', turkishMeaning: 'hediye', partOfSpeech: 'kelime', ),
     'gigatons': const WordDefinition(word: 'gigatons', turkishMeaning: 'gigatonlar', partOfSpeech: 'kelime', ),
-    'gigawatt': const WordDefinition(word: 'gigawatt', turkishMeaning: 'gigawatt', partOfSpeech: 'kelime', ),
+    'gigawatt': const WordDefinition(word: 'gigawatt', turkishMeaning: 'gigavat (milyar vat güç birimi)', partOfSpeech: 'isim', phonetic: '/ˈɡɪɡəwɒt/'),
     'gilding': const WordDefinition(word: 'gilding', turkishMeaning: 'yaldız', partOfSpeech: 'fiil', ),
     'ginger': const WordDefinition(word: 'ginger', turkishMeaning: 'zencefil', partOfSpeech: 'isim', ),
     'girl': const WordDefinition(word: 'girl', turkishMeaning: 'kız', partOfSpeech: 'kelime', ),
@@ -2016,14 +2959,14 @@ class DictionaryService {
     'gloved': const WordDefinition(word: 'gloved', turkishMeaning: 'eldivenli', partOfSpeech: 'fiil', ),
     'glowing': const WordDefinition(word: 'glowing', turkishMeaning: 'parlak', partOfSpeech: 'fiil', ),
     'glymphatic': const WordDefinition(word: 'glymphatic', turkishMeaning: 'glimfatik', partOfSpeech: 'kelime', ),
-    'go': const WordDefinition(word: 'go', turkishMeaning: 'gitmek', partOfSpeech: 'fiil', phonetic: '/ɡoʊ/', ),
+    'go': const WordDefinition(word: 'go', turkishMeaning: 'gitmek, ilerlemek', partOfSpeech: 'fiil', phonetic: '/ɡoʊ/'),
     'goal': const WordDefinition(word: 'goal', turkishMeaning: 'hedef', partOfSpeech: 'sıfat', ),
-    'goes': const WordDefinition(word: 'goes', turkishMeaning: 'gider', partOfSpeech: 'fiil', phonetic: '/ɡoʊz/', ),
+    'goes': const WordDefinition(word: 'goes', turkishMeaning: 'gider', partOfSpeech: 'fiil', phonetic: '/ɡoʊz/'),
     'gold': const WordDefinition(word: 'gold', turkishMeaning: 'altın', partOfSpeech: 'kelime', ),
     'golden': const WordDefinition(word: 'golden', turkishMeaning: 'altın', partOfSpeech: 'kelime', ),
-    'gone': const WordDefinition(word: 'gone', turkishMeaning: 'gitmiş, kaybolmuş', partOfSpeech: 'fiil', phonetic: '/ɡɔːn/', ),
+    'gone': const WordDefinition(word: 'gone', turkishMeaning: 'gitmiş, kaybolmuş', partOfSpeech: 'sıfat/fiil', phonetic: '/ɡɒn/'),
     'goods': const WordDefinition(word: 'goods', turkishMeaning: 'mallar', partOfSpeech: 'kelime', ),
-    'got': const WordDefinition(word: 'got', turkishMeaning: 'aldı, elde etti', partOfSpeech: 'fiil', phonetic: '/ɡɑːt/', ),
+    'got': const WordDefinition(word: 'got', turkishMeaning: 'aldı, oldu', partOfSpeech: 'fiil', phonetic: '/ɡɒt/'),
     'governments': const WordDefinition(word: 'governments', turkishMeaning: 'hükümetler', partOfSpeech: 'kelime', ),
     'gps': const WordDefinition(word: 'gps', turkishMeaning: 'gps', partOfSpeech: 'kelime', ),
     'grabbed': const WordDefinition(word: 'grabbed', turkishMeaning: 'yakalandı', partOfSpeech: 'fiil', ),
@@ -2031,7 +2974,7 @@ class DictionaryService {
     'grade': const WordDefinition(word: 'grade', turkishMeaning: 'not', partOfSpeech: 'kelime', ),
     'gradual': const WordDefinition(word: 'gradual', turkishMeaning: 'kademeli, yavaş yavaş', partOfSpeech: 'sıfat', phonetic: '/ˈɡrædʒuəl/', ),
     'graft': const WordDefinition(word: 'graft', turkishMeaning: 'aşı', partOfSpeech: 'kelime', ),
-    'gram': const WordDefinition(word: 'gram', turkishMeaning: 'gram', partOfSpeech: 'kelime', ),
+    'gram': const WordDefinition(word: 'gram', turkishMeaning: 'gram (kütle birimi)', partOfSpeech: 'isim', phonetic: '/ɡræm/'),
     'grand': const WordDefinition(word: 'grand', turkishMeaning: 'büyük', partOfSpeech: 'kelime', ),
     'granddaughter': const WordDefinition(word: 'granddaughter', turkishMeaning: 'torunu', partOfSpeech: 'isim', ),
     'grandfather': const WordDefinition(word: 'grandfather', turkishMeaning: 'büyükbaba', partOfSpeech: 'isim', ),
@@ -2084,8 +3027,7 @@ class DictionaryService {
     'habitual': const WordDefinition(word: 'habitual', turkishMeaning: 'alışılmış', partOfSpeech: 'sıfat', ),
     'hack': const WordDefinition(word: 'hack', turkishMeaning: 'kesmek', partOfSpeech: 'kelime', ),
     'hackers': const WordDefinition(word: 'hackers', turkishMeaning: 'bilgisayar korsanları', partOfSpeech: 'kelime', ),
-    'had': const WordDefinition(word: 'had', turkishMeaning: 'sahipti (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: '/hæd/', ),
-    'hadal': const WordDefinition(word: 'hadal', turkishMeaning: 'hadal', partOfSpeech: 'sıfat', ),
+    'hadal': const WordDefinition(word: 'hadal', turkishMeaning: 'hadal zon (okyanusun en derin 6000m+ çukurları)', partOfSpeech: 'sıfat', phonetic: '/ˈheɪdəl/'),
     'hafif': const WordDefinition(word: 'hafif', turkishMeaning: 'hafif', partOfSpeech: 'kelime', ),
     'haftalar': const WordDefinition(word: 'haftalar', turkishMeaning: 'haftalar', partOfSpeech: 'kelime', ),
     'haikus': const WordDefinition(word: 'haikus', turkishMeaning: 'haiku', partOfSpeech: 'kelime', ),
@@ -2124,7 +3066,6 @@ class DictionaryService {
     'harsh': const WordDefinition(word: 'harsh', turkishMeaning: 'sert', partOfSpeech: 'kelime', ),
     'harvest': const WordDefinition(word: 'harvest', turkishMeaning: 'hasat', partOfSpeech: 'kelime', ),
     'harvested': const WordDefinition(word: 'harvested', turkishMeaning: 'hasat edilmiş', partOfSpeech: 'fiil', ),
-    'has': const WordDefinition(word: 'has', turkishMeaning: 'sahip olmak (tekil)', partOfSpeech: 'fiil', phonetic: '/hæz/', ),
     'hassas': const WordDefinition(word: 'hassas', turkishMeaning: 'hassas', partOfSpeech: 'kelime', ),
     'hasta': const WordDefinition(word: 'hasta', turkishMeaning: 'hasta', partOfSpeech: 'kelime', ),
     'hasty': const WordDefinition(word: 'hasty', turkishMeaning: 'aceleci', partOfSpeech: 'kelime', ),
@@ -2134,7 +3075,7 @@ class DictionaryService {
     'haunting': const WordDefinition(word: 'haunting', turkishMeaning: 'unutulmaz', partOfSpeech: 'fiil', ),
     'hava': const WordDefinition(word: 'hava', turkishMeaning: 'hava', partOfSpeech: 'kelime', ),
     'havadan': const WordDefinition(word: 'havadan', turkishMeaning: 'havadan', partOfSpeech: 'kelime', ),
-    'have': const WordDefinition(word: 'have', turkishMeaning: 'sahip olmak', partOfSpeech: 'fiil', phonetic: '/hæv/', ),
+    'have': const WordDefinition(word: 'have', turkishMeaning: 'sahip olmak, yapmak', partOfSpeech: 'fiil', phonetic: '/hæv/'),
     'hawaiian': const WordDefinition(word: 'hawaiian', turkishMeaning: 'hawaii dili', partOfSpeech: 'kelime', ),
     'hayallerini': const WordDefinition(word: 'hayallerini', turkishMeaning: 'hayallerini', partOfSpeech: 'kelime', ),
     'hayes': const WordDefinition(word: 'hayes', turkishMeaning: 'hayes', partOfSpeech: 'kelime', ),
@@ -2169,7 +3110,7 @@ class DictionaryService {
     'help': const WordDefinition(word: 'help', turkishMeaning: 'yardım', partOfSpeech: 'kelime', ),
     'helps': const WordDefinition(word: 'helps', turkishMeaning: 'yardımcı olur', partOfSpeech: 'kelime', ),
     'hemlock': const WordDefinition(word: 'hemlock', turkishMeaning: 'baldıran otu', partOfSpeech: 'kelime', ),
-    'hemoglobin': const WordDefinition(word: 'hemoglobin', turkishMeaning: 'hemoglobin', partOfSpeech: 'kelime', ),
+    'hemoglobin': const WordDefinition(word: 'hemoglobin', turkishMeaning: 'hemoglobin (kanda oksijen taşıyan protein)', partOfSpeech: 'isim', phonetic: '/ˌhiːməˈɡloʊbɪn/'),
     'hemp': const WordDefinition(word: 'hemp', turkishMeaning: 'kenevir', partOfSpeech: 'kelime', ),
     'henry': const WordDefinition(word: 'henry', turkishMeaning: 'henry', partOfSpeech: 'kelime', ),
     'her': const WordDefinition(word: 'her', turkishMeaning: 'onun', partOfSpeech: 'isim', ),
@@ -2268,7 +3209,7 @@ class DictionaryService {
     'humid': const WordDefinition(word: 'humid', turkishMeaning: 'nemli', partOfSpeech: 'kelime', ),
     'hummed': const WordDefinition(word: 'hummed', turkishMeaning: 'mırıldandı', partOfSpeech: 'fiil', ),
     'humming': const WordDefinition(word: 'humming', turkishMeaning: 'uğultu', partOfSpeech: 'fiil', ),
-    'humus': const WordDefinition(word: 'humus', turkishMeaning: 'humus', partOfSpeech: 'kelime', ),
+    'humus': const WordDefinition(word: 'humus', turkishMeaning: 'humus (verimli toprak tabakası)', partOfSpeech: 'isim', phonetic: '/ˈhjuːməs/'),
     'hundred': const WordDefinition(word: 'hundred', turkishMeaning: 'yüz', partOfSpeech: 'fiil', ),
     'hundreds': const WordDefinition(word: 'hundreds', turkishMeaning: 'yüzlerce', partOfSpeech: 'kelime', ),
     'hundredth': const WordDefinition(word: 'hundredth', turkishMeaning: 'yüzüncü', partOfSpeech: 'kelime', ),
@@ -2290,7 +3231,7 @@ class DictionaryService {
     'hydroxyl': const WordDefinition(word: 'hydroxyl', turkishMeaning: 'hidroksil', partOfSpeech: 'kelime', ),
     'hyper': const WordDefinition(word: 'hyper', turkishMeaning: 'hiper', partOfSpeech: 'isim', ),
     'hypothesis': const WordDefinition(word: 'hypothesis', turkishMeaning: 'hipotez, varsayım', partOfSpeech: 'isim', phonetic: '/haɪˈpɑːθəsɪs/', ),
-    'hz': const WordDefinition(word: 'hz', turkishMeaning: 'hz', partOfSpeech: 'kelime', ),
+    'hz': const WordDefinition(word: 'hz', turkishMeaning: 'Hertz (frekans birimi)', partOfSpeech: 'kısaltma'),
     'i': const WordDefinition(word: 'i', turkishMeaning: 'ben', partOfSpeech: 'kelime', ),
     'ice': const WordDefinition(word: 'ice', turkishMeaning: 'buz', partOfSpeech: 'kelime', ),
     'icebergs': const WordDefinition(word: 'icebergs', turkishMeaning: 'buzdağları', partOfSpeech: 'kelime', ),
@@ -2332,7 +3273,7 @@ class DictionaryService {
     'imports': const WordDefinition(word: 'imports', turkishMeaning: 'ithalat', partOfSpeech: 'kelime', ),
     'impossible': const WordDefinition(word: 'impossible', turkishMeaning: 'imkansız', partOfSpeech: 'kelime', ),
     'impressive': const WordDefinition(word: 'impressive', turkishMeaning: 'etkileyici', partOfSpeech: 'sıfat', ),
-    'in': const WordDefinition(word: 'in', turkishMeaning: 'içinde', partOfSpeech: 'kelime', ),
+    'in': const WordDefinition(word: 'in', turkishMeaning: 'içinde, -de / -da', partOfSpeech: 'edat', phonetic: '/ɪn/'),
     'ince': const WordDefinition(word: 'ince', turkishMeaning: 'ince', partOfSpeech: 'kelime', ),
     'incelerken': const WordDefinition(word: 'incelerken', turkishMeaning: 'incelerken', partOfSpeech: 'kelime', ),
     'inceleyerek': const WordDefinition(word: 'inceleyerek', turkishMeaning: 'inceleyerek', partOfSpeech: 'kelime', ),
@@ -2438,7 +3379,7 @@ class DictionaryService {
     'interstellar': const WordDefinition(word: 'interstellar', turkishMeaning: 'yıldızlararası', partOfSpeech: 'sıfat', phonetic: '/ˌɪntərˈstɛlər/', ),
     'interviewing': const WordDefinition(word: 'interviewing', turkishMeaning: 'röportaj yapmak', partOfSpeech: 'fiil', ),
     'intestinal': const WordDefinition(word: 'intestinal', turkishMeaning: 'bağırsak', partOfSpeech: 'sıfat', ),
-    'into': const WordDefinition(word: 'into', turkishMeaning: 'içine', partOfSpeech: 'kelime', ),
+    'into': const WordDefinition(word: 'into', turkishMeaning: 'içine doğru', partOfSpeech: 'edat', phonetic: '/ˈɪntuː/'),
     'intricate': const WordDefinition(word: 'intricate', turkishMeaning: 'karmaşık, ince işlenmiş', partOfSpeech: 'sıfat', phonetic: '/ˈɪntrɪkət/', ),
     'intrigued': const WordDefinition(word: 'intrigued', turkishMeaning: 'merak uyandırdı', partOfSpeech: 'fiil', ),
     'introduced': const WordDefinition(word: 'introduced', turkishMeaning: 'tanıtıldı', partOfSpeech: 'fiil', ),
@@ -2456,7 +3397,6 @@ class DictionaryService {
     'iplikler': const WordDefinition(word: 'iplikler', turkishMeaning: 'iplikler', partOfSpeech: 'isim', ),
     'iron': const WordDefinition(word: 'iron', turkishMeaning: 'demir', partOfSpeech: 'kelime', ),
     'irreversibly': const WordDefinition(word: 'irreversibly', turkishMeaning: 'geri dönülemez biçimde', partOfSpeech: 'zarf', ),
-    'is': const WordDefinition(word: 'is', turkishMeaning: 'olmak (-dir, -dır)', partOfSpeech: 'fiil', phonetic: '/ɪz/', ),
     'isimlerini': const WordDefinition(word: 'isimlerini', turkishMeaning: 'isimlerini', partOfSpeech: 'kelime', ),
     'island': const WordDefinition(word: 'island', turkishMeaning: 'ada', partOfSpeech: 'kelime', ),
     'islands': const WordDefinition(word: 'islands', turkishMeaning: 'adalar', partOfSpeech: 'kelime', ),
@@ -2485,7 +3425,7 @@ class DictionaryService {
     'jawline': const WordDefinition(word: 'jawline', turkishMeaning: 'çene hattı', partOfSpeech: 'kelime', ),
     'jelleriyle': const WordDefinition(word: 'jelleriyle', turkishMeaning: 'jölelerle', partOfSpeech: 'kelime', ),
     'jewel': const WordDefinition(word: 'jewel', turkishMeaning: 'mücevher', partOfSpeech: 'kelime', ),
-    'jezero': const WordDefinition(word: 'jezero', turkishMeaning: 'jezero', partOfSpeech: 'kelime', ),
+    'jezero': const WordDefinition(word: 'jezero', turkishMeaning: 'Jezero Krateri (Mars\'ta keşif alanı)', partOfSpeech: 'özel isim'),
     'jimbocho': const WordDefinition(word: 'jimbocho', turkishMeaning: 'jimboço', partOfSpeech: 'kelime', ),
     'job': const WordDefinition(word: 'job', turkishMeaning: 'iş', partOfSpeech: 'kelime', ),
     'joel': const WordDefinition(word: 'joel', turkishMeaning: 'joel', partOfSpeech: 'kelime', ),
@@ -2528,13 +3468,13 @@ class DictionaryService {
     'keeper': const WordDefinition(word: 'keeper', turkishMeaning: 'kaleci', partOfSpeech: 'isim', ),
     'keeping': const WordDefinition(word: 'keeping', turkishMeaning: 'tutmak', partOfSpeech: 'fiil', ),
     'keeps': const WordDefinition(word: 'keeps', turkishMeaning: 'tutar', partOfSpeech: 'kelime', ),
-    'kefir': const WordDefinition(word: 'kefir', turkishMeaning: 'kefir', partOfSpeech: 'kelime', ),
+    'kefir': const WordDefinition(word: 'kefir', turkishMeaning: 'kefir (probiyotik fermente süt içeceği)', partOfSpeech: 'isim', phonetic: '/kəˈfɪər/'),
     'kelebekler': const WordDefinition(word: 'kelebekler', turkishMeaning: 'kelebekler', partOfSpeech: 'isim', ),
     'keman': const WordDefinition(word: 'keman', turkishMeaning: 'keman', partOfSpeech: 'kelime', ),
     'kemik': const WordDefinition(word: 'kemik', turkishMeaning: 'kemik', partOfSpeech: 'kelime', ),
     'kendi': const WordDefinition(word: 'kendi', turkishMeaning: 'kendi', partOfSpeech: 'kelime', ),
     'kendini': const WordDefinition(word: 'kendini', turkishMeaning: 'kendini', partOfSpeech: 'kelime', ),
-    'kenji': const WordDefinition(word: 'kenji', turkishMeaning: 'kenji', partOfSpeech: 'kelime', ),
+    'kenji': const WordDefinition(word: 'kenji', turkishMeaning: 'Kenji (özel isim)', partOfSpeech: 'özel isim'),
     'kepler': const WordDefinition(word: 'kepler', turkishMeaning: 'kepler', partOfSpeech: 'isim', ),
     'kervansaraylar': const WordDefinition(word: 'kervansaraylar', turkishMeaning: 'kervansaraylar', partOfSpeech: 'kelime', ),
     'kesintisiz': const WordDefinition(word: 'kesintisiz', turkishMeaning: 'sürekli', partOfSpeech: 'kelime', ),
@@ -2554,7 +3494,7 @@ class DictionaryService {
     'kingfishers': const WordDefinition(word: 'kingfishers', turkishMeaning: 'yalıçapkını avcıları', partOfSpeech: 'kelime', ),
     'kings': const WordDefinition(word: 'kings', turkishMeaning: 'krallar', partOfSpeech: 'kelime', ),
     'kitchens': const WordDefinition(word: 'kitchens', turkishMeaning: 'mutfaklar', partOfSpeech: 'kelime', ),
-    'klasik': const WordDefinition(word: 'klasik', turkishMeaning: 'klasik', partOfSpeech: 'kelime', ),
+    'klasik': const WordDefinition(word: 'klasik', turkishMeaning: 'klasik, geleneksel', partOfSpeech: 'sıfat'),
     'km': const WordDefinition(word: 'km', turkishMeaning: 'kilometre', partOfSpeech: 'kelime', ),
     'kneads': const WordDefinition(word: 'kneads', turkishMeaning: 'yoğurur', partOfSpeech: 'kelime', ),
     'knelt': const WordDefinition(word: 'knelt', turkishMeaning: 'diz çöktü', partOfSpeech: 'kelime', ),
@@ -2578,7 +3518,7 @@ class DictionaryService {
     'kullanmak': const WordDefinition(word: 'kullanmak', turkishMeaning: 'kullanmak', partOfSpeech: 'kelime', ),
     'kum': const WordDefinition(word: 'kum', turkishMeaning: 'kum', partOfSpeech: 'kelime', ),
     'kurar': const WordDefinition(word: 'kurar', turkishMeaning: 'kurar', partOfSpeech: 'kelime', ),
-    'kurgu': const WordDefinition(word: 'kurgu', turkishMeaning: 'kurgu', partOfSpeech: 'kelime', ),
+    'kurgu': const WordDefinition(word: 'kurgu', turkishMeaning: 'kurgu, kompozisyon', partOfSpeech: 'isim'),
     'kurtarmak': const WordDefinition(word: 'kurtarmak', turkishMeaning: 'kurtarmak', partOfSpeech: 'kelime', ),
     'kurulur': const WordDefinition(word: 'kurulur', turkishMeaning: 'kuruluş', partOfSpeech: 'kelime', ),
     'kusursuz': const WordDefinition(word: 'kusursuz', turkishMeaning: 'kusursuz', partOfSpeech: 'kelime', ),
@@ -2588,7 +3528,7 @@ class DictionaryService {
     'kuzeyi': const WordDefinition(word: 'kuzeyi', turkishMeaning: 'kuzeyi', partOfSpeech: 'kelime', ),
     'kuzgun': const WordDefinition(word: 'kuzgun', turkishMeaning: 'kuzgun', partOfSpeech: 'kelime', ),
     'kuzgunlarla': const WordDefinition(word: 'kuzgunlarla', turkishMeaning: 'kuzgunlarla', partOfSpeech: 'kelime', ),
-    'kyoto': const WordDefinition(word: 'kyoto', turkishMeaning: 'kyoto', partOfSpeech: 'kelime', ),
+    'kyoto': const WordDefinition(word: 'kyoto', turkishMeaning: 'Kyoto (Japonya\'nın tarihi başkenti)', partOfSpeech: 'özel isim', phonetic: '/kiˈoʊtoʊ/'),
     'labeled': const WordDefinition(word: 'labeled', turkishMeaning: 'etiketli', partOfSpeech: 'fiil', ),
     'laboratories': const WordDefinition(word: 'laboratories', turkishMeaning: 'laboratuvarlar', partOfSpeech: 'kelime', ),
     'laboratory': const WordDefinition(word: 'laboratory', turkishMeaning: 'laboratuvar', partOfSpeech: 'kelime', ),
@@ -2649,7 +3589,7 @@ class DictionaryService {
     'leave': const WordDefinition(word: 'leave', turkishMeaning: 'ayrılmak, bırakmak', partOfSpeech: 'fiil', phonetic: '/liːv/', ),
     'leaves': const WordDefinition(word: 'leaves', turkishMeaning: 'yapraklar', partOfSpeech: 'kelime', ),
     'leaving': const WordDefinition(word: 'leaving', turkishMeaning: 'ayrılmak', partOfSpeech: 'fiil', ),
-    'led': const WordDefinition(word: 'led', turkishMeaning: 'led', partOfSpeech: 'fiil', ),
+    'led': const WordDefinition(word: 'led', turkishMeaning: 'öncülük etti, yol gösterdi', partOfSpeech: 'fiil', phonetic: '/lɛd/'),
     'ledge': const WordDefinition(word: 'ledge', turkishMeaning: 'çıkıntı', partOfSpeech: 'kelime', ),
     'left': const WordDefinition(word: 'left', turkishMeaning: 'sol, ayrıldı, terk etti', partOfSpeech: 'sıfat/fiil', phonetic: '/lɛft/', ),
     'legacy': const WordDefinition(word: 'legacy', turkishMeaning: 'miras, kalıt', partOfSpeech: 'isim', phonetic: '/ˈlɛɡəsi/', ),
@@ -2671,7 +3611,7 @@ class DictionaryService {
     'level': const WordDefinition(word: 'level', turkishMeaning: 'seviye', partOfSpeech: 'kelime', ),
     'levels': const WordDefinition(word: 'levels', turkishMeaning: 'seviyeler', partOfSpeech: 'kelime', ),
     'lezzetli': const WordDefinition(word: 'lezzetli', turkishMeaning: 'lezzetli', partOfSpeech: 'kelime', ),
-    'liam': const WordDefinition(word: 'liam', turkishMeaning: 'liam', partOfSpeech: 'kelime', ),
+    'liam': const WordDefinition(word: 'liam', turkishMeaning: 'Liam (özel isim)', partOfSpeech: 'özel isim'),
     'library': const WordDefinition(word: 'library', turkishMeaning: 'kütüphane', partOfSpeech: 'kelime', ),
     'lidar': const WordDefinition(word: 'lidar', turkishMeaning: 'lazer darbeli mesafe ölçüm teknolojisi, lidar', partOfSpeech: 'isim', phonetic: '/ˈlaɪdɑːr/', ),
     'lies': const WordDefinition(word: 'lies', turkishMeaning: 'yalanlar', partOfSpeech: 'kelime', ),
@@ -2808,15 +3748,15 @@ class DictionaryService {
     'mapping': const WordDefinition(word: 'mapping', turkishMeaning: 'haritalama', partOfSpeech: 'fiil', ),
     'maps': const WordDefinition(word: 'maps', turkishMeaning: 'haritalar', partOfSpeech: 'kelime', ),
     'marble': const WordDefinition(word: 'marble', turkishMeaning: 'mermer', partOfSpeech: 'kelime', ),
-    'marco': const WordDefinition(word: 'marco', turkishMeaning: 'marco', partOfSpeech: 'kelime', ),
-    'marcus': const WordDefinition(word: 'marcus', turkishMeaning: 'marcus', partOfSpeech: 'kelime', ),
+    'marco': const WordDefinition(word: 'marco', turkishMeaning: 'Marco (Marco Polo)', partOfSpeech: 'özel isim', phonetic: '/ˈmɑːrkoʊ/'),
+    'marcus': const WordDefinition(word: 'marcus', turkishMeaning: 'Marcus (Marcus Aurelius)', partOfSpeech: 'özel isim', phonetic: '/ˈmɑːrkəs/'),
     'mariana': const WordDefinition(word: 'mariana', turkishMeaning: 'mariana', partOfSpeech: 'kelime', ),
     'marine': const WordDefinition(word: 'marine', turkishMeaning: 'deniz', partOfSpeech: 'kelime', ),
     'maritime': const WordDefinition(word: 'maritime', turkishMeaning: 'denizcilik', partOfSpeech: 'kelime', ),
     'market': const WordDefinition(word: 'market', turkishMeaning: 'pazar', partOfSpeech: 'kelime', ),
     'marmalade': const WordDefinition(word: 'marmalade', turkishMeaning: 'marmelat', partOfSpeech: 'kelime', ),
     'marrow': const WordDefinition(word: 'marrow', turkishMeaning: 'ilik', partOfSpeech: 'kelime', ),
-    'mars': const WordDefinition(word: 'mars', turkishMeaning: 'mars', partOfSpeech: 'kelime', ),
+    'mars': const WordDefinition(word: 'mars', turkishMeaning: 'Mars gezegeni, Merih', partOfSpeech: 'özel isim', phonetic: '/mɑːrz/'),
     'martian': const WordDefinition(word: 'martian', turkishMeaning: 'marslı', partOfSpeech: 'kelime', ),
     'marzano': const WordDefinition(word: 'marzano', turkishMeaning: 'marzano', partOfSpeech: 'kelime', ),
     'mass': const WordDefinition(word: 'mass', turkishMeaning: 'kütle', partOfSpeech: 'kelime', ),
@@ -2835,8 +3775,8 @@ class DictionaryService {
     'matter': const WordDefinition(word: 'matter', turkishMeaning: 'madde', partOfSpeech: 'isim', ),
     'mavi': const WordDefinition(word: 'mavi', turkishMeaning: 'mavi', partOfSpeech: 'kelime', ),
     'maximizing': const WordDefinition(word: 'maximizing', turkishMeaning: 'maksimize etme', partOfSpeech: 'fiil', ),
-    'may': const WordDefinition(word: 'may', turkishMeaning: 'mayıs', partOfSpeech: 'kelime', ),
-    'maya': const WordDefinition(word: 'maya', turkishMeaning: 'maya', partOfSpeech: 'kelime', ),
+    'may': const WordDefinition(word: 'may', turkishMeaning: 'olabilir, izin', partOfSpeech: 'modal fiil', phonetic: '/meɪ/'),
+    'maya': const WordDefinition(word: 'maya', turkishMeaning: 'Maya uygarlığı', partOfSpeech: 'özel isim', phonetic: '/ˈmaɪə/'),
     'mayaya': const WordDefinition(word: 'mayaya', turkishMeaning: 'maya', partOfSpeech: 'kelime', ),
     'me': const WordDefinition(word: 'me', turkishMeaning: 'ben', partOfSpeech: 'kelime', ),
     'meaningful': const WordDefinition(word: 'meaningful', turkishMeaning: 'anlamlı', partOfSpeech: 'sıfat', ),
@@ -2909,7 +3849,7 @@ class DictionaryService {
     'midday': const WordDefinition(word: 'midday', turkishMeaning: 'öğle vakti', partOfSpeech: 'kelime', ),
     'midnight': const WordDefinition(word: 'midnight', turkishMeaning: 'gece yarısı', partOfSpeech: 'kelime', ),
     'midsummer': const WordDefinition(word: 'midsummer', turkishMeaning: 'yaz ortası', partOfSpeech: 'isim', ),
-    'might': const WordDefinition(word: 'might', turkishMeaning: 'olabilir', partOfSpeech: 'kelime', ),
+    'might': const WordDefinition(word: 'might', turkishMeaning: 'olabilirdi, belki', partOfSpeech: 'modal fiil', phonetic: '/maɪt/'),
     'migrate': const WordDefinition(word: 'migrate', turkishMeaning: 'göç etmek', partOfSpeech: 'fiil', phonetic: '/ˈmaɪɡreɪt/', ),
     'migrating': const WordDefinition(word: 'migrating', turkishMeaning: 'göç', partOfSpeech: 'fiil', ),
     'migration': const WordDefinition(word: 'migration', turkishMeaning: 'göç', partOfSpeech: 'isim', ),
@@ -2977,7 +3917,7 @@ class DictionaryService {
     'monitoring': const WordDefinition(word: 'monitoring', turkishMeaning: 'izleme', partOfSpeech: 'fiil', ),
     'monocultures': const WordDefinition(word: 'monocultures', turkishMeaning: 'monokültürler', partOfSpeech: 'kelime', ),
     'monographs': const WordDefinition(word: 'monographs', turkishMeaning: 'monografiler', partOfSpeech: 'kelime', ),
-    'monomer': const WordDefinition(word: 'monomer', turkishMeaning: 'monomer', partOfSpeech: 'isim', ),
+    'monomer': const WordDefinition(word: 'monomer', turkishMeaning: 'monomer (polimeri oluşturan birim)', partOfSpeech: 'isim', phonetic: '/ˈmɒnəmər/'),
     'monomers': const WordDefinition(word: 'monomers', turkishMeaning: 'monomerler', partOfSpeech: 'kelime', ),
     'monsters': const WordDefinition(word: 'monsters', turkishMeaning: 'canavarlar', partOfSpeech: 'kelime', ),
     'months': const WordDefinition(word: 'months', turkishMeaning: 'aylar', partOfSpeech: 'kelime', ),
@@ -3013,7 +3953,7 @@ class DictionaryService {
     'moves': const WordDefinition(word: 'moves', turkishMeaning: 'hamle', partOfSpeech: 'kelime', ),
     'movies': const WordDefinition(word: 'movies', turkishMeaning: 'filmler', partOfSpeech: 'kelime', ),
     'moving': const WordDefinition(word: 'moving', turkishMeaning: 'hareketli', partOfSpeech: 'fiil', ),
-    'mri': const WordDefinition(word: 'mri', turkishMeaning: 'mri', partOfSpeech: 'kelime', ),
+    'mri': const WordDefinition(word: 'mri', turkishMeaning: 'Manyetik Rezonans Görüntüleme (MR)', partOfSpeech: 'kısaltma', phonetic: '/ˌɛm ɑːr ˈaɪ/'),
     'mrs': const WordDefinition(word: 'mrs', turkishMeaning: 'bayan', partOfSpeech: 'kelime', ),
     'much': const WordDefinition(word: 'much', turkishMeaning: 'çok', partOfSpeech: 'kelime', ),
     'mudstones': const WordDefinition(word: 'mudstones', turkishMeaning: 'çamur taşları', partOfSpeech: 'kelime', ),
@@ -3031,7 +3971,7 @@ class DictionaryService {
     'muscles': const WordDefinition(word: 'muscles', turkishMeaning: 'kaslar', partOfSpeech: 'kelime', ),
     'music': const WordDefinition(word: 'music', turkishMeaning: 'müzik', partOfSpeech: 'kelime', ),
     'musical': const WordDefinition(word: 'musical', turkishMeaning: 'müzikal', partOfSpeech: 'sıfat', ),
-    'must': const WordDefinition(word: 'must', turkishMeaning: 'zorunluluk', partOfSpeech: 'kelime', ),
+    'must': const WordDefinition(word: 'must', turkishMeaning: '-meli / -malı (zorunluluk)', partOfSpeech: 'modal fiil', phonetic: '/mʌst/'),
     'mutating': const WordDefinition(word: 'mutating', turkishMeaning: 'mutasyona uğrayan', partOfSpeech: 'fiil', ),
     'mutations': const WordDefinition(word: 'mutations', turkishMeaning: 'mutasyonlar', partOfSpeech: 'kelime', ),
     'mutual': const WordDefinition(word: 'mutual', turkishMeaning: 'karşılıklı', partOfSpeech: 'sıfat', ),
@@ -3077,7 +4017,7 @@ class DictionaryService {
     'needed': const WordDefinition(word: 'needed', turkishMeaning: 'gerekli', partOfSpeech: 'fiil', ),
     'needle': const WordDefinition(word: 'needle', turkishMeaning: 'iğne', partOfSpeech: 'kelime', ),
     'needs': const WordDefinition(word: 'needs', turkishMeaning: 'ihtiyaçlar', partOfSpeech: 'kelime', ),
-    'nefertiti': const WordDefinition(word: 'nefertiti', turkishMeaning: 'nefertiti', partOfSpeech: 'kelime', ),
+    'nefertiti': const WordDefinition(word: 'nefertiti', turkishMeaning: 'Nefertiti (antik Mısır kraliçesi)', partOfSpeech: 'özel isim', phonetic: '/ˌnɛfərˈtiːti/'),
     'neglect': const WordDefinition(word: 'neglect', turkishMeaning: 'ihmal etmek, savsaklamak', partOfSpeech: 'fiil', phonetic: '/nɪˈɡlɛkt/', ),
     'negotiate': const WordDefinition(word: 'negotiate', turkishMeaning: 'müzakere etmek, pazarlık yapmak', partOfSpeech: 'fiil', phonetic: '/nɪˈɡoʊʃieɪt/', ),
     'nehir': const WordDefinition(word: 'nehir', turkishMeaning: 'nehir', partOfSpeech: 'kelime', ),
@@ -3090,7 +4030,7 @@ class DictionaryService {
     'neither': const WordDefinition(word: 'neither', turkishMeaning: 'ikisi de', partOfSpeech: 'isim', ),
     'nemo': const WordDefinition(word: 'nemo', turkishMeaning: 'nemo', partOfSpeech: 'kelime', ),
     'neo': const WordDefinition(word: 'neo', turkishMeaning: 'neo', partOfSpeech: 'kelime', ),
-    'neon': const WordDefinition(word: 'neon', turkishMeaning: 'neon', partOfSpeech: 'kelime', ),
+    'neon': const WordDefinition(word: 'neon', turkishMeaning: 'neon (ışıklı soygaz)', partOfSpeech: 'isim', phonetic: '/ˈniːɒn/'),
     'nerve': const WordDefinition(word: 'nerve', turkishMeaning: 'sinir', partOfSpeech: 'kelime', ),
     'nervous': const WordDefinition(word: 'nervous', turkishMeaning: 'gergin', partOfSpeech: 'sıfat', ),
     'nest': const WordDefinition(word: 'nest', turkishMeaning: 'yuva', partOfSpeech: 'kelime', ),
@@ -3133,7 +4073,7 @@ class DictionaryService {
     'non': const WordDefinition(word: 'non', turkishMeaning: 'olmayan', partOfSpeech: 'kelime', ),
     'nonna': const WordDefinition(word: 'nonna', turkishMeaning: 'hayır', partOfSpeech: 'kelime', ),
     'nor': const WordDefinition(word: 'nor', turkishMeaning: 'ne de', partOfSpeech: 'isim', ),
-    'normal': const WordDefinition(word: 'normal', turkishMeaning: 'normal', partOfSpeech: 'sıfat', ),
+    'normal': const WordDefinition(word: 'normal', turkishMeaning: 'normal, olağan', partOfSpeech: 'sıfat', phonetic: '/ˈnɔːrməl/'),
     'normally': const WordDefinition(word: 'normally', turkishMeaning: 'normalde', partOfSpeech: 'zarf', ),
     'north': const WordDefinition(word: 'north', turkishMeaning: 'kuzey', partOfSpeech: 'kelime', ),
     'northern': const WordDefinition(word: 'northern', turkishMeaning: 'kuzey', partOfSpeech: 'kelime', ),
@@ -3185,7 +4125,7 @@ class DictionaryService {
     'ochre': const WordDefinition(word: 'ochre', turkishMeaning: 'toprak boyası', partOfSpeech: 'kelime', ),
     'oda': const WordDefinition(word: 'oda', turkishMeaning: 'oda', partOfSpeech: 'kelime', ),
     'odadaki': const WordDefinition(word: 'odadaki', turkishMeaning: 'odadaki', partOfSpeech: 'kelime', ),
-    'of': const WordDefinition(word: 'of', turkishMeaning: 'arasında', partOfSpeech: 'kelime', ),
+    'of': const WordDefinition(word: 'of', turkishMeaning: '-ın / -in, -den yapılma, hakkında', partOfSpeech: 'edat', phonetic: '/ɒv/'),
     'off': const WordDefinition(word: 'off', turkishMeaning: 'kapalı', partOfSpeech: 'kelime', ),
     'offer': const WordDefinition(word: 'offer', turkishMeaning: 'teklif', partOfSpeech: 'isim', ),
     'offering': const WordDefinition(word: 'offering', turkishMeaning: 'sunan', partOfSpeech: 'fiil', ),
@@ -3206,7 +4146,7 @@ class DictionaryService {
     'olma': const WordDefinition(word: 'olma', turkishMeaning: 'olma', partOfSpeech: 'kelime', ),
     'olmak': const WordDefinition(word: 'olmak', turkishMeaning: 'olmak', partOfSpeech: 'kelime', ),
     'omurilik': const WordDefinition(word: 'omurilik', turkishMeaning: 'omurilik', partOfSpeech: 'kelime', ),
-    'on': const WordDefinition(word: 'on', turkishMeaning: 'üzerinde', partOfSpeech: 'kelime', ),
+    'on': const WordDefinition(word: 'on', turkishMeaning: 'üzerinde, üstünde, -de / -da', partOfSpeech: 'edat', phonetic: '/ɒn/'),
     'ona': const WordDefinition(word: 'ona', turkishMeaning: 'ona', partOfSpeech: 'kelime', ),
     'once': const WordDefinition(word: 'once', turkishMeaning: 'bir kez', partOfSpeech: 'kelime', ),
     'one': const WordDefinition(word: 'one', turkishMeaning: 'bir', partOfSpeech: 'kelime', ),
@@ -3272,7 +4212,7 @@ class DictionaryService {
     'outpost': const WordDefinition(word: 'outpost', turkishMeaning: 'ileri karakol', partOfSpeech: 'kelime', ),
     'outside': const WordDefinition(word: 'outside', turkishMeaning: 'dışarıda', partOfSpeech: 'kelime', ),
     'outstretched': const WordDefinition(word: 'outstretched', turkishMeaning: 'uzanmış', partOfSpeech: 'fiil', ),
-    'over': const WordDefinition(word: 'over', turkishMeaning: 'bitti', partOfSpeech: 'isim', ),
+    'over': const WordDefinition(word: 'over', turkishMeaning: 'üzerinde, aşan, bitmiş', partOfSpeech: 'edat/zarf', phonetic: '/ˈoʊvər/'),
     'overgrazing': const WordDefinition(word: 'overgrazing', turkishMeaning: 'aşırı otlatma', partOfSpeech: 'fiil', ),
     'overgrown': const WordDefinition(word: 'overgrown', turkishMeaning: 'aşırı büyümüş', partOfSpeech: 'kelime', ),
     'overhang': const WordDefinition(word: 'overhang', turkishMeaning: 'çıkıntı', partOfSpeech: 'kelime', ),
@@ -3304,7 +4244,7 @@ class DictionaryService {
     'pairs': const WordDefinition(word: 'pairs', turkishMeaning: 'çiftler', partOfSpeech: 'kelime', ),
     'palace': const WordDefinition(word: 'palace', turkishMeaning: 'saray', partOfSpeech: 'kelime', ),
     'palms': const WordDefinition(word: 'palms', turkishMeaning: 'avuç içi', partOfSpeech: 'kelime', ),
-    'pamir': const WordDefinition(word: 'pamir', turkishMeaning: 'pamir', partOfSpeech: 'kelime', ),
+    'pamir': const WordDefinition(word: 'pamir', turkishMeaning: 'Pamir dağları', partOfSpeech: 'özel isim', phonetic: '/pəˈmɪər/'),
     'panel': const WordDefinition(word: 'panel', turkishMeaning: 'paneli', partOfSpeech: 'kelime', ),
     'paneller': const WordDefinition(word: 'paneller', turkishMeaning: 'panelist', partOfSpeech: 'isim', ),
     'panels': const WordDefinition(word: 'panels', turkishMeaning: 'paneller', partOfSpeech: 'kelime', ),
@@ -3320,9 +4260,9 @@ class DictionaryService {
     'parasympathetic': const WordDefinition(word: 'parasympathetic', turkishMeaning: 'parasempatik', partOfSpeech: 'kelime', ),
     'parchment': const WordDefinition(word: 'parchment', turkishMeaning: 'parşömen', partOfSpeech: 'isim', ),
     'parent': const WordDefinition(word: 'parent', turkishMeaning: 'ebeveyn', partOfSpeech: 'kelime', ),
-    'paris': const WordDefinition(word: 'paris', turkishMeaning: 'paris', partOfSpeech: 'kelime', ),
+    'paris': const WordDefinition(word: 'paris', turkishMeaning: 'Paris (Fransa\'nın başkenti)', partOfSpeech: 'özel isim', phonetic: '/ˈpærɪs/'),
     'parisian': const WordDefinition(word: 'parisian', turkishMeaning: 'parisli', partOfSpeech: 'kelime', ),
-    'park': const WordDefinition(word: 'park', turkishMeaning: 'park', partOfSpeech: 'kelime', ),
+    'park': const WordDefinition(word: 'park', turkishMeaning: 'park etmek; halk parkı', partOfSpeech: 'fiil/isim', phonetic: '/pɑːrk/'),
     'parks': const WordDefinition(word: 'parks', turkishMeaning: 'parklar', partOfSpeech: 'kelime', ),
     'parlak': const WordDefinition(word: 'parlak', turkishMeaning: 'parlak', partOfSpeech: 'kelime', ),
     'parliament': const WordDefinition(word: 'parliament', turkishMeaning: 'parlamento', partOfSpeech: 'isim', ),
@@ -3389,7 +4329,7 @@ class DictionaryService {
     'persevere': const WordDefinition(word: 'persevere', turkishMeaning: 'azimle sürdürmek, yılmamak', partOfSpeech: 'fiil', phonetic: '/ˌpɜːrsəˈvɪər/', ),
     'persistent': const WordDefinition(word: 'persistent', turkishMeaning: 'kalıcı', partOfSpeech: 'kelime', ),
     'personal': const WordDefinition(word: 'personal', turkishMeaning: 'kişisel', partOfSpeech: 'sıfat', ),
-    'peru': const WordDefinition(word: 'peru', turkishMeaning: 'peru', partOfSpeech: 'kelime', ),
+        'peru': const WordDefinition(word: 'peru', turkishMeaning: 'Peru (Güney Amerika ülkesi)', partOfSpeech: 'özel isim', phonetic: '/pəˈruː/'),
     'pervanelerin': const WordDefinition(word: 'pervanelerin', turkishMeaning: 'pervanelerin', partOfSpeech: 'kelime', ),
     'pesticide': const WordDefinition(word: 'pesticide', turkishMeaning: 'pestisit', partOfSpeech: 'kelime', ),
     'pesticides': const WordDefinition(word: 'pesticides', turkishMeaning: 'pestisitler', partOfSpeech: 'kelime', ),
@@ -3424,12 +4364,12 @@ class DictionaryService {
     'pier': const WordDefinition(word: 'pier', turkishMeaning: 'iskele', partOfSpeech: 'isim', ),
     'pierced': const WordDefinition(word: 'pierced', turkishMeaning: 'deldi', partOfSpeech: 'fiil', ),
     'pieter': const WordDefinition(word: 'pieter', turkishMeaning: 'pastacı', partOfSpeech: 'isim', ),
-    'pigment': const WordDefinition(word: 'pigment', turkishMeaning: 'pigment', partOfSpeech: 'isim', ),
+    'pigment': const WordDefinition(word: 'pigment', turkishMeaning: 'renk maddesi, boyar madde', partOfSpeech: 'isim', phonetic: '/ˈpɪɡmənt/'),
     'pigmentosa': const WordDefinition(word: 'pigmentosa', turkishMeaning: 'pigmentoza', partOfSpeech: 'kelime', ),
     'pilleri': const WordDefinition(word: 'pilleri', turkishMeaning: 'pilleri', partOfSpeech: 'kelime', ),
     'pillows': const WordDefinition(word: 'pillows', turkishMeaning: 'yastıklar', partOfSpeech: 'kelime', ),
     'pills': const WordDefinition(word: 'pills', turkishMeaning: 'haplar', partOfSpeech: 'kelime', ),
-    'pilot': const WordDefinition(word: 'pilot', turkishMeaning: 'pilot', partOfSpeech: 'kelime', ),
+    'pilot': const WordDefinition(word: 'pilot', turkishMeaning: 'pilot, kılavuz kaptan', partOfSpeech: 'isim/fiil', phonetic: '/ˈpaɪlət/'),
     'pine': const WordDefinition(word: 'pine', turkishMeaning: 'çam', partOfSpeech: 'kelime', ),
     'pineapple': const WordDefinition(word: 'pineapple', turkishMeaning: 'ananas', partOfSpeech: 'kelime', ),
     'pioneer': const WordDefinition(word: 'pioneer', turkishMeaning: 'öncü, çığır açan', partOfSpeech: 'isim/fiil', phonetic: '/ˌpaɪəˈnɪər/', ),
@@ -3444,7 +4384,7 @@ class DictionaryService {
     'planet': const WordDefinition(word: 'planet', turkishMeaning: 'gezegen', partOfSpeech: 'kelime', ),
     'planetary': const WordDefinition(word: 'planetary', turkishMeaning: 'gezegensel', partOfSpeech: 'kelime', ),
     'plank': const WordDefinition(word: 'plank', turkishMeaning: 'tahta', partOfSpeech: 'kelime', ),
-    'plankton': const WordDefinition(word: 'plankton', turkishMeaning: 'plankton', partOfSpeech: 'kelime', ),
+    'plankton': const WordDefinition(word: 'plankton', turkishMeaning: 'plankton (suda sürüklenen mikroskobik canlılar)', partOfSpeech: 'isim', phonetic: '/ˈplæŋktən/'),
     'planned': const WordDefinition(word: 'planned', turkishMeaning: 'planlanmış', partOfSpeech: 'fiil', ),
     'planners': const WordDefinition(word: 'planners', turkishMeaning: 'planlamacılar', partOfSpeech: 'kelime', ),
     'plant': const WordDefinition(word: 'plant', turkishMeaning: 'bitki', partOfSpeech: 'kelime', ),
@@ -3490,7 +4430,7 @@ class DictionaryService {
     'pollinators': const WordDefinition(word: 'pollinators', turkishMeaning: 'tozlayıcılar', partOfSpeech: 'kelime', ),
     'pollution': const WordDefinition(word: 'pollution', turkishMeaning: 'kirlilik', partOfSpeech: 'isim', ),
     'polycyclic': const WordDefinition(word: 'polycyclic', turkishMeaning: 'polisiklik', partOfSpeech: 'kelime', ),
-    'polyester': const WordDefinition(word: 'polyester', turkishMeaning: 'polyester', partOfSpeech: 'isim', ),
+    'polyester': const WordDefinition(word: 'polyester', turkishMeaning: 'polyester (sentetik kumaş lifi)', partOfSpeech: 'isim', phonetic: '/ˌpɒliˈɛstər/'),
     'polyethylene': const WordDefinition(word: 'polyethylene', turkishMeaning: 'polietilen', partOfSpeech: 'kelime', ),
     'polyglot': const WordDefinition(word: 'polyglot', turkishMeaning: 'çok dilli', partOfSpeech: 'kelime', ),
     'polyglots': const WordDefinition(word: 'polyglots', turkishMeaning: 'poliglotlar', partOfSpeech: 'kelime', ),
@@ -3606,7 +4546,7 @@ class DictionaryService {
     'prosthetics': const WordDefinition(word: 'prosthetics', turkishMeaning: 'protez', partOfSpeech: 'kelime', ),
     'protect': const WordDefinition(word: 'protect', turkishMeaning: 'korumak', partOfSpeech: 'kelime', ),
     'protected': const WordDefinition(word: 'protected', turkishMeaning: 'korumalı', partOfSpeech: 'fiil', ),
-    'protein': const WordDefinition(word: 'protein', turkishMeaning: 'protein', partOfSpeech: 'kelime', ),
+        'protein': const WordDefinition(word: 'protein', turkishMeaning: 'protein (vücut için elzem besin maddesi)', partOfSpeech: 'isim', phonetic: '/ˈproʊtiːn/'),
     'proteins': const WordDefinition(word: 'proteins', turkishMeaning: 'proteinler', partOfSpeech: 'kelime', ),
     'prototype': const WordDefinition(word: 'prototype', turkishMeaning: 'prototip', partOfSpeech: 'kelime', ),
     'prove': const WordDefinition(word: 'prove', turkishMeaning: 'kanıtlamak', partOfSpeech: 'kelime', ),
@@ -3617,7 +4557,7 @@ class DictionaryService {
     'providing': const WordDefinition(word: 'providing', turkishMeaning: 'sağlayan', partOfSpeech: 'fiil', ),
     'proving': const WordDefinition(word: 'proving', turkishMeaning: 'kanıtlamak', partOfSpeech: 'fiil', ),
     'psalter': const WordDefinition(word: 'psalter', turkishMeaning: 'ilahi', partOfSpeech: 'isim', ),
-    'psikoloji': const WordDefinition(word: 'psikoloji', turkishMeaning: 'psikoloji', partOfSpeech: 'kelime', ),
+    'psikoloji': const WordDefinition(word: 'psikoloji', turkishMeaning: 'psikoloji, ruh bilimi', partOfSpeech: 'isim'),
     'psikolojik': const WordDefinition(word: 'psikolojik', turkishMeaning: 'psikolojik', partOfSpeech: 'kelime', ),
     'psychological': const WordDefinition(word: 'psychological', turkishMeaning: 'psikolojik', partOfSpeech: 'sıfat', ),
     'psychologists': const WordDefinition(word: 'psychologists', turkishMeaning: 'psikologlar', partOfSpeech: 'kelime', ),
@@ -3663,7 +4603,7 @@ class DictionaryService {
     'quinoa': const WordDefinition(word: 'quinoa', turkishMeaning: 'kinoa', partOfSpeech: 'kelime', ),
     'quitting': const WordDefinition(word: 'quitting', turkishMeaning: 'bırakmak', partOfSpeech: 'fiil', ),
     'racing': const WordDefinition(word: 'racing', turkishMeaning: 'yarış', partOfSpeech: 'fiil', ),
-    'radar': const WordDefinition(word: 'radar', turkishMeaning: 'radar', partOfSpeech: 'kelime', ),
+    'radar': const WordDefinition(word: 'radar', turkishMeaning: 'radar (radyo dalgalı tespit cihazı)', partOfSpeech: 'isim', phonetic: '/ˈreɪdɑːr/'),
     'radiation': const WordDefinition(word: 'radiation', turkishMeaning: 'radyasyon, ışıma', partOfSpeech: 'isim', phonetic: '/ˌreɪdiˈeɪʃən/', ),
     'radicals': const WordDefinition(word: 'radicals', turkishMeaning: 'radikaller', partOfSpeech: 'kelime', ),
     'radikaller': const WordDefinition(word: 'radikaller', turkishMeaning: 'radikaller', partOfSpeech: 'isim', ),
@@ -3785,7 +4725,7 @@ class DictionaryService {
     'relief': const WordDefinition(word: 'relief', turkishMeaning: 'kabartma', partOfSpeech: 'kelime', ),
     'relies': const WordDefinition(word: 'relies', turkishMeaning: 'güvenir', partOfSpeech: 'kelime', ),
     'rely': const WordDefinition(word: 'rely', turkishMeaning: 'güvenmek', partOfSpeech: 'zarf', ),
-    'rem': const WordDefinition(word: 'rem', turkishMeaning: 'rem', partOfSpeech: 'kelime', ),
+    'rem': const WordDefinition(word: 'rem', turkishMeaning: 'REM (hızlı göz hareketi uykusu evresi)', partOfSpeech: 'kısaltma', phonetic: '/rɛm/'),
     'remainder': const WordDefinition(word: 'remainder', turkishMeaning: 'kalan', partOfSpeech: 'isim', ),
     'remained': const WordDefinition(word: 'remained', turkishMeaning: 'kaldı', partOfSpeech: 'fiil', ),
     'remaining': const WordDefinition(word: 'remaining', turkishMeaning: 'kalan', partOfSpeech: 'fiil', ),
@@ -3861,7 +4801,7 @@ class DictionaryService {
     'retain': const WordDefinition(word: 'retain', turkishMeaning: 'tutmak', partOfSpeech: 'kelime', ),
     'retaining': const WordDefinition(word: 'retaining', turkishMeaning: 'tutma', partOfSpeech: 'fiil', ),
     'retina': const WordDefinition(word: 'retina', turkishMeaning: 'retina', partOfSpeech: 'kelime', ),
-    'retinal': const WordDefinition(word: 'retinal', turkishMeaning: 'retinal', partOfSpeech: 'sıfat', ),
+    'retinal': const WordDefinition(word: 'retinal', turkishMeaning: 'retina ile ilgili, ağ tabakaya ait', partOfSpeech: 'sıfat', phonetic: '/ˈrɛtɪnəl/'),
     'retinitis': const WordDefinition(word: 'retinitis', turkishMeaning: 'retinit', partOfSpeech: 'kelime', ),
     'retired': const WordDefinition(word: 'retired', turkishMeaning: 'emekli', partOfSpeech: 'fiil', ),
     'retorts': const WordDefinition(word: 'retorts', turkishMeaning: 'sert cevaplar', partOfSpeech: 'kelime', ),
@@ -3942,8 +4882,8 @@ class DictionaryService {
     'rotary': const WordDefinition(word: 'rotary', turkishMeaning: 'döner', partOfSpeech: 'kelime', ),
     'rotating': const WordDefinition(word: 'rotating', turkishMeaning: 'dönen', partOfSpeech: 'fiil', ),
     'rotational': const WordDefinition(word: 'rotational', turkishMeaning: 'rotasyonel', partOfSpeech: 'sıfat', ),
-    'rotor': const WordDefinition(word: 'rotor', turkishMeaning: 'rotor', partOfSpeech: 'isim', ),
-    'rotterdam': const WordDefinition(word: 'rotterdam', turkishMeaning: 'rotterdam', partOfSpeech: 'kelime', ),
+    'rotor': const WordDefinition(word: 'rotor', turkishMeaning: 'rotor, dönen pervane şaftı', partOfSpeech: 'isim', phonetic: '/ˈroʊtər/'),
+    'rotterdam': const WordDefinition(word: 'rotterdam', turkishMeaning: 'Rotterdam (Hollanda liman kenti)', partOfSpeech: 'özel isim', phonetic: '/ˈrɒtərdæm/'),
     'roughness': const WordDefinition(word: 'roughness', turkishMeaning: 'pürüzlülük', partOfSpeech: 'isim', ),
     'round': const WordDefinition(word: 'round', turkishMeaning: 'yuvarlak', partOfSpeech: 'kelime', ),
     'route': const WordDefinition(word: 'route', turkishMeaning: 'rota', partOfSpeech: 'kelime', ),
@@ -3981,7 +4921,7 @@ class DictionaryService {
     'safety': const WordDefinition(word: 'safety', turkishMeaning: 'güvenlik', partOfSpeech: 'kelime', ),
     'saffron': const WordDefinition(word: 'saffron', turkishMeaning: 'safran', partOfSpeech: 'kelime', ),
     'sahip': const WordDefinition(word: 'sahip', turkishMeaning: 'sahip', partOfSpeech: 'kelime', ),
-    'said': const WordDefinition(word: 'said', turkishMeaning: 'dedi, söyledi', partOfSpeech: 'fiil', phonetic: '/sɛd/', ),
+    'said': const WordDefinition(word: 'said', turkishMeaning: 'dedi, söyledi', partOfSpeech: 'fiil', phonetic: '/sɛd/'),
     'sail': const WordDefinition(word: 'sail', turkishMeaning: 'yelken', partOfSpeech: 'kelime', ),
     'sailing': const WordDefinition(word: 'sailing', turkishMeaning: 'yelkencilik', partOfSpeech: 'fiil', ),
     'sailor': const WordDefinition(word: 'sailor', turkishMeaning: 'denizci', partOfSpeech: 'isim', ),
@@ -4003,18 +4943,18 @@ class DictionaryService {
     'sandwiches': const WordDefinition(word: 'sandwiches', turkishMeaning: 'sandviçler', partOfSpeech: 'kelime', ),
     'sang': const WordDefinition(word: 'sang', turkishMeaning: 'şarkı söyledi', partOfSpeech: 'kelime', ),
     'sank': const WordDefinition(word: 'sank', turkishMeaning: 'battı', partOfSpeech: 'kelime', ),
-    'sapiens': const WordDefinition(word: 'sapiens', turkishMeaning: 'sapiens', partOfSpeech: 'kelime', ),
+    'sapiens': const WordDefinition(word: 'sapiens', turkishMeaning: 'Sapiens (düşünen insan türü)', partOfSpeech: 'isim', phonetic: '/ˈseɪpiənz/'),
     'sapling': const WordDefinition(word: 'sapling', turkishMeaning: 'fidan', partOfSpeech: 'fiil', ),
     'sapphire': const WordDefinition(word: 'sapphire', turkishMeaning: 'safir', partOfSpeech: 'kelime', ),
-    'sarah': const WordDefinition(word: 'sarah', turkishMeaning: 'sarah', partOfSpeech: 'kelime', ),
+    'sarah': const WordDefinition(word: 'sarah', turkishMeaning: 'Sarah (özel isim)', partOfSpeech: 'özel isim'),
     'sat': const WordDefinition(word: 'sat', turkishMeaning: 'oturdu', partOfSpeech: 'kelime', ),
     'satellite': const WordDefinition(word: 'satellite', turkishMeaning: 'uydu', partOfSpeech: 'kelime', ),
     'satellites': const WordDefinition(word: 'satellites', turkishMeaning: 'uydular', partOfSpeech: 'kelime', ),
     'satisfaction': const WordDefinition(word: 'satisfaction', turkishMeaning: 'memnuniyet', partOfSpeech: 'isim', ),
     'save': const WordDefinition(word: 'save', turkishMeaning: 'kaydet', partOfSpeech: 'kelime', ),
     'saved': const WordDefinition(word: 'saved', turkishMeaning: 'kaydedildi', partOfSpeech: 'fiil', ),
-    'saw': const WordDefinition(word: 'saw', turkishMeaning: 'gördü', partOfSpeech: 'fiil', phonetic: '/sɔː/', ),
-    'say': const WordDefinition(word: 'say', turkishMeaning: 'söylemek, demek', partOfSpeech: 'fiil', phonetic: '/seɪ/', ),
+    'saw': const WordDefinition(word: 'saw', turkishMeaning: 'gördü', partOfSpeech: 'fiil', phonetic: '/sɔː/'),
+    'say': const WordDefinition(word: 'say', turkishMeaning: 'söylemek, demek', partOfSpeech: 'fiil', phonetic: '/seɪ/'),
     'sayesinde': const WordDefinition(word: 'sayesinde', turkishMeaning: 'sayesinde', partOfSpeech: 'kelime', ),
     'sayfalardan': const WordDefinition(word: 'sayfalardan', turkishMeaning: 'sayfalardan', partOfSpeech: 'kelime', ),
     'scaffolds': const WordDefinition(word: 'scaffolds', turkishMeaning: 'iskeleler', partOfSpeech: 'kelime', ),
@@ -4073,11 +5013,11 @@ class DictionaryService {
     'security': const WordDefinition(word: 'security', turkishMeaning: 'güvenlik', partOfSpeech: 'isim', ),
     'sedimentary': const WordDefinition(word: 'sedimentary', turkishMeaning: 'tortul', partOfSpeech: 'kelime', ),
     'sediments': const WordDefinition(word: 'sediments', turkishMeaning: 'tortular', partOfSpeech: 'kelime', ),
-    'see': const WordDefinition(word: 'see', turkishMeaning: 'görmek, anlamak', partOfSpeech: 'fiil', phonetic: '/siː/', ),
+    'see': const WordDefinition(word: 'see', turkishMeaning: 'görmek, anlamak', partOfSpeech: 'fiil', phonetic: '/siː/'),
     'seed': const WordDefinition(word: 'seed', turkishMeaning: 'tohum', partOfSpeech: 'fiil', ),
     'seeds': const WordDefinition(word: 'seeds', turkishMeaning: 'tohumlar', partOfSpeech: 'kelime', ),
     'seemed': const WordDefinition(word: 'seemed', turkishMeaning: 'görünüyordu', partOfSpeech: 'fiil', ),
-    'seen': const WordDefinition(word: 'seen', turkishMeaning: 'görülmüş', partOfSpeech: 'fiil', phonetic: '/siːn/', ),
+    'seen': const WordDefinition(word: 'seen', turkishMeaning: 'görülmüş', partOfSpeech: 'fiil', phonetic: '/siːn/'),
     'seine': const WordDefinition(word: 'seine', turkishMeaning: 'seine', partOfSpeech: 'kelime', ),
     'selected': const WordDefinition(word: 'selected', turkishMeaning: 'seçilmiş', partOfSpeech: 'fiil', ),
     'self': const WordDefinition(word: 'self', turkishMeaning: 'öz', partOfSpeech: 'kelime', ),
@@ -4107,7 +5047,7 @@ class DictionaryService {
     'serene': const WordDefinition(word: 'serene', turkishMeaning: 'huzurlu, dingin, sakin', partOfSpeech: 'sıfat', phonetic: '/səˈriːn/', ),
     'serenely': const WordDefinition(word: 'serenely', turkishMeaning: 'sakince', partOfSpeech: 'zarf', ),
     'serinletilir': const WordDefinition(word: 'serinletilir', turkishMeaning: 'serinletilir', partOfSpeech: 'kelime', ),
-    'serotonin': const WordDefinition(word: 'serotonin', turkishMeaning: 'serotonin', partOfSpeech: 'kelime', ),
+    'serotonin': const WordDefinition(word: 'serotonin', turkishMeaning: 'serotonin (mutluluk hormonu)', partOfSpeech: 'isim', phonetic: '/ˌsɛrəˈtoʊnɪn/'),
     'serpent': const WordDefinition(word: 'serpent', turkishMeaning: 'yılan', partOfSpeech: 'kelime', ),
     'serve': const WordDefinition(word: 'serve', turkishMeaning: 'hizmet etmek', partOfSpeech: 'kelime', ),
     'server': const WordDefinition(word: 'server', turkishMeaning: 'sunucu', partOfSpeech: 'isim', ),
@@ -4128,13 +5068,13 @@ class DictionaryService {
     'sevgiyle': const WordDefinition(word: 'sevgiyle', turkishMeaning: 'sevgiyle', partOfSpeech: 'kelime', ),
     'seville': const WordDefinition(word: 'seville', turkishMeaning: 'sevilla', partOfSpeech: 'kelime', ),
     'seviyesindeki': const WordDefinition(word: 'seviyesindeki', turkishMeaning: 'seviyeki', partOfSpeech: 'kelime', ),
-    'seyahat': const WordDefinition(word: 'seyahat', turkishMeaning: 'seyahat', partOfSpeech: 'kelime', ),
+    'seyahat': const WordDefinition(word: 'seyahat', turkishMeaning: 'seyahat, gezi', partOfSpeech: 'isim'),
     'shaded': const WordDefinition(word: 'shaded', turkishMeaning: 'gölgeli', partOfSpeech: 'fiil', ),
     'shadow': const WordDefinition(word: 'shadow', turkishMeaning: 'gölge', partOfSpeech: 'kelime', ),
     'shadows': const WordDefinition(word: 'shadows', turkishMeaning: 'gölgeler', partOfSpeech: 'kelime', ),
     'shahin': const WordDefinition(word: 'shahin', turkishMeaning: 'şahin', partOfSpeech: 'kelime', ),
     'shakespeare': const WordDefinition(word: 'shakespeare', turkishMeaning: 'shakespeare', partOfSpeech: 'kelime', ),
-    'shall': const WordDefinition(word: 'shall', turkishMeaning: 'olacak', partOfSpeech: 'kelime', ),
+    'shall': const WordDefinition(word: 'shall', turkishMeaning: '-ecek, yapalım mı', partOfSpeech: 'modal fiil', phonetic: '/ʃæl/'),
     'shallow': const WordDefinition(word: 'shallow', turkishMeaning: 'sığ', partOfSpeech: 'kelime', ),
     'shallows': const WordDefinition(word: 'shallows', turkishMeaning: 'sığ yerler', partOfSpeech: 'kelime', ),
     'shaped': const WordDefinition(word: 'shaped', turkishMeaning: 'şekilli', partOfSpeech: 'fiil', ),
@@ -4170,7 +5110,7 @@ class DictionaryService {
     'shop': const WordDefinition(word: 'shop', turkishMeaning: 'dükkan', partOfSpeech: 'kelime', ),
     'shore': const WordDefinition(word: 'shore', turkishMeaning: 'kıyı', partOfSpeech: 'kelime', ),
     'short': const WordDefinition(word: 'short', turkishMeaning: 'kısa', partOfSpeech: 'kelime', ),
-    'should': const WordDefinition(word: 'should', turkishMeaning: 'yapmalı', partOfSpeech: 'kelime', ),
+    'should': const WordDefinition(word: 'should', turkishMeaning: '-meli / -malı (tavsiye)', partOfSpeech: 'modal fiil', phonetic: '/ʃʊd/'),
     'shoulders': const WordDefinition(word: 'shoulders', turkishMeaning: 'omuzlar', partOfSpeech: 'kelime', ),
     'show': const WordDefinition(word: 'show', turkishMeaning: 'göstermek', partOfSpeech: 'kelime', ),
     'showed': const WordDefinition(word: 'showed', turkishMeaning: 'gösterdi', partOfSpeech: 'fiil', ),
@@ -4592,7 +5532,7 @@ class DictionaryService {
     'talk': const WordDefinition(word: 'talk', turkishMeaning: 'konuşmak', partOfSpeech: 'kelime', ),
     'tall': const WordDefinition(word: 'tall', turkishMeaning: 'uzun', partOfSpeech: 'kelime', ),
     'tame': const WordDefinition(word: 'tame', turkishMeaning: 'uysal', partOfSpeech: 'kelime', ),
-    'tandem': const WordDefinition(word: 'tandem', turkishMeaning: 'tandem', partOfSpeech: 'kelime', ),
+    'tandem': const WordDefinition(word: 'tandem', turkishMeaning: 'birlikte, ikili olarak', partOfSpeech: 'zarf/sıfat', phonetic: '/ˈtændəm/'),
     'tang': const WordDefinition(word: 'tang', turkishMeaning: 'keskin bir dil', partOfSpeech: 'kelime', ),
     'tangible': const WordDefinition(word: 'tangible', turkishMeaning: 'somut, elle tutulur', partOfSpeech: 'sıfat', phonetic: '/ˈtændʒəbəl/', ),
     'tangled': const WordDefinition(word: 'tangled', turkishMeaning: 'karışık', partOfSpeech: 'fiil', ),
@@ -4668,7 +5608,7 @@ class DictionaryService {
     'territorial': const WordDefinition(word: 'territorial', turkishMeaning: 'bölgesel', partOfSpeech: 'sıfat', ),
     'teselli': const WordDefinition(word: 'teselli', turkishMeaning: 'teselli', partOfSpeech: 'kelime', ),
     'tespit': const WordDefinition(word: 'tespit', turkishMeaning: 'tespit', partOfSpeech: 'kelime', ),
-    'test': const WordDefinition(word: 'test', turkishMeaning: 'test', partOfSpeech: 'kelime', ),
+    'test': const WordDefinition(word: 'test', turkishMeaning: 'test etmek, sınav, deneme', partOfSpeech: 'fiil/isim', phonetic: '/tɛst/'),
     'testing': const WordDefinition(word: 'testing', turkishMeaning: 'test etme', partOfSpeech: 'fiil', ),
     'tests': const WordDefinition(word: 'tests', turkishMeaning: 'testler', partOfSpeech: 'kelime', ),
     'text': const WordDefinition(word: 'text', turkishMeaning: 'metin', partOfSpeech: 'kelime', ),
@@ -4677,7 +5617,7 @@ class DictionaryService {
     'textures': const WordDefinition(word: 'textures', turkishMeaning: 'dokular', partOfSpeech: 'kelime', ),
     'than': const WordDefinition(word: 'than', turkishMeaning: 'daha', partOfSpeech: 'kelime', ),
     'that': const WordDefinition(word: 'that', turkishMeaning: 'bu', partOfSpeech: 'kelime', ),
-    'the': const WordDefinition(word: 'the', turkishMeaning: 'the', partOfSpeech: 'kelime', ),
+    'the': const WordDefinition(word: 'the', turkishMeaning: 'belirteç (belirli bir nesneyi/kavramı niteler)', partOfSpeech: 'belirteç', phonetic: '/ðə/'),
     'their': const WordDefinition(word: 'their', turkishMeaning: 'onların', partOfSpeech: 'kelime', ),
     'theirs': const WordDefinition(word: 'theirs', turkishMeaning: 'onların', partOfSpeech: 'kelime', ),
     'them': const WordDefinition(word: 'them', turkishMeaning: 'onlar', partOfSpeech: 'kelime', ),
@@ -4718,7 +5658,7 @@ class DictionaryService {
     'thrived': const WordDefinition(word: 'thrived', turkishMeaning: 'gelişti', partOfSpeech: 'fiil', ),
     'thriving': const WordDefinition(word: 'thriving', turkishMeaning: 'gelişen', partOfSpeech: 'fiil', ),
     'throat': const WordDefinition(word: 'throat', turkishMeaning: 'boğaz', partOfSpeech: 'kelime', ),
-    'through': const WordDefinition(word: 'through', turkishMeaning: 'aracılığıyla', partOfSpeech: 'kelime', ),
+    'through': const WordDefinition(word: 'through', turkishMeaning: 'içinden, boyunca, sayesinde', partOfSpeech: 'edat', phonetic: '/θruː/'),
     'throughout': const WordDefinition(word: 'throughout', turkishMeaning: 'boyunca', partOfSpeech: 'kelime', ),
     'throwing': const WordDefinition(word: 'throwing', turkishMeaning: 'atma', partOfSpeech: 'fiil', ),
     'thrusting': const WordDefinition(word: 'thrusting', turkishMeaning: 'itici', partOfSpeech: 'fiil', ),
@@ -4736,14 +5676,14 @@ class DictionaryService {
     'tissue': const WordDefinition(word: 'tissue', turkishMeaning: 'doku', partOfSpeech: 'kelime', ),
     'tissues': const WordDefinition(word: 'tissues', turkishMeaning: 'dokular', partOfSpeech: 'kelime', ),
     'titanium': const WordDefinition(word: 'titanium', turkishMeaning: 'titanyum', partOfSpeech: 'kelime', ),
-    'to': const WordDefinition(word: 'to', turkishMeaning: 'için', partOfSpeech: 'kelime', ),
+    'to': const WordDefinition(word: 'to', turkishMeaning: '-e / -a yönelme; -mek / -mak için', partOfSpeech: 'edat', phonetic: '/tuː/'),
     'today': const WordDefinition(word: 'today', turkishMeaning: 'bugün', partOfSpeech: 'kelime', ),
     'tohum': const WordDefinition(word: 'tohum', turkishMeaning: 'tohum', partOfSpeech: 'kelime', ),
     'tohumlar': const WordDefinition(word: 'tohumlar', turkishMeaning: 'tohumlar', partOfSpeech: 'kelime', ),
-    'tokamak': const WordDefinition(word: 'tokamak', turkishMeaning: 'tokamak', partOfSpeech: 'kelime', ),
+    'tokamak': const WordDefinition(word: 'tokamak', turkishMeaning: 'tokamak (füzyon enerjisi reaktörü)', partOfSpeech: 'isim', phonetic: '/ˈtoʊkəmæk/'),
     'toksik': const WordDefinition(word: 'toksik', turkishMeaning: 'zehir', partOfSpeech: 'kelime', ),
     'toksinleri': const WordDefinition(word: 'toksinleri', turkishMeaning: 'kişilerim', partOfSpeech: 'kelime', ),
-    'tokyo': const WordDefinition(word: 'tokyo', turkishMeaning: 'tokyo', partOfSpeech: 'kelime', ),
+    'tokyo': const WordDefinition(word: 'tokyo', turkishMeaning: 'Tokyo (Japonya başkenti)', partOfSpeech: 'özel isim', phonetic: '/ˈtoʊkioʊ/'),
     'told': const WordDefinition(word: 'told', turkishMeaning: 'anlattı, söyledi', partOfSpeech: 'fiil', phonetic: '/toʊld/', ),
     'tolerant': const WordDefinition(word: 'tolerant', turkishMeaning: 'hoşgörülü', partOfSpeech: 'kelime', ),
     'tomas': const WordDefinition(word: 'tomas', turkishMeaning: 'tomas', partOfSpeech: 'kelime', ),
@@ -4759,7 +5699,7 @@ class DictionaryService {
     'tops': const WordDefinition(word: 'tops', turkishMeaning: 'üstler', partOfSpeech: 'kelime', ),
     'topsoil': const WordDefinition(word: 'topsoil', turkishMeaning: 'üst toprak', partOfSpeech: 'kelime', ),
     'torn': const WordDefinition(word: 'torn', turkishMeaning: 'yırtık', partOfSpeech: 'kelime', ),
-    'toroidal': const WordDefinition(word: 'toroidal', turkishMeaning: 'toroidal', partOfSpeech: 'sıfat', ),
+    'toroidal': const WordDefinition(word: 'toroidal', turkishMeaning: 'simit şeklinde, toroid', partOfSpeech: 'sıfat', phonetic: '/tɔːˈrɔɪdəl/'),
     'torrents': const WordDefinition(word: 'torrents', turkishMeaning: 'sel', partOfSpeech: 'kelime', ),
     'total': const WordDefinition(word: 'total', turkishMeaning: 'toplam', partOfSpeech: 'sıfat', ),
     'touch': const WordDefinition(word: 'touch', turkishMeaning: 'dokunma', partOfSpeech: 'kelime', ),
@@ -4858,7 +5798,7 @@ class DictionaryService {
     'turns': const WordDefinition(word: 'turns', turkishMeaning: 'dönüşler', partOfSpeech: 'kelime', ),
     'turquoise': const WordDefinition(word: 'turquoise', turkishMeaning: 'turkuaz', partOfSpeech: 'kelime', ),
     'turtle': const WordDefinition(word: 'turtle', turkishMeaning: 'kaplumbağa', partOfSpeech: 'kelime', ),
-    'tutankhamun': const WordDefinition(word: 'tutankhamun', turkishMeaning: 'tutankhamun', partOfSpeech: 'kelime', ),
+    'tutankhamun': const WordDefinition(word: 'tutankhamun', turkishMeaning: 'Tutankhamun (antik Mısır firavunu)', partOfSpeech: 'özel isim', phonetic: '/ˌtuːtənkɑːˈmuːn/'),
     'tutunma': const WordDefinition(word: 'tutunma', turkishMeaning: 'tutunma', partOfSpeech: 'kelime', ),
     'twelfth': const WordDefinition(word: 'twelfth', turkishMeaning: 'onikinci', partOfSpeech: 'kelime', ),
     'twelve': const WordDefinition(word: 'twelve', turkishMeaning: 'on iki', partOfSpeech: 'kelime', ),
@@ -4868,7 +5808,7 @@ class DictionaryService {
     'two': const WordDefinition(word: 'two', turkishMeaning: 'iki', partOfSpeech: 'kelime', ),
     'ucuz': const WordDefinition(word: 'ucuz', turkishMeaning: 'ucuz', partOfSpeech: 'kelime', ),
     'ultimate': const WordDefinition(word: 'ultimate', turkishMeaning: 'nihai, son, en büyük', partOfSpeech: 'sıfat', phonetic: '/ˈʌltəmət/', ),
-    'ultra': const WordDefinition(word: 'ultra', turkishMeaning: 'ultra', partOfSpeech: 'kelime', ),
+    'ultra': const WordDefinition(word: 'ultra', turkishMeaning: 'aşırı, ultra, ötesi', partOfSpeech: 'sıfat/ön ek', phonetic: '/ˈʌltrə/'),
     'ultrasonic': const WordDefinition(word: 'ultrasonic', turkishMeaning: 'ultrasonik', partOfSpeech: 'kelime', ),
     'ulugh': const WordDefinition(word: 'ulugh', turkishMeaning: 'uluh', partOfSpeech: 'kelime', ),
     'umbrella': const WordDefinition(word: 'umbrella', turkishMeaning: 'şemsiye', partOfSpeech: 'kelime', ),
@@ -4882,7 +5822,7 @@ class DictionaryService {
     'uncovers': const WordDefinition(word: 'uncovers', turkishMeaning: 'ortaya çıkarır', partOfSpeech: 'kelime', ),
     'uncrackable': const WordDefinition(word: 'uncrackable', turkishMeaning: 'kırılmaz', partOfSpeech: 'sıfat', ),
     'uncultured': const WordDefinition(word: 'uncultured', turkishMeaning: 'kültürsüz', partOfSpeech: 'fiil', ),
-    'under': const WordDefinition(word: 'under', turkishMeaning: 'altında', partOfSpeech: 'isim', ),
+    'under': const WordDefinition(word: 'under', turkishMeaning: 'altında, kapsamında', partOfSpeech: 'edat', phonetic: '/ˈʌndər/'),
     'underground': const WordDefinition(word: 'underground', turkishMeaning: 'yeraltı', partOfSpeech: 'kelime', ),
     'underneath': const WordDefinition(word: 'underneath', turkishMeaning: 'altında', partOfSpeech: 'kelime', ),
     'understand': const WordDefinition(word: 'understand', turkishMeaning: 'anlamak', partOfSpeech: 'kelime', ),
@@ -4944,13 +5884,13 @@ class DictionaryService {
     'uzaydaki': const WordDefinition(word: 'uzaydaki', turkishMeaning: 'uzaydaki', partOfSpeech: 'kelime', ),
     'uzun': const WordDefinition(word: 'uzun', turkishMeaning: 'uzun', partOfSpeech: 'kelime', ),
     'vacuum': const WordDefinition(word: 'vacuum', turkishMeaning: 'vakum', partOfSpeech: 'kelime', ),
-    'vagus': const WordDefinition(word: 'vagus', turkishMeaning: 'vagus', partOfSpeech: 'kelime', ),
+    'vagus': const WordDefinition(word: 'vagus', turkishMeaning: 'vagus siniri (bedeni sakinleştiren ana sinir)', partOfSpeech: 'isim', phonetic: '/ˈveɪɡəs/'),
     'vain': const WordDefinition(word: 'vain', turkishMeaning: 'boşuna', partOfSpeech: 'kelime', ),
     'validated': const WordDefinition(word: 'validated', turkishMeaning: 'doğrulanmış', partOfSpeech: 'fiil', ),
     'valley': const WordDefinition(word: 'valley', turkishMeaning: 'vadi', partOfSpeech: 'kelime', ),
     'valleys': const WordDefinition(word: 'valleys', turkishMeaning: 'vadiler', partOfSpeech: 'kelime', ),
     'valuable': const WordDefinition(word: 'valuable', turkishMeaning: 'değerli, kıymetli', partOfSpeech: 'sıfat', phonetic: '/ˈvæljuəbəl/', ),
-    'vance': const WordDefinition(word: 'vance', turkishMeaning: 'vance', partOfSpeech: 'kelime', ),
+    'vance': const WordDefinition(word: 'vance', turkishMeaning: 'Vance (özel isim)', partOfSpeech: 'özel isim'),
     'vanish': const WordDefinition(word: 'vanish', turkishMeaning: 'kaybolmak', partOfSpeech: 'kelime', ),
     'vanished': const WordDefinition(word: 'vanished', turkishMeaning: 'ortadan kayboldu', partOfSpeech: 'fiil', ),
     'vapor': const WordDefinition(word: 'vapor', turkishMeaning: 'buhar', partOfSpeech: 'isim', ),
@@ -4994,7 +5934,7 @@ class DictionaryService {
     'village': const WordDefinition(word: 'village', turkishMeaning: 'köy', partOfSpeech: 'kelime', ),
     'villagers': const WordDefinition(word: 'villagers', turkishMeaning: 'köylüler', partOfSpeech: 'kelime', ),
     'villages': const WordDefinition(word: 'villages', turkishMeaning: 'köyler', partOfSpeech: 'kelime', ),
-    'vintage': const WordDefinition(word: 'vintage', turkishMeaning: 'vintage', partOfSpeech: 'kelime', ),
+    'vintage': const WordDefinition(word: 'vintage', turkishMeaning: 'klasik, nostaljik, eski model', partOfSpeech: 'sıfat/isim', phonetic: '/ˈvɪntɪdʒ/'),
     'violent': const WordDefinition(word: 'violent', turkishMeaning: 'şiddetli', partOfSpeech: 'kelime', ),
     'violet': const WordDefinition(word: 'violet', turkishMeaning: 'menekşe', partOfSpeech: 'kelime', ),
     'violin': const WordDefinition(word: 'violin', turkishMeaning: 'keman', partOfSpeech: 'isim', phonetic: '/ˌvaɪəˈlɪn/', ),
@@ -5024,7 +5964,7 @@ class DictionaryService {
     'volume': const WordDefinition(word: 'volume', turkishMeaning: 'hacim', partOfSpeech: 'kelime', ),
     'volumes': const WordDefinition(word: 'volumes', turkishMeaning: 'ciltler', partOfSpeech: 'kelime', ),
     'volunteers': const WordDefinition(word: 'volunteers', turkishMeaning: 'gönüllüler', partOfSpeech: 'kelime', ),
-    'vostok': const WordDefinition(word: 'vostok', turkishMeaning: 'vostok', partOfSpeech: 'kelime', ),
+    'vostok': const WordDefinition(word: 'vostok', turkishMeaning: 'Vostok (Antarktika gölü veya Sovyet uzay aracı)', partOfSpeech: 'özel isim', phonetic: '/ˈvɒstɒk/'),
     'voyage': const WordDefinition(word: 'voyage', turkishMeaning: 'yolculuk', partOfSpeech: 'kelime', ),
     'voyages': const WordDefinition(word: 'voyages', turkishMeaning: 'yolculuklar', partOfSpeech: 'kelime', ),
     'vulnerability': const WordDefinition(word: 'vulnerability', turkishMeaning: 'güvenlik açığı', partOfSpeech: 'isim', ),
@@ -5050,7 +5990,6 @@ class DictionaryService {
     'warned': const WordDefinition(word: 'warned', turkishMeaning: 'uyardı', partOfSpeech: 'fiil', ),
     'warning': const WordDefinition(word: 'warning', turkishMeaning: 'uyarı', partOfSpeech: 'fiil', ),
     'warp': const WordDefinition(word: 'warp', turkishMeaning: 'çözgü', partOfSpeech: 'kelime', ),
-    'was': const WordDefinition(word: 'was', turkishMeaning: 'idi, oldu (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: '/wʌz/', ),
     'wash': const WordDefinition(word: 'wash', turkishMeaning: 'yıkama', partOfSpeech: 'kelime', ),
     'washable': const WordDefinition(word: 'washable', turkishMeaning: 'yıkanabilir', partOfSpeech: 'sıfat', ),
     'washes': const WordDefinition(word: 'washes', turkishMeaning: 'yıkar', partOfSpeech: 'kelime', ),
@@ -5082,8 +6021,7 @@ class DictionaryService {
     'well': const WordDefinition(word: 'well', turkishMeaning: 'peki', partOfSpeech: 'kelime', ),
     'wellness': const WordDefinition(word: 'wellness', turkishMeaning: 'sağlıklı yaşam', partOfSpeech: 'isim', ),
     'wells': const WordDefinition(word: 'wells', turkishMeaning: 'kuyular', partOfSpeech: 'kelime', ),
-    'went': const WordDefinition(word: 'went', turkishMeaning: 'gitti', partOfSpeech: 'fiil', phonetic: '/wɛnt/', ),
-    'were': const WordDefinition(word: 'were', turkishMeaning: 'idiler, oldular (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: '/wɜːr/', ),
+    'went': const WordDefinition(word: 'went', turkishMeaning: 'gitti', partOfSpeech: 'fiil', phonetic: '/wɛnt/'),
     'western': const WordDefinition(word: 'western', turkishMeaning: 'batı', partOfSpeech: 'kelime', ),
     'wet': const WordDefinition(word: 'wet', turkishMeaning: 'ıslak', partOfSpeech: 'kelime', ),
     'whale': const WordDefinition(word: 'whale', turkishMeaning: 'balina', partOfSpeech: 'kelime', ),
@@ -5119,7 +6057,7 @@ class DictionaryService {
     'wildfires': const WordDefinition(word: 'wildfires', turkishMeaning: 'orman yangınları', partOfSpeech: 'kelime', ),
     'wildflower': const WordDefinition(word: 'wildflower', turkishMeaning: 'kır çiçeği', partOfSpeech: 'isim', ),
     'wildlife': const WordDefinition(word: 'wildlife', turkishMeaning: 'yaban hayatı', partOfSpeech: 'kelime', ),
-    'will': const WordDefinition(word: 'will', turkishMeaning: 'irade', partOfSpeech: 'kelime', ),
+    'will': const WordDefinition(word: 'will', turkishMeaning: '-ecek / -acak (gelecek zaman), irade', partOfSpeech: 'modal fiil', phonetic: '/wɪl/'),
     'willow': const WordDefinition(word: 'willow', turkishMeaning: 'söğüt', partOfSpeech: 'kelime', ),
     'win': const WordDefinition(word: 'win', turkishMeaning: 'kazanmak', partOfSpeech: 'kelime', ),
     'wind': const WordDefinition(word: 'wind', turkishMeaning: 'rüzgar', partOfSpeech: 'kelime', ),
@@ -5141,7 +6079,7 @@ class DictionaryService {
     'wish': const WordDefinition(word: 'wish', turkishMeaning: 'dilek', partOfSpeech: 'kelime', ),
     'wishes': const WordDefinition(word: 'wishes', turkishMeaning: 'dilekler', partOfSpeech: 'kelime', ),
     'wit': const WordDefinition(word: 'wit', turkishMeaning: 'zeka', partOfSpeech: 'kelime', ),
-    'with': const WordDefinition(word: 'with', turkishMeaning: 'ile', partOfSpeech: 'kelime', ),
+    'with': const WordDefinition(word: 'with', turkishMeaning: 'ile, birlikte', partOfSpeech: 'edat', phonetic: '/wɪð/'),
     'withered': const WordDefinition(word: 'withered', turkishMeaning: 'solmuş', partOfSpeech: 'fiil', ),
     'within': const WordDefinition(word: 'within', turkishMeaning: 'içinde', partOfSpeech: 'kelime', ),
     'without': const WordDefinition(word: 'without', turkishMeaning: 'onsuz', partOfSpeech: 'kelime', ),
@@ -5171,7 +6109,7 @@ class DictionaryService {
     'worn': const WordDefinition(word: 'worn', turkishMeaning: 'yıpranmış', partOfSpeech: 'kelime', ),
     'worries': const WordDefinition(word: 'worries', turkishMeaning: 'endişeler', partOfSpeech: 'kelime', ),
     'worry': const WordDefinition(word: 'worry', turkishMeaning: 'endişelenmek', partOfSpeech: 'kelime', ),
-    'would': const WordDefinition(word: 'would', turkishMeaning: 'olurdu', partOfSpeech: 'kelime', ),
+    'would': const WordDefinition(word: 'would', turkishMeaning: '-erdi / -ardı, isterdi', partOfSpeech: 'modal fiil', phonetic: '/wʊd/'),
     'wound': const WordDefinition(word: 'wound', turkishMeaning: 'yara', partOfSpeech: 'kelime', ),
     'wove': const WordDefinition(word: 'wove', turkishMeaning: 'dokumak', partOfSpeech: 'kelime', ),
     'woven': const WordDefinition(word: 'woven', turkishMeaning: 'dokuma', partOfSpeech: 'kelime', ),
@@ -5186,7 +6124,7 @@ class DictionaryService {
     'wuyi': const WordDefinition(word: 'wuyi', turkishMeaning: 'wuyi', partOfSpeech: 'kelime', ),
     'xenon': const WordDefinition(word: 'xenon', turkishMeaning: 'ksenon', partOfSpeech: 'kelime', ),
     'yaban': const WordDefinition(word: 'yaban', turkishMeaning: 'yaban', partOfSpeech: 'kelime', ),
-    'yanaka': const WordDefinition(word: 'yanaka', turkishMeaning: 'yanaka', partOfSpeech: 'kelime', ),
+    'yanaka': const WordDefinition(word: 'yanaka', turkishMeaning: 'Yanaka (Tokyo\'nun nostaljik tarihi mahallesi)', partOfSpeech: 'özel isim'),
     'yaparak': const WordDefinition(word: 'yaparak', turkishMeaning: 'yaparak', partOfSpeech: 'kelime', ),
     'yapay': const WordDefinition(word: 'yapay', turkishMeaning: 'yapay', partOfSpeech: 'kelime', ),
     'yapmak': const WordDefinition(word: 'yapmak', turkishMeaning: 'yapmak', partOfSpeech: 'kelime', ),
@@ -5227,7 +6165,7 @@ class DictionaryService {
     'zehirli': const WordDefinition(word: 'zehirli', turkishMeaning: 'seçildi', partOfSpeech: 'kelime', ),
     'zeka': const WordDefinition(word: 'zeka', turkishMeaning: 'zeka', partOfSpeech: 'kelime', ),
     'zekaya': const WordDefinition(word: 'zekaya', turkishMeaning: 'zekaya', partOfSpeech: 'kelime', ),
-    'zen': const WordDefinition(word: 'zen', turkishMeaning: 'zen', partOfSpeech: 'kelime', ),
+    'zen': const WordDefinition(word: 'zen', turkishMeaning: 'Zen (Budist meditasyon ve dinginlik felsefesi)', partOfSpeech: 'isim/sıfat', phonetic: '/zɛn/'),
     'zephyr': const WordDefinition(word: 'zephyr', turkishMeaning: 'esinti', partOfSpeech: 'kelime', ),
     'zero': const WordDefinition(word: 'zero', turkishMeaning: 'sıfır', partOfSpeech: 'kelime', ),
     'zifiri': const WordDefinition(word: 'zifiri', turkishMeaning: 'zifiri', partOfSpeech: 'kelime', ),
@@ -5235,7 +6173,7 @@ class DictionaryService {
     'zihnini': const WordDefinition(word: 'zihnini', turkishMeaning: 'zihnini', partOfSpeech: 'kelime', ),
     'zone': const WordDefinition(word: 'zone', turkishMeaning: 'bölge', partOfSpeech: 'kelime', ),
     'zones': const WordDefinition(word: 'zones', turkishMeaning: 'bölgeler', partOfSpeech: 'kelime', ),
-    'zooxanthellae': const WordDefinition(word: 'zooxanthellae', turkishMeaning: 'zooxanthellae', partOfSpeech: 'kelime', ),
+    'zooxanthellae': const WordDefinition(word: 'zooxanthellae', turkishMeaning: 'zooksantel (mercanlarla yaşayan simbiyotik algler)', partOfSpeech: 'isim (çoğul)', phonetic: '/ˌzoʊ.əzænˈθɛliː/'),
     'zorlu': const WordDefinition(word: 'zorlu', turkishMeaning: 'zorlu', partOfSpeech: 'kelime', ),
     'zorunda': const WordDefinition(word: 'zorunda', turkishMeaning: 'mecbur', partOfSpeech: 'kelime', ),
     'zorunlu': const WordDefinition(word: 'zorunlu', turkishMeaning: 'zorunlu', partOfSpeech: 'kelime', ),
@@ -5373,7 +6311,12 @@ class DictionaryService {
       );
     }
 
-    // 1. Direct contraction match
+    // 1. Direct exact match in dictionary FIRST!
+    if (_dictionary.containsKey(clean)) {
+      return _dictionary[clean]!;
+    }
+
+    // 2. Direct contraction match
     if (_contractions.containsKey(clean)) {
       return WordDefinition(
         word: clean,
@@ -5414,46 +6357,73 @@ class DictionaryService {
     // a) plural -ies -> -y
     if (clean.endsWith('ies') && clean.length > 4) {
       final base = '${clean.substring(0, clean.length - 3)}y';
-      if (_dictionary.containsKey(base)) return _dictionary[base]!;
+      if (_dictionary.containsKey(base)) {
+        final d = _dictionary[base]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (çoğul)', partOfSpeech: 'isim (çoğul)', phonetic: d.phonetic);
+      }
     }
-    // b) plural -es
+    // b) plural / 3rd person -es
     if (clean.endsWith('es') && clean.length > 3) {
-      final base = clean.substring(0, clean.length - 2);
-      if (_dictionary.containsKey(base)) return _dictionary[base]!;
+      final base1 = clean.substring(0, clean.length - 2);
+      if (_dictionary.containsKey(base1)) {
+        final d = _dictionary[base1]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (çoğul)', partOfSpeech: 'isim (çoğul)', phonetic: d.phonetic);
+      }
+      final base2 = clean.substring(0, clean.length - 1);
+      if (_dictionary.containsKey(base2)) {
+        final d = _dictionary[base2]!;
+        return WordDefinition(word: clean, turkishMeaning: d.turkishMeaning, partOfSpeech: d.partOfSpeech, phonetic: d.phonetic);
+      }
     }
     // c) plural / 3rd person -s
     if (clean.endsWith('s') && clean.length > 2) {
       final base = clean.substring(0, clean.length - 1);
-      if (_dictionary.containsKey(base)) return _dictionary[base]!;
+      if (_dictionary.containsKey(base)) {
+        final d = _dictionary[base]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (çoğul)', partOfSpeech: 'isim (çoğul)', phonetic: d.phonetic);
+      }
     }
     // d) past tense -ied -> -y
     if (clean.endsWith('ied') && clean.length > 4) {
       final base = '${clean.substring(0, clean.length - 3)}y';
-      if (_dictionary.containsKey(base)) return _dictionary[base]!;
+      if (_dictionary.containsKey(base)) {
+        final d = _dictionary[base]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: d.phonetic);
+      }
     }
     // e) past tense -ed
     if (clean.endsWith('ed') && clean.length > 3) {
       final base2 = '${clean.substring(0, clean.length - 2)}e';
-      if (_dictionary.containsKey(base2)) return _dictionary[base2]!;
+      if (_dictionary.containsKey(base2)) {
+        final d = _dictionary[base2]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: d.phonetic);
+      }
       final base1 = clean.substring(0, clean.length - 2);
-      if (_dictionary.containsKey(base1)) return _dictionary[base1]!;
+      if (_dictionary.containsKey(base1)) {
+        final d = _dictionary[base1]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (geçmiş zaman)', partOfSpeech: 'fiil', phonetic: d.phonetic);
+      }
     }
     // f) gerund -ing
     if (clean.endsWith('ing') && clean.length > 4) {
       final base2 = '${clean.substring(0, clean.length - 3)}e';
-      if (_dictionary.containsKey(base2)) return _dictionary[base2]!;
+      if (_dictionary.containsKey(base2)) {
+        final d = _dictionary[base2]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (-ing hali)', partOfSpeech: 'fiil', phonetic: d.phonetic);
+      }
       final base1 = clean.substring(0, clean.length - 3);
-      if (_dictionary.containsKey(base1)) return _dictionary[base1]!;
+      if (_dictionary.containsKey(base1)) {
+        final d = _dictionary[base1]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (-ing hali)', partOfSpeech: 'fiil', phonetic: d.phonetic);
+      }
     }
     // g) adverb -ly
     if (clean.endsWith('ly') && clean.length > 3) {
       final base = clean.substring(0, clean.length - 2);
-      if (_dictionary.containsKey(base)) return _dictionary[base]!;
-    }
-
-    // 2. Exact match in full 5,000+ dictionary
-    if (_dictionary.containsKey(clean)) {
-      return _dictionary[clean]!;
+      if (_dictionary.containsKey(base)) {
+        final d = _dictionary[base]!;
+        return WordDefinition(word: clean, turkishMeaning: '${d.turkishMeaning} (zarf)', partOfSpeech: 'zarf', phonetic: d.phonetic);
+      }
     }
 
     // Fallback: If not found immediately, trigger async fetch in background and return pending
@@ -5515,10 +6485,10 @@ class DictionaryService {
       }
     } catch (_) {}
 
-    // Fallback if network fails
+    // Fallback if network fails: never display just the raw English word alone
     final def = WordDefinition(
       word: clean,
-      turkishMeaning: clean,
+      turkishMeaning: 'Kelime anlamı ("$clean")',
       partOfSpeech: 'kelime',
     );
     _dictionary[clean] = def;

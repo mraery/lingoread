@@ -21,6 +21,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final readingProvider = context.watch<ReadingProvider>();
     final questions = widget.article.quizQuestions;
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
@@ -38,6 +39,17 @@ class _QuizScreenState extends State<QuizScreen> {
           'Anlama Testi (${_currentIndex + 1}/${questions.length})',
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            tooltip: 'Promosyon Kodu',
+            icon: Icon(
+              readingProvider.isCheatUnlocked ? Icons.verified_user_rounded : Icons.vpn_key_outlined,
+              color: readingProvider.isCheatUnlocked ? Colors.amber : null,
+              size: 20,
+            ),
+            onPressed: () => _showPromoDialog(context, readingProvider),
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(
@@ -52,7 +64,7 @@ class _QuizScreenState extends State<QuizScreen> {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 760),
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 90.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -172,6 +184,98 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
               const SizedBox(height: 24),
             ],
+
+            // Kontrol, Geç ve Oto-Çöz Butonları
+            if (!_answered)
+              if (readingProvider.isCheatUnlocked)
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: const Color(0xFF64748B),
+                          side: const BorderSide(color: Color(0xFFCBD5E1), width: 1.5),
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        onPressed: () {
+                          // Soruyu atla / geç
+                          if (_currentIndex + 1 < questions.length) {
+                            setState(() {
+                              _currentIndex++;
+                              _selectedOptionIndex = null;
+                              _answered = false;
+                            });
+                          } else {
+                            _finishQuiz(questions.length);
+                          }
+                        },
+                        child: const Text(
+                          'GEÇ ⏭️',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      flex: 3,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF7C3AED),
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _selectedOptionIndex = currentQuestion.correctOptionIndex;
+                            _answered = true;
+                            _correctCount++;
+                          });
+                        },
+                        icon: const Icon(Icons.bolt_rounded, color: Colors.amber, size: 20),
+                        label: const Text(
+                          'OTO-ÇÖZ ⚡',
+                          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 13),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              else
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: const Color(0xFF64748B),
+                      side: const BorderSide(color: Color(0xFFCBD5E1), width: 1.5),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                    onPressed: () {
+                      if (_currentIndex + 1 < questions.length) {
+                        setState(() {
+                          _currentIndex++;
+                          _selectedOptionIndex = null;
+                          _answered = false;
+                        });
+                      } else {
+                        _finishQuiz(questions.length);
+                      }
+                    },
+                    child: const Text(
+                      'SORUYU GEÇ ⏭️',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                  ),
+                ),
 
             // Next / Finish button
             if (_answered)
@@ -462,4 +566,93 @@ class _QuizScreenState extends State<QuizScreen> {
     ),
   );
 }
+
+  void _showPromoDialog(BuildContext context, ReadingProvider reading) {
+    final textController = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Row(
+          children: [
+            Icon(Icons.vpn_key_rounded, color: Color(0xFF7C3AED)),
+            SizedBox(width: 8),
+            Text('Promosyon Kodu', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Geliştirici veya etkinlik kodunu girerek özel özellikleri etkinleştirebilirsin.',
+              style: TextStyle(fontSize: 13, color: Colors.grey),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: textController,
+              autofocus: true,
+              textCapitalization: TextCapitalization.none,
+              decoration: InputDecoration(
+                hintText: 'Örn: kagan',
+                prefixIcon: const Icon(Icons.confirmation_number_outlined),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text('İPTAL'),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF7C3AED),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            ),
+            onPressed: () {
+              final code = textController.text.trim();
+              final success = reading.applyPromoCode(code);
+              Navigator.pop(ctx);
+              if (success) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: reading.isCheatUnlocked ? const Color(0xFF059669) : Colors.grey[800],
+                    content: Row(
+                      children: [
+                        Icon(
+                          reading.isCheatUnlocked ? Icons.verified_rounded : Icons.info_outline,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            reading.isCheatUnlocked
+                                ? '👑 Geliştirici Modu Aktif! Sorularda OTO-ÇÖZ aktif edildi.'
+                                : 'Hile modu kapatıldı.',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    backgroundColor: Colors.redAccent,
+                    content: Text('❌ Geçersiz promosyon kodu.'),
+                  ),
+                );
+              }
+            },
+            child: const Text('UYGULA'),
+          ),
+        ],
+      ),
+    );
+  }
 }
